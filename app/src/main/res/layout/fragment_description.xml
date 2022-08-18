@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DescriptionFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/weightText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="start"
+                android:text="Weight available: 1000g"
+                android:textColor="@color/appBlack"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sizeText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="start"
+                android:text="Size available: 75 x 105 cm"
+                android:textColor="@color/appBlack"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/weightText"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/weightText"
+                app:layout_constraintTop_toBottomOf="@+id/weightText" />
+
+            <TextView
+                android:id="@+id/packsText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="start"
+                android:text="Packs available: 100, 125 sheets"
+                android:textColor="@color/appBlack"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/sizeText"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/sizeText"
+                app:layout_constraintTop_toBottomOf="@+id/sizeText" />
+
+            <TextView
+                android:id="@+id/cubeText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="start"
+                android:text="Cube available: 750 sheets"
+                android:textColor="@color/appBlack"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/packsText"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/packsText"
+                app:layout_constraintTop_toBottomOf="@+id/packsText" />
+
+            <TextView
+                android:id="@+id/packingText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="start"
+                android:text="Packing and fast shipping by PROCOP."
+                android:textColor="@color/appBlack"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/cubeText"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/cubeText"
+                app:layout_constraintTop_toBottomOf="@+id/cubeText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</FrameLayout>

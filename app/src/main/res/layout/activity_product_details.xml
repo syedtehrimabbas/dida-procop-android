@@ -33,7 +33,7 @@
         android:layout_height="19dp"
         android:layout_marginTop="-7dp"
         android:layout_marginEnd="-11dp"
-        android:background="@drawable/button_back"
+        android:background="@drawable/button_back_pink"
         android:fontFamily="@font/poppins"
         android:gravity="center"
         android:paddingStart="5dp"
@@ -60,7 +60,7 @@
         android:layout_height="19dp"
         android:layout_marginTop="-7dp"
         android:layout_marginEnd="-11dp"
-        android:background="@drawable/button_back"
+        android:background="@drawable/button_back_pink"
         android:fontFamily="@font/poppins"
         android:gravity="center"
         android:paddingStart="5dp"
@@ -100,7 +100,7 @@
         android:id="@+id/textView6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:text="€ 324.01"
         android:fontFamily="@font/poppins"
         android:textStyle="bold"
@@ -143,10 +143,48 @@
         android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:layout_marginTop="-2dp"
-        android:alpha="0.1"
+        android:alpha="0.2"
         android:background="@color/appBlack"
         app:layout_constraintEnd_toEndOf="@+id/productDetailTabLayout"
         app:layout_constraintStart_toStartOf="@+id/productDetailTabLayout"
         app:layout_constraintTop_toBottomOf="@+id/productDetailTabLayout" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/productDetailViewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/addToCartBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addToCartBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_back_pink"
+        android:fontFamily="@font/poppins"
+        android:text="Add to cart"
+        android:textSize="17sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addToFavBtn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addToFavBtn"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/white_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/addToCartBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/addToCartBtn"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
