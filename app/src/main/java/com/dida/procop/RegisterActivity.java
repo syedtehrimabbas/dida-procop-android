@@ -40,5 +40,9 @@ public class RegisterActivity extends AppCompatActivity {
             onBackPressed();
         });
 
+        findViewById(R.id.loginScreenBtn).setOnClickListener(view -> {
+            onBackPressed();
+        });
+
     }
 }

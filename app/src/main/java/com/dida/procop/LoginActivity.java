@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity {
         lostPassword.setOnClickListener(view -> {
             Intent intent = new Intent(LoginActivity.this, ForgotPassActivity.class);
             startActivity(intent);
-            finish();
         });
 
         findViewById(R.id.registerScreenBtn).setOnClickListener(view -> {
