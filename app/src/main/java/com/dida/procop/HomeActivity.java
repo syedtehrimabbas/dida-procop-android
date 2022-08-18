@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -19,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
     CatListAdapter catListAdapter;
     ImageSlider image_slider;
+    LinearLayout scrollLayout1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         image_slider = findViewById(R.id.image_slider);
+        scrollLayout1 = findViewById(R.id.scrollLayout1);
         catRecyclerView = findViewById(R.id.catRecyclerView);
         catDataList.add("All");
         catDataList.add("Offset");
@@ -46,6 +51,15 @@ public class HomeActivity extends AppCompatActivity {
         imageList.add(new SlideModel(R.drawable.slider2, ScaleTypes.CENTER_CROP));
 
         image_slider.setImageList(imageList);
+
+
+        scrollLayout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

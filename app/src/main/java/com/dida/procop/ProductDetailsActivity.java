@@ -5,6 +5,8 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -15,16 +17,18 @@ public class ProductDetailsActivity extends AppCompatActivity {
     TabItem tabDescription, tabInfo;
     ViewPager productDetailViewPager;
     ProductDetailsPagerAdapter pagerAdapter;
+    ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
-        productDetailTabLayout = findViewById(R.id. productDetailTabLayout);
-        tabDescription = findViewById(R.id. tabDescription);
-        tabInfo = findViewById(R.id. tabInfo);
-        productDetailViewPager = findViewById(R.id. productDetailViewPager);
+        productDetailTabLayout = findViewById(R.id.productDetailTabLayout);
+        tabDescription = findViewById(R.id.tabDescription);
+        backBtn = findViewById(R.id.backBtn);
+        tabInfo = findViewById(R.id.tabInfo);
+        productDetailViewPager = findViewById(R.id.productDetailViewPager);
 
         pagerAdapter = new ProductDetailsPagerAdapter(getSupportFragmentManager(), productDetailTabLayout.getTabCount());
         productDetailViewPager.setAdapter(pagerAdapter);
@@ -47,5 +51,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         productDetailViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(productDetailTabLayout));
 
+
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }
