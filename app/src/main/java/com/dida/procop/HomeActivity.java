@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -23,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     CatListAdapter catListAdapter;
     ImageSlider image_slider;
     LinearLayout scrollLayout1;
+    ImageView filterBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         image_slider = findViewById(R.id.image_slider);
+        filterBtn = findViewById(R.id.filterBtn);
         scrollLayout1 = findViewById(R.id.scrollLayout1);
         catRecyclerView = findViewById(R.id.catRecyclerView);
         catDataList.add("All");
@@ -57,6 +60,15 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        filterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, FilterActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FilterActivity">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:text="Filter"
+        android:textSize="15.5sp"
+        android:textColor="@color/appBlack"
+        android:fontFamily="@font/poppins_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/closeBtn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView9"
+        app:srcCompat="@drawable/cross_icon" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="17dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Choose Category"
+                android:textColor="@color/appBlack"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:scrollbars="none"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:text="Color"
+                android:textColor="@color/appBlack"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_semibold"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/categoryRecyclerView" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/color1"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/circle_white_blank"
+                android:backgroundTint="@color/appGrey"
+                app:layout_constraintStart_toStartOf="@+id/textView11"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/color2"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@drawable/circle_white_blank"
+                android:backgroundTint="@color/appBrown"
+                app:layout_constraintBottom_toBottomOf="@+id/color1"
+                app:layout_constraintEnd_toStartOf="@+id/color3"
+                app:layout_constraintStart_toEndOf="@+id/color1"
+                app:layout_constraintTop_toTopOf="@+id/color1"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/color3"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@drawable/circle_white_blank"
+                android:backgroundTint="@color/appBlue"
+                app:layout_constraintBottom_toBottomOf="@+id/color1"
+                app:layout_constraintEnd_toStartOf="@+id/color5"
+                app:layout_constraintStart_toEndOf="@+id/color1"
+                app:layout_constraintTop_toTopOf="@+id/color1"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/color4"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@drawable/circle_white_blank"
+                android:backgroundTint="@color/appCaramel"
+                app:layout_constraintBottom_toBottomOf="@+id/color1"
+                app:layout_constraintEnd_toStartOf="@+id/color5"
+                app:layout_constraintStart_toEndOf="@+id/color3"
+                app:layout_constraintTop_toTopOf="@+id/color1"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/color5"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginEnd="35dp"
+                android:background="@drawable/circle_white_blank"
+                android:backgroundTint="@color/appLightYellow"
+                app:layout_constraintBottom_toBottomOf="@+id/color1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/color1"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/color6"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/circle_white_blank"
+                android:backgroundTint="@color/appBlack"
+                app:layout_constraintStart_toStartOf="@+id/color1"
+                app:layout_constraintTop_toBottomOf="@+id/color1"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/color7"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@drawable/circle_white_blank"
+                android:backgroundTint="@color/appDarkYellow"
+                app:layout_constraintBottom_toBottomOf="@+id/color6"
+                app:layout_constraintEnd_toStartOf="@+id/color8"
+                app:layout_constraintStart_toEndOf="@+id/color6"
+                app:layout_constraintTop_toTopOf="@+id/color6"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/color8"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@drawable/circle_white_blank"
+                android:backgroundTint="@color/appOrange"
+                app:layout_constraintBottom_toBottomOf="@+id/color6"
+                app:layout_constraintEnd_toStartOf="@+id/color10"
+                app:layout_constraintStart_toEndOf="@+id/color6"
+                app:layout_constraintTop_toTopOf="@+id/color6"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/color9"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@drawable/circle_white_blank"
+                android:backgroundTint="@color/appLightPink"
+                app:layout_constraintBottom_toBottomOf="@+id/color6"
+                app:layout_constraintEnd_toStartOf="@+id/color10"
+                app:layout_constraintStart_toEndOf="@+id/color8"
+                app:layout_constraintTop_toTopOf="@+id/color6"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/color10"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginEnd="35dp"
+                android:background="@drawable/circle_white_blank"
+                android:backgroundTint="@color/appPurple"
+                app:layout_constraintBottom_toBottomOf="@+id/color6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/color6"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="Brands"
+                android:textColor="@color/appBlack"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_semibold"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/color6" />
+
+            <GridView
+                android:id="@+id/brandsGridView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="15dp"
+                android:numColumns="3"
+                android:gravity="center"
+                android:verticalSpacing="8dp"
+                android:horizontalSpacing="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12"/>
+
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="Thickness"
+                android:textColor="@color/appBlack"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_semibold"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/brandsGridView" />
+
+            <GridView
+                android:id="@+id/thicknessGridView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="15dp"
+                android:numColumns="3"
+                android:gravity="center"
+                android:verticalSpacing="8dp"
+                android:horizontalSpacing="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/filterBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/button_back_pink"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="60dp"
+                android:paddingEnd="60dp"
+                android:text="Filter"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/thicknessGridView"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

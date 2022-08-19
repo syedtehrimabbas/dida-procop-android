@@ -11,4 +11,13 @@
     <color name="appBlack">#000000</color>
     <color name="appLightGrey">#DBDBDB</color>
     <color name="appPink">#E84F69</color>
+    <color name="appGrey">#C0C0C0</color>
+    <color name="appBrown">#99706E</color>
+    <color name="appBlue">#1E73BE</color>
+    <color name="appCaramel">#FDF1B8</color>
+    <color name="appLightYellow">#EEEE22</color>
+    <color name="appDarkYellow">#FFD700</color>
+    <color name="appOrange">#DD9933</color>
+    <color name="appLightPink">#FFC0CB</color>
+    <color name="appPurple">#8224E3</color>
 </resources>
