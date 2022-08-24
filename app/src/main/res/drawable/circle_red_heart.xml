@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="@color/white"/>
+                </shape>
+            </item>
+            <item
+                android:drawable="@drawable/heart_red_filled"
+                android:bottom="10dp"
+                android:left="9dp"
+                android:right="9dp"
+                android:top="11dp"/>
+        </layer-list>
+    </item>
+</selector>

@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     CatListAdapter catListAdapter;
     ImageSlider image_slider;
     LinearLayout scrollLayout1;
-    ImageView filterBtn;
+    ImageView filterBtn, favImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
 
         image_slider = findViewById(R.id.image_slider);
         filterBtn = findViewById(R.id.filterBtn);
+        favImage = findViewById(R.id.favImage);
         scrollLayout1 = findViewById(R.id.scrollLayout1);
         catRecyclerView = findViewById(R.id.catRecyclerView);
         catDataList.add("All");
@@ -69,6 +70,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, FilterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        favImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, FavouritesActivity.class);
                 startActivity(intent);
             }
         });
