@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".LoginActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -55,6 +55,7 @@
                 android:inputType="textEmailAddress"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
+                android:textColorHint="@color/appGrey"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.493"
@@ -75,6 +76,7 @@
                 android:inputType="textPassword"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
+                android:textColorHint="@color/appGrey"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="@+id/editTextUsername"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -89,6 +91,7 @@
                 android:layout_marginTop="21dp"
                 android:fontFamily="@font/poppins"
                 android:text="Remember me"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/editTextPassword"
                 app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />

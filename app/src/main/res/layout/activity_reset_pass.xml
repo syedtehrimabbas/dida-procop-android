@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResetPassActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".ResetPassActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -65,6 +65,7 @@
                 android:inputType="textPassword"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
+                android:textColorHint="@color/appGrey"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.493"
@@ -85,6 +86,7 @@
                 android:inputType="textPassword"
                 android:paddingStart="18dp"
                 android:paddingEnd="18dp"
+                android:textColorHint="@color/appGrey"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="@+id/newPassword"
                 app:layout_constraintHorizontal_bias="0.0"

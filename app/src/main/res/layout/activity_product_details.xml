@@ -122,7 +122,8 @@
         app:tabIndicatorColor="@color/appBlack"
         app:tabIndicatorHeight="3dp"
         app:tabSelectedTextColor="@color/appBlack"
-        app:tabTextAppearance="@style/tab_text">
+        app:tabTextAppearance="@style/tab_text"
+        app:tabTextColor="@color/black">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabDescription"

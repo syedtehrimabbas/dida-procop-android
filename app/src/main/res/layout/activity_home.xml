@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".HomeActivity">
 
     <ImageView
         android:id="@+id/backBtn"
@@ -22,10 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
         android:text="Home"
         android:textColor="@color/appBlack"
         android:textSize="15sp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@+id/backBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,9 +50,9 @@
         android:background="@drawable/button_back_pink"
         android:fontFamily="@font/poppins"
         android:gravity="center"
-        android:text="0"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
+        android:text="0"
         android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/cartImage"
@@ -77,9 +77,9 @@
         android:background="@drawable/button_back_pink"
         android:fontFamily="@font/poppins"
         android:gravity="center"
-        android:text="0"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
+        android:text="0"
         android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/favImage"
@@ -110,6 +110,7 @@
                 android:ems="10"
                 android:fontFamily="@font/poppins"
                 android:hint="Search"
+                android:textColor="@color/black"
                 android:inputType="text"
                 android:paddingStart="52dp"
                 android:paddingEnd="18dp"
@@ -159,9 +160,9 @@
                 android:layout_height="180dp"
                 android:layout_marginTop="16dp"
                 app:iss_auto_cycle="true"
+                app:iss_corner_radius="0"
                 app:iss_delay="0"
                 app:iss_period="2000"
-                app:iss_corner_radius="0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/catRecyclerView" />
@@ -172,8 +173,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
-                android:text="Current Offers"
                 android:fontFamily="@font/poppins_semibold"
+                android:text="Current Offers"
                 android:textColor="@color/black"
                 android:textSize="19sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -188,6 +189,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/currentOffers">
+
                 <LinearLayout
                     android:id="@+id/scrollLayout1"
                     android:layout_width="wrap_content"
@@ -200,7 +202,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="15dp">
+
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
@@ -266,11 +270,11 @@
                                 android:layout_marginEnd="7dp"
                                 android:layout_marginBottom="13dp"
                                 android:background="@drawable/button_back_black"
-                                android:text="Add to cart"
                                 android:fontFamily="@font/poppins"
-                                android:textSize="16sp"
-                                android:textColor="@color/white"
+                                android:text="Add to cart"
                                 android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="@+id/addToFavBtn"
                                 app:layout_constraintStart_toStartOf="@+id/imageView3"
@@ -283,7 +287,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="15dp">
+
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
@@ -332,10 +338,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="7dp"
                                 android:layout_marginEnd="2dp"
+                                android:fontFamily="@font/poppins_medium"
                                 android:text="19,21 € – 34,49 €"
                                 android:textColor="@color/appPink"
                                 android:textSize="15.5sp"
-                                android:fontFamily="@font/poppins_medium"
                                 app:layout_constraintEnd_toEndOf="@+id/itemName"
                                 app:layout_constraintStart_toStartOf="@+id/itemName"
                                 app:layout_constraintTop_toBottomOf="@+id/itemName" />
@@ -349,11 +355,11 @@
                                 android:layout_marginEnd="7dp"
                                 android:layout_marginBottom="13dp"
                                 android:background="@drawable/button_back_black"
-                                android:text="Add to cart"
                                 android:fontFamily="@font/poppins"
-                                android:textSize="16sp"
-                                android:textColor="@color/white"
+                                android:text="Add to cart"
                                 android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="@+id/addToFavBtn1"
                                 app:layout_constraintStart_toStartOf="@+id/itemImage"
@@ -366,7 +372,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="15dp">
+
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
@@ -415,10 +423,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="7dp"
                                 android:layout_marginEnd="2dp"
+                                android:fontFamily="@font/poppins_medium"
                                 android:text="10,00 € – 20,00 €"
                                 android:textColor="@color/appPink"
                                 android:textSize="15.5sp"
-                                android:fontFamily="@font/poppins_medium"
                                 app:layout_constraintEnd_toEndOf="@+id/itemName1"
                                 app:layout_constraintStart_toStartOf="@+id/itemName1"
                                 app:layout_constraintTop_toBottomOf="@+id/itemName1" />
@@ -432,11 +440,11 @@
                                 android:layout_marginEnd="7dp"
                                 android:layout_marginBottom="13dp"
                                 android:background="@drawable/button_back_black"
-                                android:text="Add to cart"
                                 android:fontFamily="@font/poppins"
-                                android:textSize="16sp"
-                                android:textColor="@color/white"
+                                android:text="Add to cart"
                                 android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="@+id/addToFavBtn2"
                                 app:layout_constraintStart_toStartOf="@+id/itemImage1"
@@ -454,8 +462,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
-                android:text="PROCOP Exclusives"
                 android:fontFamily="@font/poppins_semibold"
+                android:text="PROCOP Exclusives"
                 android:textColor="@color/black"
                 android:textSize="19sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -485,6 +493,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="15dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -569,6 +578,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="15dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -653,6 +663,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="15dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
