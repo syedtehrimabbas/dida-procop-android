@@ -1,1 +1,0 @@
-# dida-procop-android
