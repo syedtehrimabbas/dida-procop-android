@@ -61,8 +61,18 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.favImage).setOnClickListener(view -> {
+            Intent intent = new Intent(ProductDetailsActivity.this, FavouritesActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.addToFavBtn).setOnClickListener(view -> {
+            Intent intent = new Intent(ProductDetailsActivity.this, FavouritesActivity.class);
+            startActivity(intent);
+        });
+
         findViewById(R.id.addToCartBtn).setOnClickListener(view -> {
-            Intent intent = new Intent(ProductDetailsActivity.this, BillingAddressActivity.class);
+            Intent intent = new Intent(ProductDetailsActivity.this, CartActivity.class);
             startActivity(intent);
         });
 
