@@ -37,13 +37,7 @@ public class FavouritesActivity extends AppCompatActivity {
         favGridView.setNumColumns(2);
         favGridView.setAdapter(favGridAdapter);
 
-
-        closeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        closeBtn.setOnClickListener(view -> finish());
 
     }
 }

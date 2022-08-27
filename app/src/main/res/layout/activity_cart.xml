@@ -27,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/appCompatTextView"
-        app:srcCompat="@drawable/cross_icon" />
+        app:srcCompat="@drawable/ic_cross" />
 
     <ScrollView
         android:layout_width="0dp"
