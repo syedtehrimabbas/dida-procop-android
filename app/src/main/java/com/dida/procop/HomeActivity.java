@@ -115,9 +115,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v.getId() == R.id.orderNav) {
             startActivity(new Intent(HomeActivity.this, OrdersActivity.class));
-
         } else if (v.getId() == R.id.profileNav) {
-
+            startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
         } else if (v.getId() == R.id.settingNav) {
 
         } else if (v.getId() == R.id.faqNav) {
