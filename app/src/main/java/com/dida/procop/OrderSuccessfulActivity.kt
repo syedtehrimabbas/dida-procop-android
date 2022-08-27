@@ -1,8 +1,10 @@
 package com.dida.procop
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 
 class OrderSuccessfulActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,6 +13,11 @@ class OrderSuccessfulActivity : AppCompatActivity() {
 
         findViewById<ImageView>(R.id.backBtn).setOnClickListener {
             onBackPressed()
+        }
+
+        findViewById<Button>(R.id.myOrdersBt).setOnClickListener {
+            val intent = Intent(this@OrderSuccessfulActivity, OrdersActivity::class.java)
+            startActivity(intent)
         }
 
     }
