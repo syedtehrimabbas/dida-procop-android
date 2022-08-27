@@ -60,13 +60,14 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
+
         findViewById(R.id.addToCartBtn).setOnClickListener(view -> {
             Intent intent = new Intent(ProductDetailsActivity.this, BillingAddressActivity.class);
             startActivity(intent);
         });
 
         findViewById(R.id.cartImage).setOnClickListener(view -> {
-            Intent intent = new Intent(ProductDetailsActivity.this, BillingAddressActivity.class);
+            Intent intent = new Intent(ProductDetailsActivity.this, CartActivity.class);
             startActivity(intent);
         });
     }

@@ -1,14 +1,14 @@
 package com.dida.procop;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -49,7 +49,6 @@ public class HomeActivity extends AppCompatActivity {
         catRecyclerView.setAdapter(catListAdapter);
 
 
-
         ArrayList<SlideModel> imageList = new ArrayList<>();
         imageList.add(new SlideModel(R.drawable.slider1, ScaleTypes.CENTER_CROP));
         imageList.add(new SlideModel(R.drawable.slider2, ScaleTypes.CENTER_CROP));
@@ -74,12 +73,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        favImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, FavouritesActivity.class);
-                startActivity(intent);
-            }
+        favImage.setOnClickListener(view -> {
+            Intent intent = new Intent(HomeActivity.this, FavouritesActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.cartImage).setOnClickListener(view -> {
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            startActivity(intent);
         });
 
     }
