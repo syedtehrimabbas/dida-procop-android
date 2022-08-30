@@ -133,14 +133,17 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/applyButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="@drawable/button_back_black"
             android:fontFamily="@font/poppins"
             android:text="Apply"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/editTextPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextPassword" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

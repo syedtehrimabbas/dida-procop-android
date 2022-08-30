@@ -118,11 +118,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } else if (v.getId() == R.id.profileNav) {
             startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
         } else if (v.getId() == R.id.settingNav) {
-
+            startActivity(new Intent(HomeActivity.this, SettingActivity.class));
         } else if (v.getId() == R.id.faqNav) {
-
+            startActivity(new Intent(HomeActivity.this, FaqActivity.class));
         } else if (v.getId() == R.id.aboutNav) {
-
+            startActivity(new Intent(HomeActivity.this, AboutActivity.class));
         } else if (v.getId() == R.id.contactNav) {
 
         } else if (v.getId() == R.id.logoutNav) {

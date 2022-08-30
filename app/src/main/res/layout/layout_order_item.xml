@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="15dp">
+    app:cardCornerRadius="15dp"
+    android:layout_margin="3dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
             android:id="@+id/orderTV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="3dp"
+            android:layout_marginTop="3dp"
             android:fontFamily="@font/poppins_medium"
             android:text="Order ID: 1234566"
             android:textColor="@color/black"
@@ -182,6 +183,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="6dp"
             android:background="@drawable/button_back_pink"
             android:fontFamily="@font/poppins"
             android:text="Give Review"
@@ -190,7 +192,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/statusTV" />
+            app:layout_constraintTop_toBottomOf="@id/statusTV"
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
