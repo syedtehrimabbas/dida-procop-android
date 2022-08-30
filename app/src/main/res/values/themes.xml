@@ -45,4 +45,9 @@
         <item name="font">@font/poppins_bold</item>
     </style>
 
+    <style name="PauseDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/modal_in</item>
+        <item name="android:windowExitAnimation">@anim/modal_out</item>
+    </style>
+
 </resources>

@@ -129,6 +129,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
+                    android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                     android:text="@string/forgot_password"
                     android:textColor="@color/appBlack"
                     android:textSize="13.5sp"

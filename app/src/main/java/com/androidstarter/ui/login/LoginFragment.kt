@@ -19,6 +19,7 @@ class LoginFragment :
     override fun onClick(id: Int) {
         when (id) {
             R.id.registerScreenBtn -> navigate(R.id.signupFragment)
+            R.id.lostPassword -> navigate(R.id.forgotPasswordFragment)
         }
     }
 }

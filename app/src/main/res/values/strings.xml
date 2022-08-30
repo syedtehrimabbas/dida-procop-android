@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android Starter</string>
+    <string name="app_name">Procop</string>
     <string name="hello_world">Hello world</string>
 
     <!--Validation Error Messages start-->
@@ -30,6 +30,7 @@
     <string name="default_regex_validation_message">The field value does not match the
         required format.
     </string>
+
     <string name="error_passcode_sequence">Passcode cannot be a straight sequence</string>
     <string name="error_passcode_same_digits">Passcode cannot be of same digits</string>
     <string name="login">Login</string>
@@ -42,4 +43,10 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="confirm">Confirm</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="forgot_password_desc">Forgot your password ? Please enter your username or email address. You will receive a link by email to create a new password.</string>
+    <string name="identification_email">Identification email</string>
 </resources>
