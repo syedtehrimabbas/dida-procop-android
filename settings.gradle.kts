@@ -9,3 +9,7 @@ rootDir
     .forEach {
         include(":${it.name}")
     }
+include(
+    "woodroid",
+    "cocart"
+)

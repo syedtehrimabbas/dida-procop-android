@@ -58,4 +58,5 @@ dependencies {
     kapt(DependenciesManager.networkKapt)
     testImplementation(DependenciesManager.testingImplementation)
     androidTestImplementation(DependenciesManager.androidTestImplementation)
+    implementation(project(mapOf("path" to ":woodroid")))
 }

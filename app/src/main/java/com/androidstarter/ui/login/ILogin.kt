@@ -12,5 +12,6 @@ interface ILogin {
 
     interface ViewModel : IBase.ViewModel<State> {
         fun onLogin()
+        fun doLogin(userName: String, password: String)
     }
 }

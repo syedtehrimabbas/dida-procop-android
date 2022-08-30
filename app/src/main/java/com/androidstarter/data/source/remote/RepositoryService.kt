@@ -1,15 +1,12 @@
 package com.androidstarter.data.source.remote
 
-import com.androidstarter.data.model.CitiesResultModel
+import com.androidstarter.data.model.LoginRequest
+import com.androidstarter.data.model.UserLoginResponse
 import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 interface RepositoryService {
-    @GET("searchJSON")
-    suspend fun searchCities(
-        @Query("name_starts") query: String,
-        @Query("maxRows") maxRows: Int = 10,
-        @Query("username") username: String = "keep_truckin"
-    ): Response<CitiesResultModel>
+    @POST("/wp-json/custom-plugin/login")
+    suspend fun login(@Body loginRequest: LoginRequest?): Response<UserLoginResponse>
 }

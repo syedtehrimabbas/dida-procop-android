@@ -1,6 +1,7 @@
 package com.androidstarter.data
 
 import androidx.viewbinding.BuildConfig
+import me.gilo.woodroid.Woocommerce
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -17,7 +18,9 @@ private const val contentTypeValue = "application/json"
 private const val timeoutConnect = 30   //In seconds
 
 @Singleton
-class RetroNetwork @Inject constructor() {
+class RetroNetwork @Inject constructor(
+    val woocommerce: Woocommerce
+) {
     private val okHttpBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
     private val retrofit: Retrofit
 
@@ -52,7 +55,7 @@ class RetroNetwork @Inject constructor() {
         val client = okHttpBuilder.build()
 
         retrofit = Retrofit.Builder()
-            .baseUrl("https://secure.geonames.org").client(client)
+            .baseUrl(woocommerce.siteUrl).client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

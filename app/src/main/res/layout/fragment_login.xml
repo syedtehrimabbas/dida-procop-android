@@ -67,12 +67,14 @@
                     android:inputType="textEmailAddress"
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
+                    android:text="@={viewState.email}"
                     android:textColorHint="@color/appGrey"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.493"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    app:validateEmpty="@{true}" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editTextPassword"
@@ -85,15 +87,19 @@
                     android:ems="10"
                     android:fontFamily="@font/poppins"
                     android:hint="Password"
+                    android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
+                    android:text="@={viewState.password}"
                     android:textColorHint="@color/appGrey"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="@+id/editTextUsername"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/editTextUsername"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
+                    app:layout_constraintTop_toBottomOf="@+id/editTextUsername"
+                    app:validateMaxLength="@{30}"
+                    app:validateMinLength="@{6}" />
 
                 <CheckBox
                     android:id="@+id/checkBox"
@@ -115,7 +121,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:background="@drawable/button_back_pink"
+                    android:enabled="@{viewModel.validator.isValidate , default = false}"
                     android:fontFamily="@font/poppins"
+                    android:onClick="@{(v) -> viewModel.onLogin()}"
                     android:text="@string/login"
                     android:textAllCaps="false"
                     android:textColor="@color/white"

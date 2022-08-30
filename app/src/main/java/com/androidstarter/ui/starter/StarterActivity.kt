@@ -4,21 +4,29 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.androidstarter.R
+import com.androidstarter.base.KEY_IS_USER_LOGGED_IN
 import com.androidstarter.base.extensions.launchActivity
 import com.androidstarter.base.navgraph.host.NAVIGATION_Graph_ID
 import com.androidstarter.base.navgraph.host.NAVIGATION_Graph_START_DESTINATION_ID
 import com.androidstarter.base.navgraph.host.NavHostPresenterActivity
+import com.androidstarter.ui.sessions.SharedPreferenceManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class StarterActivity : AppCompatActivity() {
+    lateinit var sharedPreferenceManager: SharedPreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_starter)
+        sharedPreferenceManager = SharedPreferenceManager(applicationContext)
 
         Handler().postDelayed({
-            navigateToLoginScreen()
+            if (sharedPreferenceManager.getValueBoolean(KEY_IS_USER_LOGGED_IN, false).not())
+                navigateToLoginScreen()
+            else
+                navigateToDashboard()
+
         }, 2000)
     }
 
@@ -33,5 +41,9 @@ class StarterActivity : AppCompatActivity() {
                 R.id.loginFragment
             )
         }
+    }
+
+    private fun navigateToDashboard() {
+        navigateToLoginScreen()
     }
 }
