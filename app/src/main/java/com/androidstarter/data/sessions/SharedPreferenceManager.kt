@@ -1,4 +1,4 @@
-package com.androidstarter.ui.sessions
+package com.androidstarter.data.sessions
 
 import android.accounts.AccountManager.KEY_PASSWORD
 import android.content.Context
@@ -78,7 +78,7 @@ class SharedPreferenceManager @Inject constructor(@ApplicationContext val contex
         editor.apply()
     }
 
-    private fun getValueString(KEY_NAME: String): String? {
+    fun getValueString(KEY_NAME: String): String? {
         return sharedPref.getString(KEY_NAME, null)
     }
 

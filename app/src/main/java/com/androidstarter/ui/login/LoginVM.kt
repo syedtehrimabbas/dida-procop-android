@@ -6,7 +6,7 @@ import com.androidstarter.base.viewmodel.HiltBaseViewModel
 import com.androidstarter.data.ApiResponse
 import com.androidstarter.data.model.LoginRequest
 import com.androidstarter.data.source.remote.IAuthRepository
-import com.androidstarter.ui.sessions.SessionManager
+import com.androidstarter.data.sessions.SessionManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -35,6 +35,7 @@ class LoginVM @Inject constructor(
                     val isRemember = viewState.isRemembered.value ?: false
                     sessionManager.startUserSession(response.data.user, isRemember)
                     loading(false,"Login successful")
+                    clickEvent?.postValue(200)
                 }
 
                 is ApiResponse.Error -> {

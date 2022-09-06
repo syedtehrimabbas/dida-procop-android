@@ -73,6 +73,7 @@ class ProductFilter : ListFilter() {
                 addFilter("tag", tag)
             }
         }
+
     var shipping_class: String? = null
         set(shipping_class) {
             field = shipping_class
@@ -81,6 +82,7 @@ class ProductFilter : ListFilter() {
                 addFilter("shipping_class", shipping_class)
             }
         }
+
     var attribute: String? = null
         set(attribute) {
             field = attribute

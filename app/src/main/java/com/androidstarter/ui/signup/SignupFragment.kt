@@ -14,6 +14,11 @@ class SignupFragment :
     override val bindingViewStateVariableId = BR.viewState
     override val viewModel: SignupVM by viewModels()
     override val layoutResId: Int = R.layout.fragment_signup
-    override fun onClick(id: Int) {}
     override fun toolBarVisibility(): Boolean = true
+
+    override fun onClick(id: Int) {
+        when (id) {
+            R.id.lostPassword,200 -> navigateBack()
+        }
+    }
 }

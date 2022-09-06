@@ -5,6 +5,14 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.androidstarter.ui.signup.SignupVM" />
+
+        <variable
+            name="viewState"
+            type="com.androidstarter.ui.signup.SignupState" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,11 +69,13 @@
                     android:inputType="textEmailAddress"
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
+                    android:text="@={viewState.userName}"
                     android:textColorHint="@color/appGrey"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    app:validateEmpty="@{true}" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailField"
@@ -81,11 +91,13 @@
                     android:inputType="textEmailAddress"
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
+                    android:text="@={viewState.email}"
                     android:textColorHint="@color/appGrey"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="@+id/usernameField"
                     app:layout_constraintStart_toStartOf="@+id/usernameField"
-                    app:layout_constraintTop_toBottomOf="@+id/usernameField" />
+                    app:layout_constraintTop_toBottomOf="@+id/usernameField"
+                    app:validateType='@{"email"}' />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordField"
@@ -101,12 +113,15 @@
                     android:inputType="textPassword"
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
+                    android:text="@={viewState.password}"
                     android:textColorHint="@color/appGrey"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="@+id/emailField"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/emailField"
-                    app:layout_constraintTop_toBottomOf="@+id/emailField" />
+                    app:layout_constraintTop_toBottomOf="@+id/emailField"
+                    app:validateMaxLength="@{30}"
+                    app:validateMinLength="@{6}" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/registerButton"
@@ -114,7 +129,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/button_back_pink"
+                    android:enabled="@{viewModel.validator.isValidate , default = false}"
                     android:fontFamily="@font/poppins"
+                    android:onClick="@{(v) -> viewModel.onSignup()}"
                     android:text="@string/register"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
@@ -152,6 +169,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:fontFamily="@font/poppins"
+                        android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                         android:text="@string/login"
                         android:textColor="@color/appPink"
                         android:textSize="13sp" />

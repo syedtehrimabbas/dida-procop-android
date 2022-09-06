@@ -12,21 +12,22 @@ data class UserLoginResponse(
 
 data class User(
     @SerializedName("display_name")
-    val displayName: String,
+    val displayName: String="",
     @SerializedName("ID")
-    val iD: String,
+    val iD: String="",
     @SerializedName("user_activation_key")
-    val userActivationKey: String,
+    val userActivationKey: String="",
     @SerializedName("user_email")
-    val userEmail: String,
+    val userEmail: String="",
     @SerializedName("user_login")
-    val userLogin: String,
+    val userLogin: String="",
     @SerializedName("user_nicename")
-    val userNicename: String,
+    val userNicename: String="",
     @SerializedName("user_registered")
-    val userRegistered: String,
+    val userRegistered: String="",
     @SerializedName("user_status")
-    val userStatus: String,
+    val userStatus: String="",
     @SerializedName("user_url")
-    val userUrl: String
+    val userUrl: String=""
 ) : BaseResponse()
+

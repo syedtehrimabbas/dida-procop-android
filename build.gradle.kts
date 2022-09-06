@@ -27,6 +27,9 @@ allprojects {
         maven {
             url = uri("https://jitpack.io")
         }
+        maven {
+            url = uri("https://maven.google.com")
+        }
         jcenter() // Warning: this repository is going to shut down soon
     }
 }

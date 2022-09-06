@@ -19,7 +19,6 @@ class CategoryRepository(baseUrl: String, consumerKey: String, consumerSecret: S
         return apiService.create(category)
     }
 
-
     fun category(id: Int): Call<Category> {
         return apiService.view(id)
     }

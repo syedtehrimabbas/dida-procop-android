@@ -56,5 +56,9 @@ class CoCartRepository(private var baseUrl: String, consumerKey: String, consume
         return apiService.getCustomerCart(CartRequest(customerId=customerId, thumb = true))
     }
 
+    fun count(): Call<Int> {
+        return apiService.count()
+    }
+
 
 }

@@ -2,12 +2,9 @@ package me.gilo.woodroid.models
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
-import java.util.ArrayList
-import java.util.Date
-
+import java.util.*
 
 class Product : Serializable {
-
     var id: Int = 0
     lateinit var name: String
     var slug: String? = null
@@ -73,8 +70,8 @@ class Product : Serializable {
     lateinit var meta_data: ArrayList<Metadata>
     lateinit var images: ArrayList<Image>
 
-    fun getFeatureImage(): String{
-        if(this.images.isEmpty()){
+    fun getFeatureImage(): String {
+        if (this.images.isEmpty()) {
             return ""
         }
 

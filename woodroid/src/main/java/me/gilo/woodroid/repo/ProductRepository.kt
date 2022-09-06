@@ -20,9 +20,11 @@ class ProductRepository(baseUrl: String, consumerKey: String, consumerSecret: St
         return apiService.create(product)
     }
 
-
     fun product(id: Int): Call<Product> {
         return apiService.view(id)
+    }
+    fun productByCategory(catID: Int): Call<List<Product>>{
+        return apiService.productByCategory(catID)
     }
 
     fun products(): Call<List<Product>> {

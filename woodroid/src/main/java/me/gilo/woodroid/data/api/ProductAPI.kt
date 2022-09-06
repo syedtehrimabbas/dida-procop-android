@@ -28,6 +28,8 @@ interface ProductAPI {
     @GET("products")
     fun filter(@QueryMap filter: Map<String, String>): Call<List<Product>>
 
+    @GET("products")
+    fun productByCategory(@Query("category") category: Int): Call<List<Product>>
 
     @Headers("Content-Type: application/json")
     @POST("products")

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/contactHeading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="22dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="You Have Questions?"
+                android:textColor="@color/appBlack"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contactDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins"
+                android:text="We are available Monday to Friday!"
+                android:textColor="@color/appTextGrey"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/contactHeading"
+                app:layout_constraintStart_toStartOf="@+id/contactHeading"
+                app:layout_constraintTop_toBottomOf="@+id/contactHeading" />
+
+            <TextView
+                android:id="@+id/contactNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autoLink="phone"
+                android:fontFamily="@font/poppins_medium"
+                android:text="+33 (0)5 55 06 41 70"
+                android:textColor="@color/appPink"
+                android:textColorLink="@color/appPink"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@+id/contactDescription"
+                app:layout_constraintStart_toStartOf="@+id/contactDescription"
+                app:layout_constraintTop_toBottomOf="@+id/contactDescription" />
+
+            <TextView
+                android:id="@+id/contactEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:autoLink="email"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Contact@Procop.Fr"
+                android:textColor="@color/appPink"
+                android:textColorLink="@color/appPink"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@+id/contactNumber"
+                app:layout_constraintStart_toStartOf="@+id/contactNumber"
+                app:layout_constraintTop_toBottomOf="@+id/contactNumber" />
+
+            <TextView
+                android:id="@+id/contactTiming"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins"
+                android:text="Monday – Friday: 9:00 a.m. – 6:00 p.m."
+                android:textColor="@color/appTextGrey"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/contactEmail"
+                app:layout_constraintStart_toStartOf="@+id/contactEmail"
+                app:layout_constraintTop_toBottomOf="@+id/contactEmail" />
+
+            <TextView
+                android:id="@+id/contactFormHeading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Write Us"
+                android:textColor="@color/appBlack"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@+id/contactTiming"
+                app:layout_constraintStart_toStartOf="@+id/contactTiming"
+                app:layout_constraintTop_toBottomOf="@+id/contactTiming" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/contactNameField"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/input_field"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Your name"
+                android:inputType="textPersonName"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:textColorHint="@color/appGrey"
+                android:textSize="14.5sp"
+                app:layout_constraintEnd_toEndOf="@+id/contactFormHeading"
+                app:layout_constraintStart_toStartOf="@+id/contactFormHeading"
+                app:layout_constraintTop_toBottomOf="@+id/contactFormHeading" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/contactEmailField"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_field"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:textColorHint="@color/appGrey"
+                android:textSize="14.5sp"
+                app:layout_constraintEnd_toEndOf="@+id/contactNameField"
+                app:layout_constraintStart_toStartOf="@+id/contactNameField"
+                app:layout_constraintTop_toBottomOf="@+id/contactNameField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/contactTopicField"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_field"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Topic"
+                android:inputType="textShortMessage"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:textColorHint="@color/appGrey"
+                android:textSize="14.5sp"
+                app:layout_constraintEnd_toEndOf="@+id/contactEmailField"
+                app:layout_constraintStart_toStartOf="@+id/contactEmailField"
+                app:layout_constraintTop_toBottomOf="@+id/contactEmailField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/contactMessageField"
+                android:layout_width="0dp"
+                android:layout_height="135dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_field"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:hint="Type message..."
+                android:inputType="textMultiLine"
+                android:maxLines="10"
+                android:paddingStart="18dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="15dp"
+                android:textColorHint="@color/appGrey"
+                android:textSize="14.5sp"
+                app:layout_constraintEnd_toEndOf="@+id/contactTopicField"
+                app:layout_constraintStart_toStartOf="@+id/contactTopicField"
+                app:layout_constraintTop_toBottomOf="@+id/contactTopicField" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sendBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/button_back_pink"
+                android:fontFamily="@font/poppins"
+                android:text="Send"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/contactMessageField"
+                app:layout_constraintStart_toStartOf="@+id/contactMessageField"
+                app:layout_constraintTop_toBottomOf="@+id/contactMessageField" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

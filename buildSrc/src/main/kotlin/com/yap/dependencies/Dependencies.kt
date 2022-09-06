@@ -132,6 +132,7 @@ object ThirdPartyDependencies {
     const val SSP = "com.intuit.ssp:ssp-android:${ThirdPartyVersions.SDP}"
     const val INLINE_ACTIVITY_RESULT =
         "com.github.florent37:inline-activity-result-kotlin:${ThirdPartyVersions.INLINE_ACTIVITY_RESULT}"
+    const val IMAGE_SLIDER ="com.github.denzcoskun:ImageSlideshow:0.1.0"
 }
 
 object HiltDaggerDependencies {
@@ -164,4 +165,7 @@ object TestDependencies {
         "androidx.arch.core:core-testing:${TestDependenciesVersions.ANDROIDX_ARCH_CORE}"
 }
 
+object Room{
+
+}
 

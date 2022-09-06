@@ -12,6 +12,9 @@ repositories {
     mavenCentral()
     google()
     gradlePluginPortal()
+    maven {
+        url = uri("https://jitpack.io")
+    }
 }
 kotlinDslPluginOptions.experimentalWarning.set(false)
 dependencies {

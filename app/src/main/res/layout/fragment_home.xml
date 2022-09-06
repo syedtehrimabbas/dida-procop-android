@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.androidstarter.ui.home.HomeVM" />
+
+        <variable
+            name="viewState"
+            type="com.androidstarter.ui.home.HomeState" />
+
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:openDrawer="start">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            tools:context=".HomeActivity">
+
+            <ImageView
+                android:id="@+id/drawerButton"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/menu_icon" />
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/Yap.App.Widget.TextView.ToolBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Home"
+                app:layout_constraintBottom_toBottomOf="@+id/drawerButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/drawerButton" />
+
+            <ImageView
+                android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                android:id="@+id/cartImage"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="35dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/cart_icon" />
+
+            <TextView
+                android:id="@+id/cartCount"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginTop="-7dp"
+                android:layout_marginEnd="-11dp"
+                android:background="@drawable/button_back_pink"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@{viewModel.databaseHelper.cartCount.toString()}"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/cartImage"
+                app:layout_constraintTop_toTopOf="@+id/cartImage" />
+
+            <ImageView
+                android:id="@+id/favImage"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="25dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cartImage"
+                app:layout_constraintEnd_toStartOf="@+id/cartImage"
+                app:layout_constraintTop_toTopOf="@+id/cartImage"
+                app:srcCompat="@drawable/fav_icon" />
+
+            <TextView
+                android:id="@+id/favCount"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginTop="-7dp"
+                android:layout_marginEnd="-11dp"
+                android:background="@drawable/button_back_pink"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@{viewModel.databaseHelper.favCount.toString()}"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/favImage"
+                app:layout_constraintTop_toTopOf="@+id/favImage" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="70dp"
+                android:fillViewport="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/drawerButton">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/searchBar"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@drawable/input_field"
+                        android:ems="10"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Search"
+                        android:inputType="text"
+                        android:paddingStart="52dp"
+                        android:paddingEnd="18dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toStartOf="@+id/filterBtn"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/filterBtn"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="35dp"
+                        android:background="@drawable/circle_black"
+                        android:padding="13dp"
+                        android:src="@drawable/filter_icon_white"
+                        app:layout_constraintBottom_toBottomOf="@+id/searchBar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/searchBar" />
+
+                    <ImageView
+                        android:id="@+id/searchBtn"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="11dp"
+                        android:padding="7.5dp"
+                        android:src="@drawable/search_icon"
+                        app:layout_constraintBottom_toBottomOf="@+id/searchBar"
+                        app:layout_constraintStart_toStartOf="@+id/searchBar"
+                        app:layout_constraintTop_toTopOf="@+id/searchBar" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/catRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="horizontal"
+                        android:scrollbars="none"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/searchBar" />
+
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:id="@+id/image_slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_marginTop="16dp"
+                        app:iss_auto_cycle="true"
+                        app:iss_corner_radius="0"
+                        app:iss_delay="0"
+                        app:iss_period="2000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/catRecyclerView" />
+
+                    <TextView
+                        android:id="@+id/currentOffers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Current Offers"
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/image_slider" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/currentOffersRecyclerView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:scrollbars="none"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/currentOffers"
+                        tools:itemCount="10"
+                        tools:listitem="@layout/layout_product_item" />
+
+                    <TextView
+                        android:id="@+id/exclusives"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="PROCOP Exclusives"
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/currentOffersRecyclerView" />
+
+                    <ImageView
+                        android:id="@+id/exclusiveFilterBtn"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="13dp"
+                        android:src="@drawable/filter_icon_white"
+                        app:layout_constraintBottom_toBottomOf="@+id/exclusives"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/currentOffersRecyclerView"
+                        app:tint="#777777" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/exclusiveOffersRecyclerView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal"
+                        android:scrollbars="none"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/exclusives"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:itemCount="10"
+                        tools:listitem="@layout/layout_product_item_color" />
+
+                    <TextView
+                        android:id="@+id/marqueTendance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Trending Brands"
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/exclusiveOffersRecyclerView" />
+
+                    <ImageView
+                        android:id="@+id/exclusiveFilterBtn1"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="13dp"
+                        android:src="@drawable/filter_icon_white"
+                        app:layout_constraintBottom_toBottomOf="@+id/marqueTendance"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/exclusiveOffersRecyclerView"
+                        app:tint="#777777" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/hScroll3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal"
+                        android:scrollbars="none"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/marqueTendance"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:itemCount="10"
+                        tools:listitem="@layout/layout_product_item" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationView"
+            style="@style/Widget.Design.NavigationView"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:elevation="4dp"
+            android:fitsSystemWindows="true"
+            app:elevation="4dp">
+
+            <include
+                layout="@layout/layout_drawer_content"
+                app:viewModel="@{viewModel}"
+                app:viewState="@{viewState}" />
+        </com.google.android.material.navigation.NavigationView>
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

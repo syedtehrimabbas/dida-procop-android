@@ -73,6 +73,7 @@ object DependenciesManager {
         add(ThirdPartyDependencies.SDP)
         add(ThirdPartyDependencies.SSP)
         add(ThirdPartyDependencies.INLINE_ACTIVITY_RESULT)
+        add(ThirdPartyDependencies.IMAGE_SLIDER)
     }
     val hiltImplementation = arrayListOf<String>().apply {
         add(HiltDaggerDependencies.DAGGER_HILT)

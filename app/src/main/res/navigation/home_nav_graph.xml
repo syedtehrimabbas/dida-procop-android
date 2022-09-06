@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.androidstarter.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_faqFragment"
+            app:destination="@id/faqFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_contactUsFragment"
+            app:destination="@id/contactUsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.androidstarter.ui.productdetails.ProductDetailsFragment"
+        android:label="ProductDetailsFragment"
+        tools:layout="@layout/fragment_product_details" />
+    <fragment
+        android:id="@+id/faqFragment"
+        android:name="com.androidstarter.ui.fq.FaqFragment"
+        android:label="FaqFragment"
+        tools:layout="@layout/fragment_faq" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.androidstarter.ui.about.AboutFragment"
+        android:label="AboutFragment"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.androidstarter.ui.contactus.ContactUsFragment"
+        android:label="ContactUsFragment"
+        tools:layout="@layout/fragment_contact_us" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.androidstarter.ui.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.androidstarter.ui.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart" />
+</navigation>

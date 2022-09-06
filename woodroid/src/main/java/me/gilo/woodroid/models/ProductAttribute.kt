@@ -10,5 +10,6 @@ class ProductAttribute : Serializable {
     var position: Int = 0
     var isVisible: Boolean = false
     var isVariation: Boolean = false
-    var options: Array<String>? = null
+    var options: ArrayList<String>? = arrayListOf()
+    var selectedAttribute: String = ""
 }

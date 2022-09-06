@@ -59,4 +59,12 @@ dependencies {
     testImplementation(DependenciesManager.testingImplementation)
     androidTestImplementation(DependenciesManager.androidTestImplementation)
     implementation(project(mapOf("path" to ":woodroid")))
+    implementation(project(mapOf("path" to ":cocart")))
+
+    // Room components
+    implementation("android.arch.persistence.room:runtime:1.1.1")
+    annotationProcessor("android.arch.persistence.room:compiler:1.1.1")
+    implementation("androidx.room:room-ktx:2.4.3")
+    implementation("androidx.room:room-common:2.4.3")
+    kapt("androidx.room:room-compiler:2.4.3")
 }
