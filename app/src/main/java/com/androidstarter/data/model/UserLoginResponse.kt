@@ -14,7 +14,7 @@ data class User(
     @SerializedName("display_name")
     val displayName: String="",
     @SerializedName("ID")
-    val iD: String="",
+    val id: String="",
     @SerializedName("user_activation_key")
     val userActivationKey: String="",
     @SerializedName("user_email")

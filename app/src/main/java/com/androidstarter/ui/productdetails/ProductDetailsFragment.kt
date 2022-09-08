@@ -24,6 +24,7 @@ class ProductDetailsFragment :
     override val bindingViewStateVariableId = BR.viewState
     override val viewModel: ProductDetailsVM by viewModels()
     override val layoutResId: Int = R.layout.fragment_product_details
+    override fun getToolBarTitle() = "Details"
     override fun toolBarVisibility(): Boolean = true
     override fun onClick(id: Int) {
         when (id) {

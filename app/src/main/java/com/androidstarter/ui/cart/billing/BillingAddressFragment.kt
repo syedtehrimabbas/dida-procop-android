@@ -51,7 +51,8 @@ class BillingAddressFragment :
                         zipCode.value,
                         city.value,
                     )
-                    navigate(R.id.cardsFragment)
+                    arguments?.putParcelable("billingAddress", billingAddress)
+                    navigate(R.id.cardsFragment,arguments)
                 }
             }
         }

@@ -1,8 +1,10 @@
 package com.androidstarter.data.cart.models
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
 @Entity(tableName = TableNames.ProductTable)
 data class CartProduct(
@@ -27,17 +29,17 @@ data class CartProduct(
 )
 
 @Entity(tableName = TableNames.MetaDataTable)
+@Parcelize
 data class CartMetaData(
 
     @PrimaryKey(autoGenerate = true)
-    val metaDataId: Int = 0,
+    val id: Int = 0,
 
     val displayKey: String = "",
     val displayValue: String = "",
-    val id: Int = 0,
     val key: String = "",
     val value: String = ""
-)
+) : Parcelable
 
 object TableNames {
     const val ProductTable = "Product"

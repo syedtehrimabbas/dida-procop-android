@@ -86,6 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/stepsLayout">
@@ -139,6 +140,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/pMethodLL">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -171,6 +173,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/cardNumberLL">
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -248,6 +251,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/dateAndCVVLL">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -275,6 +279,19 @@
                 android:textSize="15sp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
+        <com.paypal.checkout.paymentbutton.PaymentButtonContainer
+            android:id="@+id/payment_button_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:paypal_button_color="silver"
+            app:paypal_button_enabled="true"
+            app:paypal_button_label="pay"
+            app:paypal_color="blue"
+            app:paypal_button_shape="rounded"
+            app:paypal_button_size="large" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/payBT"
             android:layout_width="0dp"
@@ -289,6 +306,7 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="17sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
