@@ -2,6 +2,7 @@ package me.gilo.woodroid.data.api
 
 
 import me.gilo.woodroid.models.Product
+import me.gilo.woodroid.models.countries.CountriesResponseItem
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -53,5 +54,8 @@ interface ProductAPI {
 
     @POST("products/batch")
     fun batch(@Body body: Product): Call<String>
+
+    @get:GET("data/countries")
+    val countries: Call<ArrayList<CountriesResponseItem>>
 
 }

@@ -2,8 +2,10 @@ package me.gilo.woodroid.repo
 
 import me.gilo.woodroid.data.api.ProductAPI
 import me.gilo.woodroid.models.Product
+import me.gilo.woodroid.models.countries.CountriesResponseItem
 import me.gilo.woodroid.models.filters.ProductFilter
 import retrofit2.Call
+import java.util.ArrayList
 
 import java.util.HashMap
 
@@ -77,5 +79,5 @@ class ProductRepository(baseUrl: String, consumerKey: String, consumerSecret: St
         return apiService.filter(filters)
     }
 
-
+    fun countries() = apiService.countries
 }

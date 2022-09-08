@@ -23,6 +23,7 @@ class CartFragment :
     override fun onClick(id: Int) {
         when (id) {
             R.id.closeBtn -> navigateBack()
+            R.id.checkoutButton -> navigate(R.id.billingAddressFragment)
         }
     }
 

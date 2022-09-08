@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.androidstarter.ui.cart.billing.BillingAddressVM" />
+
+        <variable
+            name="viewState"
+            type="com.androidstarter.ui.cart.billing.BillingAddressState" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="@dimen/_10sdp"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stepsLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/addressPinIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_address_step" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/appCompatImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_card_step" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:layout_constraintEnd_toStartOf="@+id/appCompatImageView"
+                    app:layout_constraintStart_toEndOf="@+id/addressPinIV"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_line_step" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/checkIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_check_step" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:layout_constraintEnd_toStartOf="@+id/checkIV"
+                    app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_line_step" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/namesLL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stepsLayout">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_mendatory"
+                        android:fontFamily="@font/poppins"
+                        android:text="First name "
+                        android:textColor="@color/black" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/input_field"
+                        android:drawablePadding="13dp"
+                        android:ems="10"
+                        android:fontFamily="@font/poppins"
+                        android:inputType="textPersonName"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@={viewState.firstName}"
+                        android:textColorHint="@color/appGrey"
+                        android:textSize="15sp"
+                        app:validateType='@{"firstname"}' />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_mendatory"
+                        android:fontFamily="@font/poppins"
+                        android:text="Last name "
+                        android:textColor="@color/black" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/lastNameET"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/input_field"
+                        android:drawablePadding="13dp"
+                        android:ems="10"
+                        android:fontFamily="@font/poppins"
+                        android:inputType="textPersonName"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@={viewState.lastName}"
+                        android:textSize="15sp"
+                        app:validateType='@{"lastname"}' />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/emailLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/namesLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_mendatory"
+                    android:fontFamily="@font/poppins"
+                    android:text="Email "
+                    android:textColor="@color/black" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_field"
+                    android:drawablePadding="13dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:text="@={viewState.email}"
+                    android:textSize="15sp"
+                    app:validateType='@{"email"}' />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/countryLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/emailLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_mendatory"
+                    android:fontFamily="@font/poppins"
+                    android:text="Country/region "
+                    android:textColor="@color/black" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/countryET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_field"
+                    android:drawableEnd="@drawable/ic_arrow_down"
+                    android:drawablePadding="13dp"
+                    android:ems="10"
+                    android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:text="@={viewState.country}"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:validateEmpty="@{true}" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/address1LL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/countryLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_mendatory"
+                    android:fontFamily="@font/poppins"
+                    android:text="Street number and name "
+                    android:textColor="@color/black" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/address1ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_field"
+                    android:drawablePadding="13dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Lane number and street name"
+                    android:inputType="textPostalAddress"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:text="@={viewState.streetAddress}"
+                    android:textColorHint="@color/appGrey"
+                    android:textSize="15sp"
+                    app:validateMaxLength="@{50}"
+                    app:validateMinLength="@{10}" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/address2ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_field"
+                    android:drawablePadding="13dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Building, apartment, lot, etch (optional)"
+                    android:inputType="textPostalAddress"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:text="@={viewState.streetAddressOptional}"
+                    android:textColorHint="@color/appGrey"
+                    android:textSize="15sp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/zipAndCityLL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address1LL">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_mendatory"
+                        android:fontFamily="@font/poppins"
+                        android:text="Zip Code "
+                        android:textColor="@color/black" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/zipcodeET"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/input_field"
+                        android:drawablePadding="13dp"
+                        android:ems="10"
+                        android:fontFamily="@font/poppins"
+                        android:inputType="number"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@={viewState.zipCode}"
+                        android:textSize="15sp"
+                        app:validateEmpty="@{true}" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_mendatory"
+                        android:fontFamily="@font/poppins"
+                        android:text="City name "
+                        android:textColor="@color/black" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cityNameET"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/input_field"
+                        android:drawableEnd="@drawable/ic_arrow_down"
+                        android:drawablePadding="13dp"
+                        android:ems="10"
+                        android:gravity="center_vertical"
+                        android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                        android:fontFamily="@font/poppins"
+                        android:inputType="textPersonName"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:text="@={viewState.city}"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:validateEmpty="@{true}" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/phoneNoLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/zipAndCityLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_mendatory"
+                    android:fontFamily="@font/poppins"
+                    android:text="Phone no "
+                    android:textColor="@color/black" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneNoET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_field"
+                    android:drawablePadding="13dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="phone"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:text="@={viewState.phoneNo}"
+                    android:textSize="15sp"
+                    app:validateEmpty="@{true}" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/companyNameLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/phoneNoLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Company name ( optional) "
+                    android:textColor="@color/black" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/companyNameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_field"
+                    android:drawablePadding="13dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="phone"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:text="@={viewState.companyNameOptional}"
+                    android:textSize="15sp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/checkoutBT"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/button_back_pink"
+                android:enabled="@{viewModel.validator.isValidate , default = false}"
+                android:fontFamily="@font/poppins_medium"
+                android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                android:text="Checkout"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/companyNameLL" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

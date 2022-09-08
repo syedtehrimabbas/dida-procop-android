@@ -28,6 +28,12 @@
         <action
             android:id="@+id/action_homeFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_billingAddressFragment"
+            app:destination="@id/billingAddressFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cardsFragment"
+            app:destination="@id/cardsFragment" />
     </fragment>
 
     <fragment
@@ -60,4 +66,14 @@
         android:name="com.androidstarter.ui.cart.CartFragment"
         android:label="CartFragment"
         tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/billingAddressFragment"
+        android:name="com.androidstarter.ui.cart.billing.BillingAddressFragment"
+        android:label="BillingAddressFragment"
+        tools:layout="@layout/fragment_billing_address" />
+    <fragment
+        android:id="@+id/cardsFragment"
+        android:name="com.androidstarter.ui.cart.cards.CardsFragment"
+        android:label="CardsFragment"
+        tools:layout="@layout/fragment_cards" />
 </navigation>
