@@ -13,6 +13,7 @@
             name="viewState"
             type="com.androidstarter.ui.productdetails.ProductDetailsState" />
 
+        <import type="android.view.View" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +43,6 @@
             android:text="@{viewState.product.name}"
             android:textColor="@color/appBlack"
             android:textSize="19sp"
-
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -57,6 +57,7 @@
             android:textColor="@color/appPink"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:visibility="@{viewState.product.price !=null ? View.VISIBLE :View.INVISIBLE}"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -103,9 +104,9 @@
             android:layout_marginStart="50dp"
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="30dp"
-            android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
             android:background="@drawable/button_back_pink"
             android:fontFamily="@font/poppins"
+            android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
             android:text="Add to cart"
             android:textAllCaps="false"
             android:textColor="@color/white"

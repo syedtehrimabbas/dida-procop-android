@@ -16,7 +16,7 @@ class Product : Serializable {
     lateinit var description: String
     lateinit var short_description: String
     lateinit var sku: String
-    lateinit var price: String
+    var price: String = ""
     lateinit var regular_price: String
     lateinit var sale_price: String
     lateinit var date_on_sale_from: Date
