@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.transition.ChangeBounds
 import android.transition.Fade
 import android.transition.Slide
+import android.view.Menu
+import android.view.MenuInflater
 import androidx.annotation.IdRes
 import androidx.core.os.bundleOf
 import androidx.databinding.ViewDataBinding
@@ -267,5 +269,14 @@ abstract class BaseNavViewModelFragment<VB : ViewDataBinding, VS : IBase.State, 
             childFragmentManager?.removeOnBackStackChangedListener(backStackListener)
         }
         return backStackPopped
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_cart_fvrt, menu)
+    }
+
+    fun navigateToCart() {
+        navigate(R.id.cartFragment)
     }
 }

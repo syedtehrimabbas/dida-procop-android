@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_homeFragment_to_orderSuccessFragment"
             app:destination="@id/orderSuccessFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
     </fragment>
 
     <fragment
@@ -84,4 +87,9 @@
         android:name="com.androidstarter.ui.ordersuccess.OrderSuccessFragment"
         android:label="OrderSuccessFragment"
         tools:layout="@layout/fragment_order_success" />
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.androidstarter.ui.productslist.ProductListFragment"
+        android:label="ProductListFragment"
+        tools:layout="@layout/fragment_products_list" />
 </navigation>

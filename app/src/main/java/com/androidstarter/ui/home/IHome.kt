@@ -11,7 +11,7 @@ interface IHome {
     }
 
     interface ViewModel : IBase.ViewModel<State> {
-        val categoriesList: LiveData<List<Category>>
+        val categoriesList: LiveData<MutableList<Category>>
         val currentOfferProducts: LiveData<List<Product>>
         val procopExclusiveProducts: LiveData<List<Product>>
         val marquesEnTendanceProducts: LiveData<List<Product>>

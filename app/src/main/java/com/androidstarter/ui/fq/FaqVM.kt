@@ -1,17 +1,16 @@
 package com.androidstarter.ui.fq
 
 import androidx.lifecycle.MutableLiveData
-import com.androidstarter.base.validator.IValidator
-import com.androidstarter.base.validator.Validator
 import com.androidstarter.base.viewmodel.HiltBaseViewModel
+import com.androidstarter.ui.home.DatabaseHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class FaqVM @Inject constructor(
     override val viewState: FaqState,
-    override var validator: Validator?,
-) : HiltBaseViewModel<IFaq.State>(), IFaq.ViewModel, IValidator {
+    val databaseHelper: DatabaseHelper
+) : HiltBaseViewModel<IFaq.State>(), IFaq.ViewModel {
     val faqDataList: MutableLiveData<MutableList<FaqData>> =
         MutableLiveData()
 

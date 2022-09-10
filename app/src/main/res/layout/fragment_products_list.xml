@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.androidstarter.ui.productslist.ProductsListVM" />
+
+        <variable
+            name="viewState"
+            type="com.androidstarter.ui.productslist.ProductListState" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchBar"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/input_field"
+            android:ems="10"
+            android:fontFamily="@font/poppins"
+            android:hint="Search"
+            android:inputType="text"
+            android:paddingStart="52dp"
+            android:paddingEnd="18dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/filterBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/filterBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="35dp"
+            android:background="@drawable/circle_black"
+            android:padding="13dp"
+            android:src="@drawable/filter_icon_white"
+            app:layout_constraintBottom_toBottomOf="@+id/searchBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/searchBar" />
+
+        <ImageView
+            android:id="@+id/searchBtn"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="11dp"
+            android:padding="7.5dp"
+            android:src="@drawable/search_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/searchBar"
+            app:layout_constraintStart_toStartOf="@+id/searchBar"
+            app:layout_constraintTop_toTopOf="@+id/searchBar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

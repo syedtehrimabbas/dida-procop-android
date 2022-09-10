@@ -2,7 +2,6 @@ package com.androidstarter.ui.productdetails
 
 import android.os.Bundle
 import com.androidstarter.base.viewmodel.HiltBaseViewModel
-import com.androidstarter.data.cart.dao.CartProductDao
 import com.androidstarter.ui.home.DatabaseHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import me.gilo.woodroid.Woocommerce
@@ -16,9 +15,8 @@ import javax.inject.Inject
 class ProductDetailsVM @Inject constructor(
     override val viewState: ProductDetailsState,
     private val woocommerce: Woocommerce,
-    val cartProductDao: CartProductDao
+    val databaseHelper: DatabaseHelper
 ) : HiltBaseViewModel<IProductDetails.State>(), IProductDetails.ViewModel {
-    val databaseHelper = DatabaseHelper(cartProductDao)
     var isInCart = false
     override fun fetchExtras(extras: Bundle?) {
         super.fetchExtras(extras)

@@ -82,7 +82,7 @@ class HomeFragment :
             R.id.cartImage -> {
                 viewModel.databaseHelper.cartCount.value?.let {
                     if (it > 0)
-                        navigate(R.id.action_homeFragment_to_cartFragment)
+                        navigateToCart()
                 }
             }
         }
@@ -149,6 +149,9 @@ class HomeFragment :
 
     private val categoryClickListener = { view: View, position: Int, data: Category? ->
         showToast("Category clicked " + data?.name)
+        arguments?.putSerializable("category", data)
+
+        navigate(R.id.productListFragment, arguments)
     }
 
     private fun setCategories(list: List<Category>) {

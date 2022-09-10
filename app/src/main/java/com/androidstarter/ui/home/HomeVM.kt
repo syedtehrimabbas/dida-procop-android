@@ -3,15 +3,14 @@ package com.androidstarter.ui.home
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.androidstarter.base.viewmodel.Dispatcher
 import com.androidstarter.base.viewmodel.HiltBaseViewModel
-import com.androidstarter.data.cart.dao.CartProductDao
 import com.androidstarter.data.sessions.SessionManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import me.gilo.woodroid.Woocommerce
 import me.gilo.woodroid.models.Category
 import me.gilo.woodroid.models.Product
+import me.gilo.woodroid.models.filters.ProductCategoryFilter
 import me.gilo.woodroid.models.filters.ProductFilter
 import me.gilo.woodroid.models.filters.Sort
 import retrofit2.Call
@@ -25,10 +24,10 @@ class HomeVM @Inject constructor(
     private val woocommerce: Woocommerce,
     val sessionManager: SessionManager,
     @ApplicationContext val context: Context,
-    val cartProductDao: CartProductDao
+    val databaseHelper: DatabaseHelper
 ) : HiltBaseViewModel<IHome.State>(), IHome.ViewModel {
-    private val _categoriesList: MutableLiveData<List<Category>> = MutableLiveData()
-    override val categoriesList: LiveData<List<Category>> = _categoriesList
+    private val _categoriesList: MutableLiveData<MutableList<Category>> = MutableLiveData()
+    override val categoriesList: LiveData<MutableList<Category>> = _categoriesList
 
     private val _currentOfferProducts: MutableLiveData<List<Product>> = MutableLiveData()
     override val currentOfferProducts: LiveData<List<Product>> = _currentOfferProducts
@@ -38,7 +37,6 @@ class HomeVM @Inject constructor(
 
     private val _marquesEnTendanceProducts: MutableLiveData<List<Product>> = MutableLiveData()
     override val marquesEnTendanceProducts: LiveData<List<Product>> = _marquesEnTendanceProducts
-    val databaseHelper = DatabaseHelper(cartProductDao)
 
     init {
         fetchCategories()
@@ -51,23 +49,34 @@ class HomeVM @Inject constructor(
 
     override fun fetchCategories() {
         loading(true)
-        woocommerce.CategoryRepository().categories().enqueue(object : Callback<List<Category>> {
-            override fun onResponse(
-                call: Call<List<Category>>,
-                response: Response<List<Category>>
-            ) {
-                loading(false)
-                response.let {
-                    if (it.isSuccessful) {
-                        _categoriesList.postValue(it.body())
+        val filter = ProductCategoryFilter()
+        filter.parent = intArrayOf(0)
+        filter.setPer_page(100)
+        woocommerce.CategoryRepository().categories(filter)
+            .enqueue(object : Callback<List<Category>> {
+                override fun onResponse(
+                    call: Call<List<Category>>,
+                    response: Response<List<Category>>
+                ) {
+                    loading(false)
+                    response.let {
+                        if (it.isSuccessful) {
+                            val list = mutableListOf<Category>()
+                            val allCategory = Category()
+                            allCategory.id = 1500
+                            allCategory.name = "All"
+                            allCategory.display = "All"
+                            list.add(allCategory)
+                            (it.body() as MutableList<Category>?)?.let { it1 -> list.addAll(it1) }
+                            _categoriesList.postValue(list)
+                        }
                     }
                 }
-            }
 
-            override fun onFailure(call: Call<List<Category>>, t: Throwable) {
-                t.message?.let { loading(false, it) }
-            }
-        })
+                override fun onFailure(call: Call<List<Category>>, t: Throwable) {
+                    t.message?.let { loading(false, it) }
+                }
+            })
     }
 
     override fun fetchOnSaleProducts() {
@@ -148,8 +157,6 @@ class HomeVM @Inject constructor(
 
     fun endUserSession() {
         sessionManager.endUserSession()
-        launch(Dispatcher.Background) {
-            cartProductDao.truncateProductTable()
-        }
+        databaseHelper.truncateProductTable()
     }
 }

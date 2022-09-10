@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.androidstarter.R
 import com.androidstarter.databinding.LayoutCategoryItemBinding
 import me.gilo.woodroid.models.Category
 import javax.inject.Inject
 
 class ProductCategoriesAdapter @Inject constructor() :
     RecyclerView.Adapter<ProductCategoriesAdapter.TrendingRepoViewHolder>() {
+    var selectedPosition = -1
     var onItemClickListener: ((view: View, position: Int, data: Category?) -> Unit)? =
         null
     private var list: MutableList<Category> = mutableListOf()
@@ -42,9 +44,22 @@ class ProductCategoriesAdapter @Inject constructor() :
 
         fun bind(item: Category) {
             itemView.setOnClickListener {
+                selectedPosition = adapterPosition
                 onItemClickListener?.invoke(it, adapterPosition, item)
+                notifyDataSetChanged()
             }
+            val backgroundColor =
+                if (adapterPosition == selectedPosition) R.color.appPink else R.color.white
 
+            val textColor =
+                if (adapterPosition == selectedPosition) R.color.white else R.color.black
+
+            itemBinding.cardView.setCardBackgroundColor(
+                itemBinding.cardView.context.getColor(
+                    backgroundColor
+                )
+            )
+            itemBinding.catText.setTextColor(itemBinding.catText.context.getColor(textColor))
             itemBinding.category = item
         }
     }

@@ -7,8 +7,9 @@ import com.androidstarter.data.cart.dao.CartProductDao
 import com.androidstarter.data.cart.models.CartMetaData
 import com.androidstarter.data.cart.models.CartProduct
 import me.gilo.woodroid.models.Product
+import javax.inject.Inject
 
-class DatabaseHelper constructor(
+class DatabaseHelper @Inject constructor(
     private val cartProductDao: CartProductDao
 ) : BaseCoroutineViewModel() {
     val favCount: MutableLiveData<Int> = MutableLiveData(0)
@@ -22,8 +23,15 @@ class DatabaseHelper constructor(
             } else {
                 val metaDate: ArrayList<CartMetaData> = arrayListOf()
                 product.productAttributes.forEach { attribute ->
-                    val value =
-                        attribute.selectedAttribute.ifEmpty { attribute.options?.get(0) }
+                    var value = ""
+                    if (attribute.selectedAttribute.isNotEmpty()) {
+                        value = attribute.selectedAttribute
+                    } else {
+                        attribute.options?.let {
+                            if (it.size > 0)
+                                value = it[0]
+                        }
+                    }
                     metaDate.add(
                         CartMetaData(
                             id = attribute.id,
@@ -53,4 +61,18 @@ class DatabaseHelper constructor(
             cartCount.postValue(cartProductDao.cartCount())
         }
     }
+
+    fun favouriteCount() {
+
+    }
+
+
+    fun truncateProductTable() {
+        launch(Dispatcher.Background) {
+            cartProductDao.truncateProductTable()
+        }
+    }
+
+    fun getProductById(id: Int): CartProduct? = cartProductDao.getProductById(id)
+
 }

@@ -6,9 +6,11 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.androidstarter.data.RetroNetwork
 import com.androidstarter.data.cart.ProcopDatabase
+import com.androidstarter.data.cart.dao.CartProductDao
 import com.androidstarter.data.sessions.SessionManager
 import com.androidstarter.data.sessions.SharedPreferenceManager
 import com.androidstarter.data.source.remote.RepositoryService
+import com.androidstarter.ui.home.DatabaseHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -47,6 +49,11 @@ class NetworkModule {
 
     @Provides
     fun provideCartProductDao(database: ProcopDatabase) = database.getProductDao()
+
+    @Provides
+    fun provideDatabaseHelper(cartProductDao: CartProductDao): DatabaseHelper {
+        return DatabaseHelper(cartProductDao)
+    }
 
     @Provides
     @Singleton
