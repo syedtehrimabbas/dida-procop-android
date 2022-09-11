@@ -3,29 +3,37 @@ package com.androidstarter.ui.home.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.androidstarter.R
+import com.androidstarter.databinding.LayoutCategoryBoxBinding
 import com.androidstarter.databinding.LayoutCategoryItemBinding
 import me.gilo.woodroid.models.Category
-import javax.inject.Inject
 
-class ProductCategoriesAdapter @Inject constructor() :
-    RecyclerView.Adapter<ProductCategoriesAdapter.TrendingRepoViewHolder>() {
+class ProductCategoriesAdapter constructor(val VIEW_TYPE: Int = 0) :
+    RecyclerView.Adapter<ProductCategoriesAdapter.CategoriesViewHolder>() {
     var selectedPosition = -1
     var onItemClickListener: ((view: View, position: Int, data: Category?) -> Unit)? =
         null
     private var list: MutableList<Category> = mutableListOf()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingRepoViewHolder {
-        return TrendingRepoViewHolder(
-            LayoutCategoryItemBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
+        val layout = when (viewType) {
+            TYPE_SIMPLE -> R.layout.layout_category_item
+            TYPE_CATEGORY_BOX -> R.layout.layout_category_box
+            else -> R.layout.layout_category_item
+        }
+
+        val viewDataBinding =
+            DataBindingUtil.inflate<ViewDataBinding>(
+                LayoutInflater
+                    .from(parent.context), layout, parent, false
             )
-        )
+        return CategoriesViewHolder(viewDataBinding)
     }
 
-    override fun onBindViewHolder(holder: TrendingRepoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
         holder.bind(list[position])
     }
 
@@ -39,10 +47,22 @@ class ProductCategoriesAdapter @Inject constructor() :
         notifyDataSetChanged()
     }
 
-    inner class TrendingRepoViewHolder(private val itemBinding: LayoutCategoryItemBinding) :
+    override fun getItemViewType(position: Int): Int {
+        return if (VIEW_TYPE == 0) TYPE_SIMPLE else TYPE_CATEGORY_BOX
+    }
+
+    inner class CategoriesViewHolder(private val itemBinding: ViewDataBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
 
         fun bind(item: Category) {
+            when (itemViewType) {
+                TYPE_SIMPLE -> bindSimpleCategories(item)
+                TYPE_CATEGORY_BOX -> bindBoxCategories(item)
+            }
+        }
+
+        private fun bindSimpleCategories(item: Category) {
+            itemBinding as LayoutCategoryItemBinding
             itemView.setOnClickListener {
                 selectedPosition = adapterPosition
                 onItemClickListener?.invoke(it, adapterPosition, item)
@@ -62,5 +82,20 @@ class ProductCategoriesAdapter @Inject constructor() :
             itemBinding.catText.setTextColor(itemBinding.catText.context.getColor(textColor))
             itemBinding.category = item
         }
+
+        private fun bindBoxCategories(item: Category) {
+            itemBinding as LayoutCategoryBoxBinding
+
+            itemView.setOnClickListener {
+                onItemClickListener?.invoke(it, adapterPosition, item)
+            }
+
+            itemBinding.category = item
+        }
+    }
+
+    companion object {
+        const val TYPE_SIMPLE = 0
+        const val TYPE_CATEGORY_BOX = 1
     }
 }

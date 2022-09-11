@@ -52,7 +52,7 @@ class BillingAddressFragment :
                         city.value,
                     )
                     arguments?.putParcelable("billingAddress", billingAddress)
-                    navigate(R.id.cardsFragment,arguments)
+                    navigate(R.id.action_billingAddressFragment_to_cardsFragment, arguments)
                 }
             }
         }

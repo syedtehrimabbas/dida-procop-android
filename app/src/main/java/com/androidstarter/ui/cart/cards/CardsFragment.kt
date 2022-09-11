@@ -34,7 +34,7 @@ class CardsFragment :
         when (id) {
             R.id.cardPayment -> viewState.selected.value = 1
             R.id.paypalPayment -> viewState.selected.value = 2
-            200 -> navigate(R.id.orderSuccessFragment)
+            200 -> navigate(R.id.action_cardsFragment_to_orderSuccessFragment)
         }
     }
 

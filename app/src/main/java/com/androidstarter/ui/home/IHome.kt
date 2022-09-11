@@ -1,7 +1,6 @@
 package com.androidstarter.ui.home
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.androidstarter.base.interfaces.IBase
 import me.gilo.woodroid.models.Category
 import me.gilo.woodroid.models.Product
@@ -11,7 +10,7 @@ interface IHome {
     }
 
     interface ViewModel : IBase.ViewModel<State> {
-        val categoriesList: LiveData<MutableList<Category>>
+        val categoriesList: LiveData<ArrayList<Category>>
         val currentOfferProducts: LiveData<List<Product>>
         val procopExclusiveProducts: LiveData<List<Product>>
         val marquesEnTendanceProducts: LiveData<List<Product>>

@@ -1,92 +1,53 @@
-package com.androidstarter.ui.productslist
+package com.androidstarter.ui.search
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import com.androidstarter.BR
 import com.androidstarter.R
 import com.androidstarter.base.clickevents.setOnClick
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
-import com.androidstarter.databinding.FragmentProductsListBinding
-import com.androidstarter.ui.home.adapter.ProductCategoriesAdapter
+import com.androidstarter.databinding.FragmentSearchProductBinding
 import com.androidstarter.ui.home.adapter.ProductsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import me.gilo.woodroid.models.Category
 import me.gilo.woodroid.models.Product
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ProductListFragment :
-    BaseNavViewModelFragment<FragmentProductsListBinding, IProductList.State, ProductsListVM>() {
+class SearchProductFragment :
+    BaseNavViewModelFragment<FragmentSearchProductBinding, ISearchProduct.State, SearchProductVM>(),
+    SearchView.OnQueryTextListener {
     override val bindingVariableId = BR.viewModel
     override val bindingViewStateVariableId = BR.viewState
-    override val viewModel: ProductsListVM by viewModels()
-    override val layoutResId: Int = R.layout.fragment_products_list
+    override val viewModel: SearchProductVM by viewModels()
+    override val layoutResId: Int = R.layout.fragment_search_product
     override fun toolBarVisibility(): Boolean = true
     override fun getToolBarTitle() = ""
     override fun onClick(id: Int) {}
     override fun hasOptionMenu(): Boolean = true
 
-    private val productCategoriesAdapter: ProductCategoriesAdapter = ProductCategoriesAdapter()
-
-    private val childCategoriesAdapter: ProductCategoriesAdapter =
-        ProductCategoriesAdapter(ProductCategoriesAdapter.TYPE_CATEGORY_BOX)
 
     @Inject
-    lateinit var productAdapter: ProductsAdapter
+    lateinit var searchProductAdapter: ProductsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        productCategoriesAdapter.onItemClickListener = categoryClickListener
-        childCategoriesAdapter.onItemClickListener = childCategoryClickListener
 
-        viewModel.categoriesList.observe(viewLifecycleOwner) {
-            productCategoriesAdapter.selectedPosition = viewModel.position.value ?: -1
-            productCategoriesAdapter.setList(it)
-        }
-        viewModel.selectedCategory.observe(viewLifecycleOwner) {
-            viewModel.fetchChildCategories(it)
+        mViewDataBinding.recyclerView.adapter = searchProductAdapter
+
+        mViewDataBinding.searchBar.setOnQueryTextListener(this@SearchProductFragment)
+
+        viewModel.searchProducts.observe(viewLifecycleOwner) {
+            searchProductAdapter.setList(it)
         }
 
-        viewModel.childCategories.observe(viewLifecycleOwner) {
-            childCategoriesAdapter.setList(it)
-        }
-
-        viewModel.categoryProducts.observe(viewLifecycleOwner) {
-            mViewDataBinding.catRecyclerView.visibility = View.GONE
-            mViewDataBinding.recyclerView.adapter = productAdapter
-            productAdapter.setList(it)
-        }
-
-        mViewDataBinding.catRecyclerView.adapter = productCategoriesAdapter
-        mViewDataBinding.recyclerView.adapter = childCategoriesAdapter
-
-        productAdapter.onItemClickListener = productClickListener
-        productAdapter.onChildItemClickListener = addToCartClickListener
-
-        mViewDataBinding.searchBar.setOnClickListener {
-            navigate(R.id.action_productListFragment_to_searchProductFragment)
-        }
-
-    }
-
-    private val categoryClickListener = { view: View, position: Int, data: Category? ->
-        if (data !== null)
-            viewModel.selectedCategory.value = data
-    }
-
-    private val childCategoryClickListener = { view: View, position: Int, data: Category? ->
-        arguments?.putParcelable("category", data)
-        navigate(R.id.action_productListFragment_self, arguments)
-    }
-
-    private val productClickListener = { view: View, position: Int, data: Product? ->
-        arguments?.putInt("id", data?.id ?: 0)
-        navigate(R.id.productDetailsFragment, arguments)
+        searchProductAdapter.onItemClickListener = productClickListener
+        searchProductAdapter.onChildItemClickListener = addToCartClickListener
     }
 
     private val addToCartClickListener = { view: View, position: Int, data: Product ->
@@ -98,6 +59,11 @@ class ProductListFragment :
 
             }
         }
+    }
+
+    private val productClickListener = { view: View, position: Int, data: Product? ->
+        arguments?.putInt("id", data?.id ?: 0)
+        navigate(R.id.productDetailsFragment, arguments)
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
@@ -141,4 +107,13 @@ class ProductListFragment :
         }
     }
 
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        query?.let { viewModel.searchProduct(it) }
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+//        newText?.let { viewModel.searchProduct(it) }
+        return false
+    }
 }

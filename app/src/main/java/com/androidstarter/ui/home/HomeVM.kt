@@ -17,7 +17,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
-
+import java.util.ArrayList
 @HiltViewModel
 class HomeVM @Inject constructor(
     override val viewState: HomeState,
@@ -26,8 +26,8 @@ class HomeVM @Inject constructor(
     @ApplicationContext val context: Context,
     val databaseHelper: DatabaseHelper
 ) : HiltBaseViewModel<IHome.State>(), IHome.ViewModel {
-    private val _categoriesList: MutableLiveData<MutableList<Category>> = MutableLiveData()
-    override val categoriesList: LiveData<MutableList<Category>> = _categoriesList
+    private val _categoriesList: MutableLiveData<ArrayList<Category>> = MutableLiveData()
+    override val categoriesList: LiveData<ArrayList<Category>> = _categoriesList
 
     private val _currentOfferProducts: MutableLiveData<List<Product>> = MutableLiveData()
     override val currentOfferProducts: LiveData<List<Product>> = _currentOfferProducts
@@ -65,10 +65,10 @@ class HomeVM @Inject constructor(
                             val allCategory = Category()
                             allCategory.id = 1500
                             allCategory.name = "All"
-                            allCategory.display = "All"
+                            allCategory.display = "All Products"
                             list.add(allCategory)
                             (it.body() as MutableList<Category>?)?.let { it1 -> list.addAll(it1) }
-                            _categoriesList.postValue(list)
+                            _categoriesList.postValue(list as ArrayList<Category>?)
                         }
                     }
                 }
@@ -80,10 +80,6 @@ class HomeVM @Inject constructor(
     }
 
     override fun fetchOnSaleProducts() {
-//        loading(true)
-        val filters = ProductFilter()
-        filters.setOrderby("date")
-
         woocommerce.ProductRepository().productByCategory(15)
             .enqueue(object : Callback<List<Product>> {
                 override fun onResponse(

@@ -31,8 +31,7 @@ class HomeFragment :
     override val layoutResId: Int = R.layout.fragment_home
     override fun toolBarVisibility(): Boolean = false
 
-    @Inject
-    lateinit var adapter: ProductCategoriesAdapter
+    var adapter: ProductCategoriesAdapter = ProductCategoriesAdapter()
 
     @Inject
     lateinit var productAdapter: ProductsAdapter
@@ -109,10 +108,18 @@ class HomeFragment :
         )
 
         mViewDataBinding.drawerLayout
+        mViewDataBinding.searchBar.setOnClickListener {
+            navigate(R.id.action_homeFragment_to_searchProductFragment)
+        }
+        mViewDataBinding.filterBtn.setOnClickListener(underDevClick)
+        mViewDataBinding.favImage.setOnClickListener(underDevClick)
+        mViewDataBinding.exclusiveFilterBtn.setOnClickListener(underDevClick)
+        mViewDataBinding.exclusiveFilterBtn1.setOnClickListener(underDevClick)
     }
 
     private fun initRecyclerView() {
         with(mViewDataBinding) {
+
             catRecyclerView.adapter = adapter
             currentOffersRecyclerView.adapter = productAdapter
             exclusiveOffersRecyclerView.adapter = productProcopExclusiveAdapter
@@ -142,16 +149,16 @@ class HomeFragment :
                 viewModel.databaseHelper.addToCart(data)
             }
             R.id.addToFavBtn -> {
-
+                underDevClick.onClick(view)
             }
         }
     }
 
     private val categoryClickListener = { view: View, position: Int, data: Category? ->
-        showToast("Category clicked " + data?.name)
-        arguments?.putSerializable("category", data)
-
-        navigate(R.id.productListFragment, arguments)
+        arguments?.putParcelable("category", data)
+        arguments?.putParcelableArrayList("categories", viewModel.categoriesList.value)
+        arguments?.putInt("pos", position)
+        navigate(R.id.action_homeFragment_to_productListFragment, arguments)
     }
 
     private fun setCategories(list: List<Category>) {

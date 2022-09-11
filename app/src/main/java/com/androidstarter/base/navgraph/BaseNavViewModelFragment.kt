@@ -6,6 +6,7 @@ import android.transition.Fade
 import android.transition.Slide
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.View
 import androidx.annotation.IdRes
 import androidx.core.os.bundleOf
 import androidx.databinding.ViewDataBinding
@@ -278,5 +279,9 @@ abstract class BaseNavViewModelFragment<VB : ViewDataBinding, VS : IBase.State, 
 
     fun navigateToCart() {
         navigate(R.id.cartFragment)
+    }
+
+    val underDevClick = View.OnClickListener {
+        showToast("Under development")
     }
 }
