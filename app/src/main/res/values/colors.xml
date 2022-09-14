@@ -15,6 +15,7 @@
     <color name="appLightGrey">#DBDBDB</color>
     <color name="appPink">#E84F69</color>
     <color name="appGrey">#C0C0C0</color>
+    <color name="appTextGrey">#8B8B8B</color>
     <color name="appBrown">#99706E</color>
     <color name="appBlue">#1E73BE</color>
     <color name="appCaramel">#FDF1B8</color>
