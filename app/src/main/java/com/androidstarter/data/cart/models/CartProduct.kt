@@ -41,7 +41,30 @@ data class CartMetaData(
     val value: String = ""
 ) : Parcelable
 
+@Entity(tableName = TableNames.FavouriteProductTable)
+data class FavouriteProduct(
+    @PrimaryKey
+    @ColumnInfo(name = "product_id")
+    var productId: Int = 0,
+
+    @ColumnInfo(name = "quantity")
+    var quantity: Int = 0,
+
+    @ColumnInfo(name = "name")
+    var productName: String = "",
+
+    @ColumnInfo(name = "unit_price")
+    var unitPrice: Double = 0.0,
+
+    @ColumnInfo(name = "image")
+    var productImage: String = "",
+
+    @ColumnInfo(name = "meta_data")
+    var metaDate: ArrayList<CartMetaData> = arrayListOf()
+)
+
 object TableNames {
     const val ProductTable = "Product"
     const val MetaDataTable = "MetaData"
+    const val FavouriteProductTable = "FavouriteProductTable"
 }

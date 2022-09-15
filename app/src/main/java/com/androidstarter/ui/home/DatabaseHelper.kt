@@ -6,6 +6,7 @@ import com.androidstarter.base.viewmodel.Dispatcher
 import com.androidstarter.data.cart.dao.CartProductDao
 import com.androidstarter.data.cart.models.CartMetaData
 import com.androidstarter.data.cart.models.CartProduct
+import com.androidstarter.data.cart.models.FavouriteProduct
 import me.gilo.woodroid.models.Product
 import javax.inject.Inject
 
@@ -56,23 +57,64 @@ class DatabaseHelper @Inject constructor(
         }
     }
 
-    fun cartCount() {
-        launch {
-            cartCount.postValue(cartProductDao.cartCount())
+    fun addToFav(product: Product) {
+        launch(Dispatcher.Background) {
+            val fetchProduct = cartProductDao.getFavProductById(product.id)
+            if (fetchProduct != null) {
+                cartProductDao.deleteProductFromFav(fetchProduct.productId)
+            } else {
+                val metaDate: ArrayList<CartMetaData> = arrayListOf()
+                product.productAttributes.forEach { attribute ->
+                    var value = ""
+                    if (attribute.selectedAttribute.isNotEmpty()) {
+                        value = attribute.selectedAttribute
+                    } else {
+                        attribute.options?.let {
+                            if (it.size > 0)
+                                value = it[0]
+                        }
+                    }
+                    metaDate.add(
+                        CartMetaData(
+                            id = attribute.id,
+                            displayKey = attribute.name ?: "",
+                            displayValue = value ?: "",
+                            key = attribute.name ?: "",
+                            value = value ?: ""
+                        )
+                    )
+                }
+                val pojoProduct = FavouriteProduct(
+                    productId = product.id,
+                    quantity = 1,
+                    productName = product.name,
+                    unitPrice = product.price.toDouble(),
+                    productImage = product.getFeatureImage(),
+                    metaDate = metaDate
+                )
+                cartProductDao.addToFav(pojoProduct)
+            }
+            favouriteCount()
         }
     }
 
-    fun favouriteCount() {
+    fun cartCount() = launch {
+        cartCount.postValue(cartProductDao.cartCount())
+    }
 
+    fun favouriteCount() = launch {
+        favCount.postValue(cartProductDao.favCount())
     }
 
 
     fun truncateProductTable() {
         launch(Dispatcher.Background) {
             cartProductDao.truncateProductTable()
+            cartProductDao.truncateFavProductTable()
         }
     }
 
     fun getProductById(id: Int): CartProduct? = cartProductDao.getProductById(id)
+    fun getFavProductById(id: Int): FavouriteProduct? = cartProductDao.getFavProductById(id)
 
 }

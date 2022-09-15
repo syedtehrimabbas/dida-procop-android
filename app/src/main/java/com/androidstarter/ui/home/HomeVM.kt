@@ -44,6 +44,7 @@ class HomeVM @Inject constructor(
         fetchProcopExclusive()
         fetchMarquesEnTendance()
         databaseHelper.cartCount()
+        databaseHelper.favouriteCount()
         sessionManager.setUser()
     }
 

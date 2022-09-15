@@ -21,18 +21,35 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.jsibbold.zoomage.ZoomageView
             android:id="@+id/imageView2"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="230dp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/sample_image"
             app:imageUrl="@{viewState.product.featureImage}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/sample_image" />
+            app:zoomage_animateOnReset="true"
+            app:zoomage_autoCenter="true"
+            app:zoomage_autoResetMode="UNDER"
+            app:zoomage_maxScale="8"
+            app:zoomage_minScale="0.6"
+            app:zoomage_restrictBounds="false"
+            app:zoomage_translatable="true"
+            app:zoomage_zoomable="true" />
+        <!--                <androidx.appcompat.widget.AppCompatImageView-->
+        <!--                    android:id="@+id/imageView2"-->
+        <!--                    android:layout_width="0dp"-->
+        <!--                    android:layout_height="230dp"-->
+        <!--                    android:layout_marginStart="@dimen/_10sdp"-->
+        <!--                    android:layout_marginTop="20dp"-->
+        <!--                    android:layout_marginEnd="@dimen/_10sdp"-->
+        <!--                    app:imageUrl="@{viewState.product.featureImage}"-->
+        <!--                    app:srcCompat="@drawable/sample_image" />-->
 
         <TextView
             android:id="@+id/textView5"
@@ -53,11 +70,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins"
-            android:text="@{`€ `+viewState.product.price}"
+            android:text="@{`€ `+viewState.minPrice+`- € `+viewState.maxPrice}"
             android:textColor="@color/appPink"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:visibility="@{viewState.product.price !=null ? View.VISIBLE :View.INVISIBLE}"
+            android:visibility="@{viewState.minPrice !=null ? View.VISIBLE :View.INVISIBLE}"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -115,12 +132,12 @@
             app:layout_constraintEnd_toStartOf="@+id/addToFavBtn"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/addToFavBtn"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:layout_marginEnd="50dp"
-            android:background="@drawable/circle_white_heart"
+            android:src="@drawable/circle_white_heart"
             app:layout_constraintBottom_toBottomOf="@+id/addToCartBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/addToCartBtn" />

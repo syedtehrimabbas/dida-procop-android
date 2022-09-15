@@ -81,7 +81,7 @@ class ProductListFragment :
 
     private val childCategoryClickListener = { view: View, position: Int, data: Category? ->
         arguments?.putParcelable("category", data)
-        navigate(R.id.action_productListFragment_self, arguments)
+        navigateWithPopup(R.id.action_productListFragment_self,R.id.productListFragment, arguments)
     }
 
     private val productClickListener = { view: View, position: Int, data: Product? ->

@@ -149,7 +149,7 @@ class HomeFragment :
                 viewModel.databaseHelper.addToCart(data)
             }
             R.id.addToFavBtn -> {
-                underDevClick.onClick(view)
+                viewModel.databaseHelper.addToFav(data)
             }
         }
     }

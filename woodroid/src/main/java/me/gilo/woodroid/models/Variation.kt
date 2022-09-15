@@ -1,7 +1,6 @@
 package me.gilo.woodroid.models
 
-import java.util.ArrayList
-import java.util.Date
+import java.util.*
 
 class Variation {
 
@@ -17,7 +16,7 @@ class Variation {
     lateinit var description: String
     lateinit var short_description: String
     lateinit var sku: String
-    lateinit var price: String
+    var price: Double = 0.0
     lateinit var regular_price: String
     lateinit var sale_price: String
     lateinit var date_on_sale_from: Date

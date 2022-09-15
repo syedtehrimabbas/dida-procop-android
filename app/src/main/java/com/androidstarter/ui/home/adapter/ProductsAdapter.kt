@@ -3,8 +3,11 @@ package com.androidstarter.ui.home.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.androidstarter.R
 import com.androidstarter.base.interfaces.CoroutineViewModel
 import com.androidstarter.base.viewmodel.Dispatcher
 import com.androidstarter.data.cart.dao.CartProductDao
@@ -63,6 +66,14 @@ class ProductsAdapter @Inject constructor(
                 } ?: setAddCartText(itemBinding.addToCartBtn)
             }
 
+            launch {
+                cartProductDao.getFavProductById(item.id)?.let { _ ->
+                    launch(Dispatcher.Main) {
+                        favourite(itemBinding.addToFavBtn)
+                    }
+                } ?: unFavourite(itemBinding.addToFavBtn)
+            }
+
             itemBinding.addToCartBtn.setOnClickListener {
                 launch {
                     onChildItemClickListener?.invoke(it, adapterPosition, item)
@@ -71,7 +82,10 @@ class ProductsAdapter @Inject constructor(
             }
 
             itemBinding.addToFavBtn.setOnClickListener {
-                onChildItemClickListener?.invoke(it, adapterPosition, item)
+                launch {
+                    onChildItemClickListener?.invoke(it, adapterPosition, item)
+                }
+                notifyDataSetChanged()
             }
 
             itemBinding.product = item
@@ -111,5 +125,25 @@ class ProductsAdapter @Inject constructor(
                 Dispatcher.LongOperation -> Dispatchers.Default
             }
         ) { block() }
+    }
+
+    private fun unFavourite(addToFavBtn: AppCompatImageView) {
+        launch(Dispatcher.Main) {
+            addToFavBtn.setImageDrawable(addToFavBtn.context?.let {
+                AppCompatResources.getDrawable(
+                    it, R.drawable.circle_white_heart
+                )
+            })
+        }
+    }
+
+    private fun favourite(addToFavBtn: AppCompatImageView) {
+        launch(Dispatcher.Main) {
+            addToFavBtn.setImageDrawable(addToFavBtn.context?.let {
+                AppCompatResources.getDrawable(
+                    it, R.drawable.circle_red_heart
+                )
+            })
+        }
     }
 }

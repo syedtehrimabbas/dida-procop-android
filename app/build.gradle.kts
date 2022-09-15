@@ -68,4 +68,5 @@ dependencies {
     implementation("androidx.room:room-common:2.4.3")
     kapt("androidx.room:room-compiler:2.4.3")
     implementation("com.paypal.checkout:android-sdk:0.8.1")
+    implementation("com.jsibbold:zoomage:1.3.1")
 }

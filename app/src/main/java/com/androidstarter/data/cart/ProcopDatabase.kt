@@ -7,10 +7,11 @@ import com.androidstarter.data.cart.converters.ListConverters
 import com.androidstarter.data.cart.dao.CartProductDao
 import com.androidstarter.data.cart.models.CartMetaData
 import com.androidstarter.data.cart.models.CartProduct
+import com.androidstarter.data.cart.models.FavouriteProduct
 
 @Database(
-    entities = [CartProduct::class, CartMetaData::class],
-    version = 2,
+    entities = [CartProduct::class, CartMetaData::class, FavouriteProduct::class],
+    version = 3,
     exportSchema = false
 )
 @TypeConverters(ListConverters::class)

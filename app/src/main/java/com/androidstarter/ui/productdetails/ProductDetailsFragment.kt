@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import com.androidstarter.BR
@@ -46,6 +47,19 @@ class ProductDetailsFragment :
                     viewModel.databaseHelper.addToCart(product)
                 }
             }
+
+            R.id.addToFavBtn -> {
+                viewModel.databaseHelper.favouriteCount()
+                if (viewModel.isFav) {
+                    unFavourite()
+                } else {
+                    favourite()
+                }
+                val product = viewState.product.value
+                product?.let {
+                    viewModel.databaseHelper.addToFav(product)
+                }
+            }
         }
     }
 
@@ -59,8 +73,12 @@ class ProductDetailsFragment :
                 viewModel.databaseHelper.getProductById(it.id)?.let { _ ->
                     setRemoveCartText()
                 } ?: setAddCartText()
+
+                viewModel.databaseHelper.getFavProductById(it.id)?.let { _ ->
+                    favourite()
+                } ?: unFavourite()
             }
-            attributeAdapter.setList(it.productAttributes)
+            attributeAdapter.setList(it.productAttributes.filter { productAttribute -> productAttribute.isVariation && productAttribute.isVisible })
         }
         initRecyclerView()
     }
@@ -76,6 +94,28 @@ class ProductDetailsFragment :
         viewModel.isInCart = true
         viewModel.launch(Dispatcher.Main) {
             mViewDataBinding.addToCartBtn.text = "Remove Cart"
+        }
+    }
+
+    private fun unFavourite() {
+        viewModel.isFav = false
+        viewModel.launch(Dispatcher.Main) {
+            mViewDataBinding.addToFavBtn.setImageDrawable(context?.let {
+                AppCompatResources.getDrawable(
+                    it, R.drawable.circle_white_heart
+                )
+            })
+        }
+    }
+
+    private fun favourite() {
+        viewModel.isFav = true
+        viewModel.launch(Dispatcher.Main) {
+            mViewDataBinding.addToFavBtn.setImageDrawable(context?.let {
+                AppCompatResources.getDrawable(
+                    it, R.drawable.circle_red_heart
+                )
+            })
         }
     }
 
@@ -148,6 +188,9 @@ class ProductDetailsFragment :
     override fun postExecutePendingBindings(savedInstanceState: Bundle?) {
         super.postExecutePendingBindings(savedInstanceState)
         viewModel.databaseHelper.cartCount.observe(viewLifecycleOwner) {
+            requireActivity().invalidateOptionsMenu()
+        }
+        viewModel.databaseHelper.favCount.observe(viewLifecycleOwner) {
             requireActivity().invalidateOptionsMenu()
         }
     }
