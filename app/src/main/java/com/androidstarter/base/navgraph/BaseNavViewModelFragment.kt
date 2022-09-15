@@ -280,6 +280,9 @@ abstract class BaseNavViewModelFragment<VB : ViewDataBinding, VS : IBase.State, 
     fun navigateToCart() {
         navigate(R.id.cartFragment)
     }
+    fun navigateToFavourite() {
+        navigate(R.id.favouriteFragment)
+    }
 
     val underDevClick = View.OnClickListener {
         showToast("Under development")

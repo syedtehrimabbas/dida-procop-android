@@ -79,6 +79,7 @@
                 app:layout_constraintTop_toTopOf="@+id/cartImage" />
 
             <ImageView
+                android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                 android:id="@+id/favImage"
                 android:layout_width="28dp"
                 android:layout_height="28dp"

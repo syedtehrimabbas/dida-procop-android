@@ -57,6 +57,28 @@ class DatabaseHelper @Inject constructor(
         }
     }
 
+    fun addToCart(product: FavouriteProduct) {
+        launch(Dispatcher.Background) {
+            val fetchProduct = cartProductDao.getProductById(product.productId)
+            if (fetchProduct != null) {
+                cartProductDao.deleteProductFromCart(fetchProduct.productId)
+            } else {
+                val metaDate: ArrayList<CartMetaData> = arrayListOf()
+
+                val pojoProduct = CartProduct(
+                    productId = product.productId,
+                    quantity = 1,
+                    productName = product.productName,
+                    unitPrice = product.unitPrice,
+                    productImage = product.productImage,
+                    metaDate = metaDate
+                )
+                cartProductDao.addProductToCart(pojoProduct)
+            }
+            cartCount()
+        }
+    }
+
     fun addToFav(product: Product) {
         launch(Dispatcher.Background) {
             val fetchProduct = cartProductDao.getFavProductById(product.id)
@@ -116,5 +138,7 @@ class DatabaseHelper @Inject constructor(
 
     fun getProductById(id: Int): CartProduct? = cartProductDao.getProductById(id)
     fun getFavProductById(id: Int): FavouriteProduct? = cartProductDao.getFavProductById(id)
-
+    fun unFavouriteProduct(favouriteProduct: FavouriteProduct) = launch(Dispatcher.Background) {
+        cartProductDao.deleteProductFromFav(favouriteProduct)
+    }
 }

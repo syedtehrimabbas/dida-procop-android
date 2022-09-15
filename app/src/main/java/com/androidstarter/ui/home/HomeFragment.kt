@@ -84,6 +84,12 @@ class HomeFragment :
                         navigateToCart()
                 }
             }
+            R.id.favImage -> {
+                viewModel.databaseHelper.favCount.value?.let {
+                    if (it > 0)
+                        navigateToFavourite()
+                }
+            }
         }
     }
 
@@ -112,7 +118,6 @@ class HomeFragment :
             navigate(R.id.action_homeFragment_to_searchProductFragment)
         }
         mViewDataBinding.filterBtn.setOnClickListener(underDevClick)
-        mViewDataBinding.favImage.setOnClickListener(underDevClick)
         mViewDataBinding.exclusiveFilterBtn.setOnClickListener(underDevClick)
         mViewDataBinding.exclusiveFilterBtn1.setOnClickListener(underDevClick)
     }

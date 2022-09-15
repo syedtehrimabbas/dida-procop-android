@@ -39,6 +39,9 @@ interface CartProductDao {
     @Query("DELETE from FavouriteProductTable WHERE product_id = :id")
     fun deleteProductFromFav(id: Int)
 
+    @Delete
+    fun deleteProductFromFav(favouriteProduct: FavouriteProduct)
+
     @Query("SELECT COUNT(product_id) from FavouriteProductTable")
     suspend fun favCount(): Int
 

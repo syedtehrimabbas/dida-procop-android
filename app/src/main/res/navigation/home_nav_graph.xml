@@ -65,7 +65,7 @@
         android:id="@+id/cartFragment"
         android:name="com.androidstarter.ui.cart.CartFragment"
         android:label="CartFragment"
-        tools:layout="@layout/fragment_cart" >
+        tools:layout="@layout/fragment_cart">
         <action
             android:id="@+id/action_cartFragment_to_billingAddressFragment"
             app:destination="@id/billingAddressFragment" />
@@ -74,7 +74,7 @@
         android:id="@+id/billingAddressFragment"
         android:name="com.androidstarter.ui.cart.billing.BillingAddressFragment"
         android:label="BillingAddressFragment"
-        tools:layout="@layout/fragment_billing_address" >
+        tools:layout="@layout/fragment_billing_address">
         <action
             android:id="@+id/action_billingAddressFragment_to_cardsFragment"
             app:destination="@id/cardsFragment" />
@@ -83,7 +83,7 @@
         android:id="@+id/cardsFragment"
         android:name="com.androidstarter.ui.cart.cards.CardsFragment"
         android:label="CardsFragment"
-        tools:layout="@layout/fragment_cards" >
+        tools:layout="@layout/fragment_cards">
         <action
             android:id="@+id/action_cardsFragment_to_orderSuccessFragment"
             app:destination="@id/orderSuccessFragment" />
@@ -97,7 +97,7 @@
         android:id="@+id/productListFragment"
         android:name="com.androidstarter.ui.productslist.ProductListFragment"
         android:label="ProductListFragment"
-        tools:layout="@layout/fragment_products_list" >
+        tools:layout="@layout/fragment_products_list">
         <action
             android:id="@+id/action_productListFragment_self"
             app:destination="@id/productListFragment" />
@@ -110,5 +110,10 @@
         android:name="com.androidstarter.ui.search.SearchProductFragment"
         android:label="SearchProductFragment"
         tools:layout="@layout/fragment_search_product" />
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.androidstarter.ui.fvrt.FavouriteFragment"
+        android:label="FavouriteFragment"
+        tools:layout="@layout/fragment_favourite" />
 
 </navigation>

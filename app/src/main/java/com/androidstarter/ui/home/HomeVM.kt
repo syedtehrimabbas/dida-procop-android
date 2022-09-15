@@ -17,7 +17,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
-import java.util.ArrayList
+
 @HiltViewModel
 class HomeVM @Inject constructor(
     override val viewState: HomeState,
@@ -46,6 +46,12 @@ class HomeVM @Inject constructor(
         databaseHelper.cartCount()
         databaseHelper.favouriteCount()
         sessionManager.setUser()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        databaseHelper.cartCount()
+        databaseHelper.favouriteCount()
     }
 
     override fun fetchCategories() {
