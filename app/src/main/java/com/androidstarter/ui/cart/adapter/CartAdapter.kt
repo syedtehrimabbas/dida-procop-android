@@ -16,7 +16,8 @@ class CartAdapter @Inject constructor(
     val cartProductDao: CartProductDao
 ) :
     RecyclerView.Adapter<CartAdapter.CartViewHolder>(), CoroutineViewModel {
-    private var list: MutableList<CartProduct> = mutableListOf()
+    private var _list: MutableList<CartProduct> = mutableListOf()
+    var dataList: List<CartProduct> = _list
     var onItemClickListener: ((view: View, position: Int, data: CartProduct) -> Unit)? =
         null
     var onChildItemClickListener: ((view: View, position: Int, data: CartProduct) -> Unit)? =
@@ -33,18 +34,25 @@ class CartAdapter @Inject constructor(
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        holder.bind(list[position])
+        holder.bind(_list[position])
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return _list.size
     }
 
     fun setList(list: List<CartProduct>) {
-        this.list.clear()
-        this.list.addAll(list)
+        this._list.clear()
+        this._list.addAll(list)
         notifyDataSetChanged()
     }
+
+    fun removeItem(position: Int) {
+        this._list.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
+    fun getItem(position: Int) = this._list[position]
 
     inner class CartViewHolder(private val itemBinding: LayoutCartItemBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {

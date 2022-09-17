@@ -15,7 +15,7 @@ class StarterApplication : Application() {
         super.onCreate()
         val config = CheckoutConfig(
             application = this,
-            clientId = "YOUR_CLIENT_ID",
+            clientId = "AdcSpjB7BJlFP3pcxL7Ulg1Hr6rDqw7hxCrPTR0Lx8TTNo5ossL__BDjSt-czGj0EFJl4FKID9GIa17x",
             environment = Environment.SANDBOX,
 //            returnUrl = "${BuildConfig.APPLICATION_ID}://paypalpay",
             currencyCode = CurrencyCode.EUR,

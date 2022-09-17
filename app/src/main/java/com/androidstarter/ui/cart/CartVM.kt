@@ -8,6 +8,7 @@ import com.androidstarter.base.viewmodel.Dispatcher
 import com.androidstarter.base.viewmodel.HiltBaseViewModel
 import com.androidstarter.data.cart.dao.CartProductDao
 import com.androidstarter.data.cart.models.CartProduct
+import com.androidstarter.ui.home.DatabaseHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -18,7 +19,7 @@ class CartVM @Inject constructor(
     val cartProductDao: CartProductDao
 ) : HiltBaseViewModel<ICart.State>(), ICart.ViewModel, IValidator {
 
-    private val _cartProducts: MutableLiveData<List<CartProduct>> = MutableLiveData()
+    val _cartProducts: MutableLiveData<List<CartProduct>> = MutableLiveData()
     val cartProducts: LiveData<List<CartProduct>> = _cartProducts
 
     init {

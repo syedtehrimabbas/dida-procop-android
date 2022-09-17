@@ -76,7 +76,7 @@ class CardsFragment :
                 onError = OnError { errorInfo ->
 //                    showToast(errorInfo.reason)
                     Log.d("OnError", "Error: $errorInfo")
-                    viewModel.doOrder()
+//                    viewModel.doOrder()
                 }
             )
         }
