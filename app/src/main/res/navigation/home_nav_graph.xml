@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_homeFragment_to_searchProductFragment"
             app:destination="@id/searchProductFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
     </fragment>
 
     <fragment
@@ -119,5 +122,9 @@
             android:id="@+id/action_favouriteFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.androidstarter.ui.orders.OrdersFragment"
+        android:label="OrdersFragment" />
 
 </navigation>

@@ -64,6 +64,10 @@ class HomeFragment :
                 closeDrawer()
                 navigate(R.id.action_homeFragment_to_contactUsFragment)
             }
+            R.id.orderNav -> {
+                closeDrawer()
+                navigate(R.id.action_homeFragment_to_ordersFragment)
+            }
             R.id.logoutNav -> {
                 closeDrawer()
                 viewModel.endUserSession()

@@ -3,6 +3,7 @@ package com.androidstarter
 import android.widget.FrameLayout
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.BindingAdapter
+import com.androidstarter.utils.DateUtils
 import me.gilo.woodroid.models.ProductAttribute
 
 object CommonBinding {
@@ -36,5 +37,16 @@ object CommonBinding {
                 else view.text = ""
             }
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("orderDate")
+    fun orderDate(view: AppCompatTextView, dateCreated: String) {
+        val date = DateUtils.reformatStringDate(
+            dateCreated,
+            DateUtils.SERVER_DATE_FORMAT,
+            DateUtils.FORMATE_DATE_MONTH_YEAR
+        )
+        view.text = "Ordered on $date"
     }
 }

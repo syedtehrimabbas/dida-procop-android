@@ -12,9 +12,11 @@ class Order {
     lateinit var orderNumber: String
     @SerializedName("created_at")
     lateinit var createdAt: String
+    @SerializedName("payment_method")
+    lateinit var paymentMethod: String
 
     @SerializedName("date_created")
-    lateinit var dateCreated: Date
+    lateinit var dateCreated: String
 
     @SerializedName("updated_at")
     lateinit var updatedAt: String
