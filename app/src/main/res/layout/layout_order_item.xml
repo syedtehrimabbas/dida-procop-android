@@ -161,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="@{item.currency+` `+item.total}"
+                android:text="@{item.currencySymbol+` `+item.total}"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/paymentLabelTV"
