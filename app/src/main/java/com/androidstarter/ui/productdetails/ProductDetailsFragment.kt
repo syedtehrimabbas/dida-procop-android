@@ -169,20 +169,18 @@ class ProductDetailsFragment :
         favCount.text = viewModel.databaseHelper.favCount.value.toString()
 
         cartButton.setOnClick {
-            viewModel.databaseHelper.cartCount.value?.let {
-                if (it > 0)
-                    navigateToCart()
-            }
+            navigateToCart(viewModel.databaseHelper)
         }
 
         favImage.setOnClick {
-
+            navigateToFavourite(viewModel.databaseHelper)
         }
     }
 
     override fun onResume() {
         super.onResume()
         viewModel.databaseHelper.cartCount()
+        viewModel.databaseHelper.favouriteCount()
     }
 
     override fun postExecutePendingBindings(savedInstanceState: Bundle?) {

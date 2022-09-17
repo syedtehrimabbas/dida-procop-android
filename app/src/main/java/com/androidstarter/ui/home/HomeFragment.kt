@@ -81,15 +81,10 @@ class HomeFragment :
             R.id.cartImage -> {
                 viewModel.databaseHelper.cartCount.value?.let {
                     if (it > 0)
-                        navigateToCart()
+                        navigateToCart(viewModel.databaseHelper)
                 }
             }
-            R.id.favImage -> {
-                viewModel.databaseHelper.favCount.value?.let {
-                    if (it > 0)
-                        navigateToFavourite()
-                }
-            }
+            R.id.favImage -> navigateToFavourite(viewModel.databaseHelper)
         }
     }
 

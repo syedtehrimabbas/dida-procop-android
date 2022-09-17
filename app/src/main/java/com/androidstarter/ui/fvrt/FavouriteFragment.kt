@@ -41,7 +41,7 @@ class FavouriteFragment :
 
     private val productClickListener = { view: View, position: Int, data: FavouriteProduct? ->
         arguments?.putInt("id", data?.productId ?: 0)
-        navigate(R.id.action_homeFragment_to_productDetailsFragment, arguments)
+        navigate(R.id.action_favouriteFragment_to_productDetailsFragment, arguments)
     }
 
     private val addToCartClickListener = { view: View, position: Int, data: FavouriteProduct ->

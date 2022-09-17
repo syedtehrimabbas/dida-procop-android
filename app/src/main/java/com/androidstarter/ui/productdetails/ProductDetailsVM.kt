@@ -44,7 +44,7 @@ class ProductDetailsVM @Inject constructor(
                 }
 
                 override fun onFailure(call: Call<Product>, t: Throwable) {
-                    t.message?.let { loading(true, it) }
+                    t.message?.let { loading(false, it) }
                 }
             })
     }
@@ -78,7 +78,7 @@ class ProductDetailsVM @Inject constructor(
                 }
 
                 override fun onFailure(call: Call<List<Variation>>, t: Throwable) {
-                    t.message?.let { loading(true, it) }
+                    t.message?.let { loading(false, it) }
                 }
             })
     }

@@ -22,6 +22,7 @@ import com.androidstarter.base.BaseBindingViewModelFragment
 import com.androidstarter.base.interfaces.IBase
 import com.androidstarter.base.interfaces.ManageToolBarListener
 import com.androidstarter.base.viewmodel.HiltBaseViewModel
+import com.androidstarter.ui.home.DatabaseHelper
 import kotlin.properties.Delegates
 
 private const val ARGUMENT_NAVIGATION_REQUEST_CODE = "NAVIGATION_REQUEST_CODE"
@@ -277,11 +278,18 @@ abstract class BaseNavViewModelFragment<VB : ViewDataBinding, VS : IBase.State, 
         inflater.inflate(R.menu.menu_cart_fvrt, menu)
     }
 
-    fun navigateToCart() {
-        navigate(R.id.cartFragment)
+    fun navigateToCart(databaseHelper: DatabaseHelper) {
+        databaseHelper.cartCount.value?.let {
+            if (it > 0)
+                navigate(R.id.cartFragment)
+        }
     }
-    fun navigateToFavourite() {
-        navigate(R.id.favouriteFragment)
+
+    fun navigateToFavourite(databaseHelper: DatabaseHelper) {
+        databaseHelper.favCount.value?.let {
+            if (it > 0)
+                navigate(R.id.favouriteFragment)
+        }
     }
 
     val underDevClick = View.OnClickListener {

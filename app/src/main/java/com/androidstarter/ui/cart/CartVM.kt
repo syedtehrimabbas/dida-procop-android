@@ -19,8 +19,8 @@ class CartVM @Inject constructor(
     val cartProductDao: CartProductDao
 ) : HiltBaseViewModel<ICart.State>(), ICart.ViewModel, IValidator {
 
-    val _cartProducts: MutableLiveData<List<CartProduct>> = MutableLiveData()
-    val cartProducts: LiveData<List<CartProduct>> = _cartProducts
+    val _cartProducts: MutableLiveData<MutableList<CartProduct>> = MutableLiveData()
+    val cartProducts: LiveData<MutableList<CartProduct>> = _cartProducts
 
     init {
         loadCartItems()

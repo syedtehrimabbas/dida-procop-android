@@ -52,19 +52,19 @@ class CartFragment :
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 // Take action for the swiped item
-                val position = viewHolder.adapterPosition;
+                val position = viewHolder.adapterPosition
                 val data = cartAdapter.getItem(position)
                 cartAdapter.removeItem(position)
-
+                viewModel._cartProducts.value?.removeAt(position)
                 viewModel.launch(Dispatcher.Background) {
                     viewModel.cartProductDao.deleteProductFromCart(data.productId)
                 }
+                viewModel._cartProducts.value?.let { viewModel.calculateTotalCartPrice(it) }
+                if (viewModel._cartProducts.value?.isEmpty() == true) navigateBack()
             }
 
             override fun onChildDraw(
-                c: Canvas,
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
+                c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder,
                 dX: Float,
                 dY: Float,
                 actionState: Int,
@@ -85,6 +85,7 @@ class CartFragment :
                             R.color.appPink
                         )
                     ).addActionIcon(R.drawable.ic_fluent_delete).create().decorate()
+
                 super.onChildDraw(
                     c,
                     recyclerView,

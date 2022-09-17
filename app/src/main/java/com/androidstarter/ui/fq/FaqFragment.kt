@@ -54,14 +54,11 @@ class FaqFragment :
         favCount.text = viewModel.databaseHelper.favCount.value.toString()
 
         cartButton.setOnClick {
-            viewModel.databaseHelper.cartCount.value?.let {
-                if (it > 0)
-                    navigateToCart()
-            }
+            navigateToCart(viewModel.databaseHelper)
         }
 
         favImage.setOnClick {
-
+            navigateToFavourite(viewModel.databaseHelper)
         }
     }
 
