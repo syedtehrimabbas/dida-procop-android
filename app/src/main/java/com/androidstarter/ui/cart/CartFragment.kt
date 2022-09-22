@@ -12,6 +12,7 @@ import com.androidstarter.R
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
 import com.androidstarter.base.viewmodel.Dispatcher
 import com.androidstarter.data.cart.models.CartProduct
+import com.androidstarter.data.sessions.SessionManager
 import com.androidstarter.databinding.FragmentCartBinding
 import com.androidstarter.ui.cart.adapter.CartAdapter
 import dagger.hilt.android.AndroidEntryPoint

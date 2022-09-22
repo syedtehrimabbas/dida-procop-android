@@ -4,7 +4,6 @@ import androidx.fragment.app.viewModels
 import com.androidstarter.BR
 import com.androidstarter.R
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
-import com.androidstarter.databinding.FragmentContactUsBinding
 import com.androidstarter.databinding.FragmentOrderSuccessBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,5 +16,9 @@ class OrderSuccessFragment :
     override val layoutResId: Int = R.layout.fragment_order_success
     override fun toolBarVisibility(): Boolean = true
     override fun getToolBarTitle() = "Confirm"
-    override fun onClick(id: Int) {}
+    override fun onClick(id: Int) {
+        when (id) {
+            R.id.myOrdersBt -> navigate(R.id.action_orderSuccessFragment_to_ordersFragment)
+        }
+    }
 }

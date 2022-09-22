@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.androidstarter.ui.ordersuccess.OrderSuccessVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -126,6 +129,7 @@
             android:layout_marginBottom="65dp"
             android:background="@drawable/button_back_pink"
             android:fontFamily="@font/poppins_medium"
+            android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
             android:text="My Orders"
             android:textAllCaps="false"
             android:textColor="@color/white"
