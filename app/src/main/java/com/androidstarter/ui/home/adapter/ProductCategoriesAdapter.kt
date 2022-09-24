@@ -80,7 +80,7 @@ class ProductCategoriesAdapter constructor(val VIEW_TYPE: Int = 0) :
                 )
             )
             itemBinding.catText.setTextColor(itemBinding.catText.context.getColor(textColor))
-            itemBinding.category = item
+            itemBinding.catText.text = item.name
         }
 
         private fun bindBoxCategories(item: Category) {

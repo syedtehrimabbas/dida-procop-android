@@ -5,10 +5,6 @@
 
     <data>
 
-        <variable
-            name="category"
-            type="me.gilo.woodroid.models.Category" />
-
     </data>
 
     <RelativeLayout
@@ -37,7 +33,6 @@
                 android:paddingTop="3dp"
                 android:paddingEnd="13dp"
                 android:paddingBottom="3dp"
-                android:text="@{category.name}"
                 android:textColor="@color/appBlack"
                 android:textSize="14.5sp"
                 tools:text="All" />

@@ -89,6 +89,7 @@ class HomeFragment :
                 }
             }
             R.id.favImage -> navigateToFavourite(viewModel.databaseHelper)
+            R.id.filterBtn -> navigate(R.id.action_homeFragment_to_productFilterFragment)
         }
     }
 
@@ -116,7 +117,6 @@ class HomeFragment :
         mViewDataBinding.searchBar.setOnClickListener {
             navigate(R.id.action_homeFragment_to_searchProductFragment)
         }
-        mViewDataBinding.filterBtn.setOnClickListener(underDevClick)
         mViewDataBinding.exclusiveFilterBtn.setOnClickListener(underDevClick)
         mViewDataBinding.exclusiveFilterBtn1.setOnClickListener(underDevClick)
     }
