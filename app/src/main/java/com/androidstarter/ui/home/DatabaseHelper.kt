@@ -135,6 +135,11 @@ class DatabaseHelper @Inject constructor(
             cartProductDao.truncateFavProductTable()
         }
     }
+    fun truncateCart() {
+        launch(Dispatcher.Background) {
+            cartProductDao.truncateProductTable()
+        }
+    }
 
     fun getProductById(id: Int): CartProduct? = cartProductDao.getProductById(id)
     fun getFavProductById(id: Int): FavouriteProduct? = cartProductDao.getFavProductById(id)

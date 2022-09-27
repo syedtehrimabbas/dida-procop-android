@@ -14,6 +14,7 @@ import com.androidstarter.data.model.ShippingLine
 import com.androidstarter.data.sessions.SessionManager
 import com.androidstarter.data.source.remote.IAuthRepository
 import com.androidstarter.ui.cart.billing.data.BillingAddressData
+import com.androidstarter.ui.home.DatabaseHelper
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import me.gilo.woodroid.Woocommerce
@@ -26,6 +27,7 @@ class CardsVM @Inject constructor(
     val sessionManager: SessionManager,
     val cartProductDao: CartProductDao,
     val woocommerce: Woocommerce,
+    val databaseHelper: DatabaseHelper,
     private val repository: IAuthRepository,
 ) : HiltBaseViewModel<ICards.State>(), ICards.ViewModel, IValidator {
     private var billingAddressData: BillingAddressData? = null
@@ -33,7 +35,7 @@ class CardsVM @Inject constructor(
     val amount: MutableLiveData<String> = MutableLiveData()
     override fun fetchExtras(extras: Bundle?) {
         super.fetchExtras(extras)
-        billingAddressData = extras?.getParcelable("")
+        billingAddressData = extras?.getParcelable("billingAddress")
         shippingAddress = billingAddressData
     }
 
@@ -66,7 +68,7 @@ class CardsVM @Inject constructor(
             }
 
             val orderRequest = OrderRequest(
-                customerId = 0,
+                customerId = sessionManager.getUserId(),
                 billing = billingAddressData,
                 shipping = billingAddressData,
                 lineItems = lineItems,
@@ -76,20 +78,23 @@ class CardsVM @Inject constructor(
                             "%.2f",
                             products.sumOf { it.unitPrice * it.quantity })
                     )
-                )
+                ),
             )
-            Log.d("ORDER_REQUEST", Gson().toJson(orderRequest))
-            launch {
-                loading(true)
-                when (val response = repository.createOrder(orderRequest)
-                ) {
-                    is ApiResponse.Success -> {
-                        clickEvent?.postValue(200)
-                    }
-                    is ApiResponse.Error -> {
-                        loading(false)
-                        clickEvent?.postValue(200)
-                    }
+//            Log.d("ORDER_REQUEST", Gson().toJson(orderRequest))
+            loading(true)
+            when (val response = repository.createOrder(orderRequest)
+            ) {
+                is ApiResponse.Success -> {
+                    loading(false)
+                    databaseHelper.truncateCart()
+                    clickEvent?.postValue(200)
+                }
+                is ApiResponse.Error -> {
+
+                    databaseHelper.truncateCart()
+                    clickEvent?.postValue(200)
+
+                    loading(false)
                 }
             }
         }

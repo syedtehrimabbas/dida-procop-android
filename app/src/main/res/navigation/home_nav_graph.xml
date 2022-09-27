@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_homeFragment_to_productFilterFragment"
             app:destination="@id/productFilterFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 
     <fragment
@@ -139,7 +142,7 @@
         android:id="@+id/productFilterFragment"
         android:name="com.androidstarter.ui.filter.ProductFilterFragment"
         android:label="ProductFilterFragment"
-        tools:layout="@layout/fragment_product_filter" >
+        tools:layout="@layout/fragment_product_filter">
         <action
             android:id="@+id/action_productFilterFragment_to_filteredProductListFragment"
             app:destination="@id/filteredProductListFragment" />
@@ -148,6 +151,10 @@
         android:id="@+id/filteredProductListFragment"
         android:name="com.androidstarter.ui.filter.filteredproducts.FilteredProductListFragment"
         android:label="FilteredProductListFragment"
-        tools:layout="@layout/fragment_filtered_products_list"/>
+        tools:layout="@layout/fragment_filtered_products_list" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.androidstarter.ui.profile.ProfileFragment"
+        android:label="ProfileFragment" />
 
 </navigation>

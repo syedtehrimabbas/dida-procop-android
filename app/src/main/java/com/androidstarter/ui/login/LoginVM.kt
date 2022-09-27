@@ -47,7 +47,7 @@ class LoginVM @Inject constructor(
 
                 is ApiResponse.Success -> {
                     val isRemember = viewState.isRemembered.value ?: false
-                    response.data.email = userName
+//                    response.data.email = userName
                     sessionManager.startUserSession(response.data, isRemember)
                     loading(false, "Login successful")
                     clickEvent?.postValue(200)

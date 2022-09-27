@@ -1,8 +1,7 @@
-package com.androidstarter.ui.orders
+package com.androidstarter.ui.profile
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -11,29 +10,20 @@ import com.androidstarter.BR
 import com.androidstarter.R
 import com.androidstarter.base.clickevents.setOnClick
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
-import com.androidstarter.databinding.FragmentOrdersBinding
-import com.androidstarter.ui.orders.adapter.OrdersAdapterAdapter
+import com.androidstarter.databinding.FragmentContactUsBinding
+import com.androidstarter.databinding.FragmentProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
-class OrdersFragment :
-    BaseNavViewModelFragment<FragmentOrdersBinding, IOrders.State, OrdersVM>() {
+class ProfileFragment :
+    BaseNavViewModelFragment<FragmentProfileBinding, IProfile.State, ProfileVM>() {
     override val bindingVariableId = BR.viewModel
     override val bindingViewStateVariableId = BR.viewState
-    override val viewModel: OrdersVM by viewModels()
-    override val layoutResId: Int = R.layout.fragment_orders
+    override val viewModel: ProfileVM by viewModels()
+    override val layoutResId: Int = R.layout.fragment_profile
     override fun toolBarVisibility(): Boolean = true
-    override fun getToolBarTitle() = "My Orders"
-
-    @Inject
-    lateinit var ordersAdapterAdapter: OrdersAdapterAdapter
-
-    override fun onClick(id: Int) {
-        when (id) {
-            R.id.orderNow -> navigateBack()
-        }
-    }
+    override fun getToolBarTitle() = "Profile"
+    override fun onClick(id: Int) {}
 
     override fun hasOptionMenu(): Boolean = true
     override fun onPrepareOptionsMenu(menu: Menu) {
@@ -71,23 +61,6 @@ class OrdersFragment :
         }
         viewModel.databaseHelper.favCount.observe(viewLifecycleOwner) {
             requireActivity().invalidateOptionsMenu()
-        }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        mViewDataBinding.recyclerView.adapter = ordersAdapterAdapter
-
-        viewModel.orders.observe(viewLifecycleOwner) {
-            if (it.isEmpty()) {
-                mViewDataBinding.recyclerView.visibility = View.GONE
-                mViewDataBinding.noOrderLayout.visibility = View.VISIBLE
-
-            } else {
-                mViewDataBinding.recyclerView.visibility = View.VISIBLE
-                mViewDataBinding.noOrderLayout.visibility = View.GONE
-                ordersAdapterAdapter.setList(it)
-            }
         }
     }
 }

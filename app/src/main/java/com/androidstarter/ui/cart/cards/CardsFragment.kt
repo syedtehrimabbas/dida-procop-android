@@ -72,7 +72,6 @@ class CardsFragment :
                     }
                 },
                 onCancel = OnCancel {
-                    viewModel.doOrder()
                     showToast("Buyer canceled the PayPal experience")
                     Log.d("OnCancel", "Buyer canceled the PayPal experience.")
                 },

@@ -5,13 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import com.androidstarter.base.validator.IValidator
 import com.androidstarter.base.validator.Validator
 import com.androidstarter.base.viewmodel.HiltBaseViewModel
+import com.androidstarter.data.sessions.SessionManager
 import com.androidstarter.ui.home.DatabaseHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import me.gilo.woodroid.Woocommerce
-import me.gilo.woodroid.models.Category
 import me.gilo.woodroid.models.Order
 import me.gilo.woodroid.models.filters.OrderFilter
-import me.gilo.woodroid.models.filters.ProductCategoryFilter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,15 +21,15 @@ class OrdersVM @Inject constructor(
     override val viewState: OrdersState,
     override var validator: Validator?,
     val databaseHelper: DatabaseHelper,
+    val sessionManager: SessionManager,
     val woocommerce: Woocommerce
 ) : HiltBaseViewModel<IOrders.State>(), IOrders.ViewModel, IValidator {
 
     private val _orders: MutableLiveData<ArrayList<Order>> = MutableLiveData()
     val orders: LiveData<ArrayList<Order>> = _orders
-
     override fun onResume() {
         super.onResume()
-        fetchOrders(0)
+        fetchOrders(sessionManager.getUserId())
     }
 
     private fun fetchOrders(customerId: Int) {
@@ -48,7 +47,7 @@ class OrdersVM @Inject constructor(
                         if (it.isSuccessful) {
                             loading(false)
                             val list = it.body()
-                                _orders.postValue(list as ArrayList<Order>?)
+                            _orders.postValue(list as ArrayList<Order>?)
                         }
                     }
                 }

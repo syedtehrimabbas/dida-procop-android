@@ -27,6 +27,7 @@ class SessionManager constructor(
         sharedPreferenceManager.removeValue(KEY_USER)
         _user = MutableLiveData()
     }
+    fun getUserId() =  sharedPreferenceManager.getValueInt(KEY_ID)
 
     companion object {
         private var _user: MutableLiveData<User> = MutableLiveData()
@@ -37,7 +38,7 @@ class SessionManager constructor(
     fun setUser() {
         val name = sharedPreferenceManager.getValueString(KEY_USER_NAME) ?: ""
         val email = sharedPreferenceManager.getValueString(KEY_USER_EMAIL) ?: ""
-        val id = sharedPreferenceManager.getValueString(KEY_ID) ?: "0"
-        _user.value = User(name = name, email = email, id = id.toInt())
+        val id = sharedPreferenceManager.getValueInt(KEY_ID)
+        _user.value = User(name = name, email = email, id = id)
     }
 }
