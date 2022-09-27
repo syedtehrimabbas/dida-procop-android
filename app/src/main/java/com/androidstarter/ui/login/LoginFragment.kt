@@ -1,5 +1,7 @@
 package com.androidstarter.ui.login
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.androidstarter.BR
@@ -24,7 +26,9 @@ class LoginFragment :
     override fun onClick(id: Int) {
         when (id) {
             R.id.registerScreenBtn -> navigate(R.id.signupFragment)
-            R.id.lostPassword -> navigate(R.id.forgotPasswordFragment)
+            R.id.lostPassword -> {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://papiersprocop.com/mon-compte/lost-password/")))
+            }
             200 -> navigateToDashboard()
         }
     }

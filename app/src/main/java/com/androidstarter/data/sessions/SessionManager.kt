@@ -16,8 +16,8 @@ class SessionManager constructor(
         )
         sharedPreferenceManager.save(KEY_ID, user.id)
         sharedPreferenceManager.save(KEY_USER, user.toString())
-        sharedPreferenceManager.save(KEY_USER_NAME, user.displayName)
-        sharedPreferenceManager.save(KEY_USER_EMAIL, user.userEmail)
+        sharedPreferenceManager.save(KEY_USER_NAME, user.name)
+        sharedPreferenceManager.save(KEY_USER_EMAIL, user.email)
         _user.postValue(user)
     }
 
@@ -31,12 +31,13 @@ class SessionManager constructor(
     companion object {
         private var _user: MutableLiveData<User> = MutableLiveData()
         var user: LiveData<User> = _user
+        var IS_USER_LOGIN = false
     }
 
     fun setUser() {
         val name = sharedPreferenceManager.getValueString(KEY_USER_NAME) ?: ""
         val email = sharedPreferenceManager.getValueString(KEY_USER_EMAIL) ?: ""
-        val id = sharedPreferenceManager.getValueString(KEY_ID) ?: ""
-        _user.value = User(displayName = name, userEmail = email, id = id)
+        val id = sharedPreferenceManager.getValueString(KEY_ID) ?: "0"
+        _user.value = User(name = name, email = email, id = id.toInt())
     }
 }

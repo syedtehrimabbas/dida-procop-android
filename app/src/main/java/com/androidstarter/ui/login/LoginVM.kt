@@ -7,6 +7,7 @@ import com.androidstarter.data.ApiResponse
 import com.androidstarter.data.model.LoginRequest
 import com.androidstarter.data.source.remote.IAuthRepository
 import com.androidstarter.data.sessions.SessionManager
+import com.androidstarter.data.sessions.SessionManager.Companion.IS_USER_LOGIN
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -20,8 +21,7 @@ class LoginVM @Inject constructor(
 
     override fun onLogin() {
         doLogin(
-            viewState.email.value.toString(),
-            viewState.password.value.toString()
+            viewState.email.value.toString(), viewState.password.value.toString()
         )
     }
 
@@ -32,15 +32,28 @@ class LoginVM @Inject constructor(
             when (val response = repository.login(request)) {
 
                 is ApiResponse.Success -> {
+                    IS_USER_LOGIN = true
+                    fetchUser("Bearer ${response.data.jwtToken}", userName)
+                }
+
+                is ApiResponse.Error -> loading(false, response.error.message)
+            }
+        }
+    }
+
+    private fun fetchUser(auth: String, userName: String) {
+        launch {
+            when (val response = repository.fetchUser(auth)) {
+
+                is ApiResponse.Success -> {
                     val isRemember = viewState.isRemembered.value ?: false
-                    sessionManager.startUserSession(response.data.user, isRemember)
-                    loading(false,"Login successful")
+                    response.data.email = userName
+                    sessionManager.startUserSession(response.data, isRemember)
+                    loading(false, "Login successful")
                     clickEvent?.postValue(200)
                 }
 
-                is ApiResponse.Error -> {
-                    loading(false, response.error.message)
-                }
+                is ApiResponse.Error -> loading(false, response.error.message)
             }
         }
     }
