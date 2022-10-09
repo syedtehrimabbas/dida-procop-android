@@ -243,7 +243,8 @@
                         app:layout_constraintBottom_toBottomOf="@+id/exclusives"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/currentOffersRecyclerView"
-                        app:tint="#777777" />
+                        app:tint="#777777"
+                        android:visibility="invisible"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/exclusiveOffersRecyclerView"
@@ -285,7 +286,8 @@
                         app:layout_constraintBottom_toBottomOf="@+id/marqueTendance"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/exclusiveOffersRecyclerView"
-                        app:tint="#777777" />
+                        app:tint="#777777"
+                        android:visibility="invisible" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/hScroll3"
