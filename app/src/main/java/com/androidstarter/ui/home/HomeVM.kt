@@ -87,7 +87,7 @@ class HomeVM @Inject constructor(
     }
 
     override fun fetchOnSaleProducts() {
-        woocommerce.ProductRepository().productByCategory(15)
+        woocommerce.ProductRepository().productByCategory(1141)
             .enqueue(object : Callback<List<Product>> {
                 override fun onResponse(
                     call: Call<List<Product>>,
@@ -109,10 +109,10 @@ class HomeVM @Inject constructor(
 
     override fun fetchProcopExclusive() {
 //        loading(true)
-        val filters = ProductFilter()
-        filters.setOrderby("menu_order")
+//        val filters = ProductFilter()
+//        filters.setOrderby("menu_order")
 
-        woocommerce.ProductRepository().products(filters)
+        woocommerce.ProductRepository().productByCategory(2639)
             .enqueue(object : Callback<List<Product>> {
                 override fun onResponse(
                     call: Call<List<Product>>,
