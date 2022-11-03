@@ -37,10 +37,18 @@ class HomeFragment :
     lateinit var productAdapter: ProductsAdapter
 
     @Inject
-    lateinit var productProcopExclusiveAdapter: ProductsAdapter
+    lateinit var gmundusedAdapter: ProductsAdapter
 
     @Inject
-    lateinit var marquesEnTendanceAdapter: ProductsAdapter
+    lateinit var offsetProductsAdapter: ProductsAdapter
+
+    @Inject
+    lateinit var numericProductsAdapter: ProductsAdapter
+
+    @Inject
+    lateinit var nuancierProductsAdapter: ProductsAdapter
+
+    lateinit var offresProductsAdapter: ProductsAdapter
 
     override fun onClick(id: Int) {
         when (id) {
@@ -106,16 +114,13 @@ class HomeFragment :
         initRecyclerView()
         setupSlider()
         viewModel.categoriesList.observe(viewLifecycleOwner, ::setCategories)
-        viewModel.currentOfferProducts.observe(viewLifecycleOwner, ::setOnSaleProducts)
-        viewModel.procopExclusiveProducts.observe(
-            viewLifecycleOwner,
-            ::setProcopExclusiveOnSaleProducts
-        )
-
-        viewModel.marquesEnTendanceProducts.observe(
-            viewLifecycleOwner,
-            ::setMarquesEnTendanceProductsProducts
-        )
+        
+        viewModel.colorProducts.observe(viewLifecycleOwner, ::set1802ColorProducts)
+        viewModel.gmundusedProducts.observe(viewLifecycleOwner, ::setGmundusedProducts)
+        viewModel.offsetProducts.observe(viewLifecycleOwner, ::setOffsetProducts)
+        viewModel.numericProducts.observe(viewLifecycleOwner, ::setNumericProducts)
+        viewModel.nuancierProducts.observe(viewLifecycleOwner, ::setNuancierProducts)
+        viewModel.offresProducts.observe(viewLifecycleOwner, ::setOffresProducts)
 
         mViewDataBinding.drawerLayout
         mViewDataBinding.searchBar.setOnClickListener {
@@ -129,19 +134,27 @@ class HomeFragment :
         with(mViewDataBinding) {
 
             catRecyclerView.adapter = adapter
-            currentOffersRecyclerView.adapter = productAdapter
-            exclusiveOffersRecyclerView.adapter = productProcopExclusiveAdapter
-            hScroll3.adapter = marquesEnTendanceAdapter
-
             adapter.onItemClickListener = categoryClickListener
 
+            
+            colorProductsRV.adapter = productAdapter
+            gmundusedRV.adapter = gmundusedAdapter
+            offsetRV.adapter = offsetProductsAdapter
+
+
             productAdapter.onItemClickListener = productClickListener
-            productProcopExclusiveAdapter.onItemClickListener = productClickListener
-            marquesEnTendanceAdapter.onItemClickListener = productClickListener
+            gmundusedAdapter.onItemClickListener = productClickListener
+            offsetProductsAdapter.onItemClickListener = productClickListener
+            numericProductsAdapter.onItemClickListener = productClickListener
+            nuancierProductsAdapter.onItemClickListener = productClickListener
+            offresProductsAdapter.onItemClickListener = productClickListener
 
             productAdapter.onChildItemClickListener = addToCartClickListener
-            productProcopExclusiveAdapter.onChildItemClickListener = addToCartClickListener
-            marquesEnTendanceAdapter.onChildItemClickListener = addToCartClickListener
+            gmundusedAdapter.onChildItemClickListener = addToCartClickListener
+            offsetProductsAdapter.onChildItemClickListener = addToCartClickListener
+            numericProductsAdapter.onChildItemClickListener = addToCartClickListener
+            nuancierProductsAdapter.onChildItemClickListener = addToCartClickListener
+            offresProductsAdapter.onChildItemClickListener = addToCartClickListener
 
         }
     }
@@ -173,16 +186,27 @@ class HomeFragment :
         adapter.setList(list)
     }
 
-    private fun setOnSaleProducts(listProduct: List<Product>) {
+    private fun set1802ColorProducts(listProduct: List<Product>) {
         productAdapter.setList(listProduct)
     }
 
-    private fun setProcopExclusiveOnSaleProducts(listProduct: List<Product>) {
-        productProcopExclusiveAdapter.setList(listProduct)
+    private fun setGmundusedProducts(listProduct: List<Product>) {
+        gmundusedAdapter.setList(listProduct)
     }
 
-    private fun setMarquesEnTendanceProductsProducts(listProduct: List<Product>) {
-        marquesEnTendanceAdapter.setList(listProduct)
+    private fun setOffsetProducts(listProduct: List<Product>) {
+        offsetProductsAdapter.setList(listProduct)
+    }
+
+    private fun setNumericProducts(listProduct: List<Product>) {
+        numericProductsAdapter.setList(listProduct)
+    }
+    private fun setNuancierProducts(listProduct: List<Product>) {
+        nuancierProductsAdapter.setList(listProduct)
+    }
+    
+    private fun setOffresProducts(listProduct: List<Product>) {
+        offresProductsAdapter.setList(listProduct)
     }
 
     private fun setupSlider() {

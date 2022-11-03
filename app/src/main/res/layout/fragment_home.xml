@@ -207,7 +207,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/image_slider" />
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/currentOffersRecyclerView"
+                        android:id="@+id/colorProductsRV"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -231,7 +231,7 @@
                         android:textColor="@color/black"
                         android:textSize="19sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/currentOffersRecyclerView" />
+                        app:layout_constraintTop_toBottomOf="@+id/colorProductsRV" />
 
                     <ImageView
                         android:id="@+id/exclusiveFilterBtn"
@@ -242,12 +242,12 @@
                         android:src="@drawable/filter_icon_white"
                         app:layout_constraintBottom_toBottomOf="@+id/exclusives"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/currentOffersRecyclerView"
+                        app:layout_constraintTop_toBottomOf="@+id/colorProductsRV"
                         app:tint="#777777"
                         android:visibility="invisible"/>
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/exclusiveOffersRecyclerView"
+                        android:id="@+id/gmundusedRV"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -274,7 +274,7 @@
                         android:textColor="@color/black"
                         android:textSize="19sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/exclusiveOffersRecyclerView" />
+                        app:layout_constraintTop_toBottomOf="@+id/gmundusedRV" />
 
                     <ImageView
                         android:id="@+id/exclusiveFilterBtn1"
@@ -285,12 +285,12 @@
                         android:src="@drawable/filter_icon_white"
                         app:layout_constraintBottom_toBottomOf="@+id/marqueTendance"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/exclusiveOffersRecyclerView"
+                        app:layout_constraintTop_toBottomOf="@+id/gmundusedRV"
                         app:tint="#777777"
                         android:visibility="invisible" />
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/hScroll3"
+                        android:id="@+id/offsetRV"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"

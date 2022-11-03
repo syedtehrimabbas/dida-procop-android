@@ -29,20 +29,33 @@ class HomeVM @Inject constructor(
     private val _categoriesList: MutableLiveData<ArrayList<Category>> = MutableLiveData()
     override val categoriesList: LiveData<ArrayList<Category>> = _categoriesList
 
-    private val _currentOfferProducts: MutableLiveData<List<Product>> = MutableLiveData()
-    override val currentOfferProducts: LiveData<List<Product>> = _currentOfferProducts
+    private val _1802ColorProducts: MutableLiveData<List<Product>> = MutableLiveData()
+    override val colorProducts: LiveData<List<Product>> = _1802ColorProducts
 
-    private val _procopExclusiveProducts: MutableLiveData<List<Product>> = MutableLiveData()
-    override val procopExclusiveProducts: LiveData<List<Product>> = _procopExclusiveProducts
+    private val _gmundusedProducts: MutableLiveData<List<Product>> = MutableLiveData()
+    override val gmundusedProducts: LiveData<List<Product>> = _gmundusedProducts
 
-    private val _marquesEnTendanceProducts: MutableLiveData<List<Product>> = MutableLiveData()
-    override val marquesEnTendanceProducts: LiveData<List<Product>> = _marquesEnTendanceProducts
+    private val _offsetProducts: MutableLiveData<List<Product>> = MutableLiveData()
+    override val offsetProducts: LiveData<List<Product>> = _offsetProducts
+
+    private val _numericProducts: MutableLiveData<List<Product>> = MutableLiveData()
+    override val numericProducts: LiveData<List<Product>> = _numericProducts
+
+    private val _nuancierProducts: MutableLiveData<List<Product>> = MutableLiveData()
+    override val nuancierProducts: LiveData<List<Product>> = _nuancierProducts
+
+    private val _offresProducts: MutableLiveData<List<Product>> = MutableLiveData()
+    override val offresProducts: LiveData<List<Product>> = _offresProducts
 
     init {
         fetchCategories()
-        fetchOnSaleProducts()
-        fetchProcopExclusive()
-        fetchMarquesEnTendance()
+        fetchProductByCategories(1141) // 1802 1141
+        fetchProductByCategories(2639) // Gmundused 2639
+        fetchProductByCategories(986) // Offset 986
+        fetchProductByCategories(1231) // Numeric  1231
+        fetchProductByCategories(1723) // Nuancier 1723
+        fetchProductByCategories(15) // Offres 15
+
         databaseHelper.cartCount()
         databaseHelper.favouriteCount()
         sessionManager.setUser()
@@ -86,7 +99,7 @@ class HomeVM @Inject constructor(
             })
     }
 
-    override fun fetchOnSaleProducts() {
+    override fun fetchProductByCategories(catId: Int) {
         woocommerce.ProductRepository().productByCategory(1141)
             .enqueue(object : Callback<List<Product>> {
                 override fun onResponse(
@@ -96,7 +109,14 @@ class HomeVM @Inject constructor(
                     loading(false)
                     response.let {
                         if (it.isSuccessful) {
-                            _currentOfferProducts.postValue(it.body())
+                            when (catId) {
+                                1141 -> _1802ColorProducts.postValue(it.body())
+                                2639 -> _gmundusedProducts.postValue(it.body())
+                                986 -> _offsetProducts.postValue(it.body())
+                                1231 -> _numericProducts.postValue(it.body())
+                                1723 -> _nuancierProducts.postValue(it.body())
+                                15 -> _offresProducts.postValue(it.body())
+                            }
                         }
                     }
                 }
@@ -107,56 +127,56 @@ class HomeVM @Inject constructor(
             })
     }
 
-    override fun fetchProcopExclusive() {
-//        loading(true)
+//    override fun fetchProcopExclusive() {
+////        loading(true)
+////        val filters = ProductFilter()
+////        filters.setOrderby("menu_order")
+//
+//        woocommerce.ProductRepository().productByCategory(2639)
+//            .enqueue(object : Callback<List<Product>> {
+//                override fun onResponse(
+//                    call: Call<List<Product>>,
+//                    response: Response<List<Product>>
+//                ) {
+//                    loading(false)
+//                    response.let {
+//                        if (it.isSuccessful) {
+//                            _gmundusedProducts.postValue(it.body())
+//                        }
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<List<Product>>, t: Throwable) {
+//                    t.message?.let { loading(false, it) }
+//                }
+//            })
+//    }
+//
+//    override fun fetchMarquesEnTendance() {
+////        loading(true)
 //        val filters = ProductFilter()
-//        filters.setOrderby("menu_order")
-
-        woocommerce.ProductRepository().productByCategory(2639)
-            .enqueue(object : Callback<List<Product>> {
-                override fun onResponse(
-                    call: Call<List<Product>>,
-                    response: Response<List<Product>>
-                ) {
-                    loading(false)
-                    response.let {
-                        if (it.isSuccessful) {
-                            _procopExclusiveProducts.postValue(it.body())
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<List<Product>>, t: Throwable) {
-                    t.message?.let { loading(false, it) }
-                }
-            })
-    }
-
-    override fun fetchMarquesEnTendance() {
-//        loading(true)
-        val filters = ProductFilter()
-        filters.setOrder("date_created")
-        filters.setOrder(Sort.ASCENDING)
-
-        woocommerce.ProductRepository().products(filters)
-            .enqueue(object : Callback<List<Product>> {
-                override fun onResponse(
-                    call: Call<List<Product>>,
-                    response: Response<List<Product>>
-                ) {
-                    loading(false)
-                    response.let {
-                        if (it.isSuccessful) {
-                            _marquesEnTendanceProducts.postValue(it.body())
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<List<Product>>, t: Throwable) {
-                    t.message?.let { loading(false, it) }
-                }
-            })
-    }
+//        filters.setOrder("date_created")
+//        filters.setOrder(Sort.ASCENDING)
+//
+//        woocommerce.ProductRepository().products(filters)
+//            .enqueue(object : Callback<List<Product>> {
+//                override fun onResponse(
+//                    call: Call<List<Product>>,
+//                    response: Response<List<Product>>
+//                ) {
+//                    loading(false)
+//                    response.let {
+//                        if (it.isSuccessful) {
+//                            _offsetProducts.postValue(it.body())
+//                        }
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<List<Product>>, t: Throwable) {
+//                    t.message?.let { loading(false, it) }
+//                }
+//            })
+//    }
 
     fun endUserSession() {
         sessionManager.endUserSession()

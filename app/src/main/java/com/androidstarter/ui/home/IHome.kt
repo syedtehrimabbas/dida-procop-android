@@ -11,12 +11,14 @@ interface IHome {
 
     interface ViewModel : IBase.ViewModel<State> {
         val categoriesList: LiveData<ArrayList<Category>>
-        val currentOfferProducts: LiveData<List<Product>>
-        val procopExclusiveProducts: LiveData<List<Product>>
-        val marquesEnTendanceProducts: LiveData<List<Product>>
+        val colorProducts: LiveData<List<Product>>
+        val gmundusedProducts: LiveData<List<Product>>
+        val offsetProducts: LiveData<List<Product>>
+        val numericProducts: LiveData<List<Product>>
+        val nuancierProducts: LiveData<List<Product>>
         fun fetchCategories()
-        fun fetchOnSaleProducts()
-        fun fetchProcopExclusive()
-        fun fetchMarquesEnTendance()
+        fun fetchProductByCategories(catId:Int)
+//        fun fetchProcopExclusive()
+//        fun fetchMarquesEnTendance()
     }
 }
