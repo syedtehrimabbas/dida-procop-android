@@ -100,13 +100,12 @@ class HomeVM @Inject constructor(
     }
 
     override fun fetchProductByCategories(catId: Int) {
-        woocommerce.ProductRepository().productByCategory(1141)
+        woocommerce.ProductRepository().productByCategory(catId)
             .enqueue(object : Callback<List<Product>> {
                 override fun onResponse(
                     call: Call<List<Product>>,
                     response: Response<List<Product>>
                 ) {
-                    loading(false)
                     response.let {
                         if (it.isSuccessful) {
                             when (catId) {
@@ -115,13 +114,17 @@ class HomeVM @Inject constructor(
                                 986 -> _offsetProducts.postValue(it.body())
                                 1231 -> _numericProducts.postValue(it.body())
                                 1723 -> _nuancierProducts.postValue(it.body())
-                                15 -> _offresProducts.postValue(it.body())
+                                15 -> {
+                                    _offresProducts.postValue(it.body())
+                                    loading(false)
+                                }
                             }
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<List<Product>>, t: Throwable) {
+                    fetchProductByCategories(catId)
                     t.message?.let { loading(false, it) }
                 }
             })

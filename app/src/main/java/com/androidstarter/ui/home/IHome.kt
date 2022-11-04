@@ -16,6 +16,7 @@ interface IHome {
         val offsetProducts: LiveData<List<Product>>
         val numericProducts: LiveData<List<Product>>
         val nuancierProducts: LiveData<List<Product>>
+        val offresProducts: LiveData<List<Product>>
         fun fetchCategories()
         fun fetchProductByCategories(catId:Int)
 //        fun fetchProcopExclusive()

@@ -44,19 +44,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Home"
+                android:text="@string/app_name"
                 app:layout_constraintBottom_toBottomOf="@+id/drawerButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/drawerButton" />
 
             <ImageView
-                android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                 android:id="@+id/cartImage"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="35dp"
+                android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/cart_icon" />
@@ -79,11 +79,11 @@
                 app:layout_constraintTop_toTopOf="@+id/cartImage" />
 
             <ImageView
-                android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                 android:id="@+id/favImage"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginEnd="25dp"
+                android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                 app:layout_constraintBottom_toBottomOf="@+id/cartImage"
                 app:layout_constraintEnd_toStartOf="@+id/cartImage"
                 app:layout_constraintTop_toTopOf="@+id/cartImage"
@@ -128,11 +128,11 @@
                         android:layout_marginTop="13dp"
                         android:layout_marginEnd="15dp"
                         android:background="@drawable/input_field"
+                        android:editable="false"
                         android:ems="10"
                         android:fontFamily="@font/poppins"
-                        android:hint="Search"
                         android:gravity="center_vertical"
-                        android:editable="false"
+                        android:hint="Search"
                         android:inputType="text"
                         android:paddingStart="52dp"
                         android:paddingEnd="18dp"
@@ -143,12 +143,12 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                         android:id="@+id/filterBtn"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_marginEnd="35dp"
                         android:background="@drawable/circle_black"
+                        android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                         android:padding="13dp"
                         android:src="@drawable/filter_icon_white"
                         app:layout_constraintBottom_toBottomOf="@+id/searchBar"
@@ -166,145 +166,220 @@
                         app:layout_constraintStart_toStartOf="@+id/searchBar"
                         app:layout_constraintTop_toTopOf="@+id/searchBar" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/catRecyclerView"
+                    <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="19dp"
-                        android:layout_marginEnd="10dp"
-                        android:orientation="horizontal"
-                        android:scrollbars="none"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="vertical"
+                        android:padding="16dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/searchBar" />
+                        app:layout_constraintTop_toBottomOf="@+id/searchBar">
 
-                    <com.denzcoskun.imageslider.ImageSlider
-                        android:id="@+id/image_slider"
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginTop="16dp"
-                        app:iss_auto_cycle="true"
-                        app:iss_corner_radius="0"
-                        app:iss_delay="0"
-                        app:iss_period="2000"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/catRecyclerView" />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/catRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="19dp"
+                            android:orientation="horizontal"
+                            android:scrollbars="none"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-                    <TextView
-                        android:id="@+id/currentOffers"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:text="1802 COLOR"
-                        android:textColor="@color/black"
-                        android:textSize="19sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/image_slider" />
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/image_slider"
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:layout_marginTop="16dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/slider1"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/colorProductsRV"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal"
-                        android:scrollbars="none"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/currentOffers"
-                        tools:itemCount="10"
-                        tools:listitem="@layout/layout_product_item" />
+                        <TextView
+                            android:id="@+id/currentOffers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="1802 COLOR"
+                            android:textColor="@color/black"
+                            android:textSize="19sp" />
 
-                    <TextView
-                        android:id="@+id/exclusives"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:text="NOUVEAUTÉ GMUND USED"
-                        android:textColor="@color/black"
-                        android:textSize="19sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/colorProductsRV" />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/colorProductsRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal"
+                            android:scrollbars="none"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/currentOffers"
+                            tools:itemCount="10"
+                            tools:listitem="@layout/layout_product_item" />
 
-                    <ImageView
-                        android:id="@+id/exclusiveFilterBtn"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="15dp"
-                        android:padding="13dp"
-                        android:src="@drawable/filter_icon_white"
-                        app:layout_constraintBottom_toBottomOf="@+id/exclusives"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/colorProductsRV"
-                        app:tint="#777777"
-                        android:visibility="invisible"/>
+                        <TextView
+                            android:id="@+id/exclusives"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="NOUVEAUTÉ GMUND USED"
+                            android:textColor="@color/black"
+                            android:textSize="19sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/colorProductsRV" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/gmundusedRV"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal"
-                        android:scrollbars="none"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/exclusives"
-                        app:layout_constraintVertical_bias="0.0"
-                        tools:itemCount="10"
-                        tools:listitem="@layout/layout_category_box" />
 
-                    <TextView
-                        android:id="@+id/marqueTendance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:text="Trending Brands"
-                        android:textColor="@color/black"
-                        android:textSize="19sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/gmundusedRV" />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/gmundusedRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal"
+                            android:scrollbars="none"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/exclusives"
+                            app:layout_constraintVertical_bias="0.0"
+                            tools:itemCount="10"
+                            tools:listitem="@layout/layout_product_item" />
 
-                    <ImageView
-                        android:id="@+id/exclusiveFilterBtn1"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="15dp"
-                        android:padding="13dp"
-                        android:src="@drawable/filter_icon_white"
-                        app:layout_constraintBottom_toBottomOf="@+id/marqueTendance"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/gmundusedRV"
-                        app:tint="#777777"
-                        android:visibility="invisible" />
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:layout_marginTop="16dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/slider2"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/offsetRV"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal"
-                        android:scrollbars="none"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/marqueTendance"
-                        app:layout_constraintVertical_bias="0.0"
-                        tools:itemCount="10"
-                        tools:listitem="@layout/layout_product_item" />
+                        <TextView
+                            android:id="@+id/marqueTendance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="PAPIER OFFSET"
+                            android:textColor="@color/black"
+                            android:textSize="19sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/gmundusedRV" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/offsetRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal"
+                            android:scrollbars="none"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/marqueTendance"
+                            app:layout_constraintVertical_bias="0.0"
+                            tools:itemCount="10"
+                            tools:listitem="@layout/layout_product_item" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="PAPIER NUMÉRIQUE"
+                            android:textColor="@color/black"
+                            android:textSize="19sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/gmundusedRV" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/numericRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal"
+                            android:scrollbars="none"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/marqueTendance"
+                            app:layout_constraintVertical_bias="0.0"
+                            tools:itemCount="10"
+                            tools:listitem="@layout/layout_product_item" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:layout_marginTop="16dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/slider3"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="NUANCIERS"
+                            android:textColor="@color/black"
+                            android:textSize="19sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/gmundusedRV" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/nuancierRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal"
+                            android:scrollbars="none"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/marqueTendance"
+                            app:layout_constraintVertical_bias="0.0"
+                            tools:itemCount="10"
+                            tools:listitem="@layout/layout_product_item" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="OFFRES EN COURS"
+                            android:textColor="@color/black"
+                            android:textSize="19sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/gmundusedRV" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/offersRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal"
+                            android:scrollbars="none"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/marqueTendance"
+                            app:layout_constraintVertical_bias="0.0"
+                            tools:itemCount="10"
+                            tools:listitem="@layout/layout_product_item" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>

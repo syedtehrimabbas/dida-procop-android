@@ -48,6 +48,7 @@ class HomeFragment :
     @Inject
     lateinit var nuancierProductsAdapter: ProductsAdapter
 
+    @Inject
     lateinit var offresProductsAdapter: ProductsAdapter
 
     override fun onClick(id: Int) {
@@ -112,7 +113,6 @@ class HomeFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
-        setupSlider()
         viewModel.categoriesList.observe(viewLifecycleOwner, ::setCategories)
         
         viewModel.colorProducts.observe(viewLifecycleOwner, ::set1802ColorProducts)
@@ -126,8 +126,6 @@ class HomeFragment :
         mViewDataBinding.searchBar.setOnClickListener {
             navigate(R.id.action_homeFragment_to_searchProductFragment)
         }
-        mViewDataBinding.exclusiveFilterBtn.setOnClickListener(underDevClick)
-        mViewDataBinding.exclusiveFilterBtn1.setOnClickListener(underDevClick)
     }
 
     private fun initRecyclerView() {
@@ -140,7 +138,9 @@ class HomeFragment :
             colorProductsRV.adapter = productAdapter
             gmundusedRV.adapter = gmundusedAdapter
             offsetRV.adapter = offsetProductsAdapter
-
+            numericRV.adapter = numericProductsAdapter
+            nuancierRV.adapter = nuancierProductsAdapter
+            offersRV.adapter = offresProductsAdapter
 
             productAdapter.onItemClickListener = productClickListener
             gmundusedAdapter.onItemClickListener = productClickListener
@@ -207,12 +207,6 @@ class HomeFragment :
     
     private fun setOffresProducts(listProduct: List<Product>) {
         offresProductsAdapter.setList(listProduct)
-    }
-
-    private fun setupSlider() {
-        val imageList = ArrayList<SlideModel>()
-        imageList.add(SlideModel(R.drawable.slider1, ScaleTypes.CENTER_CROP))
-        mViewDataBinding.imageSlider.setImageList(imageList)
     }
 
     override fun onBackPressed(): Boolean {
