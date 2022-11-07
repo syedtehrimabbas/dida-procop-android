@@ -106,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:drawableEnd="@drawable/ic_mendatory"
                         android:fontFamily="@font/poppins"
-                        android:text="First name "
+                        android:text="@string/screen_billing_address_first_name"
                         android:textColor="@color/black" />
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -140,7 +140,7 @@
                         android:layout_height="wrap_content"
                         android:drawableEnd="@drawable/ic_mendatory"
                         android:fontFamily="@font/poppins"
-                        android:text="Last name "
+                        android:text="@string/screen_billing_address_last_name"
                         android:textColor="@color/black" />
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -177,7 +177,7 @@
                     android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/ic_mendatory"
                     android:fontFamily="@font/poppins"
-                    android:text="Email "
+                    android:text="@string/screen_billing_address_email"
                     android:textColor="@color/black" />
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -212,7 +212,7 @@
                     android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/ic_mendatory"
                     android:fontFamily="@font/poppins"
-                    android:text="Country/region "
+                    android:text="@string/screen_billing_address_country_region"
                     android:textColor="@color/black" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -252,7 +252,7 @@
                     android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/ic_mendatory"
                     android:fontFamily="@font/poppins"
-                    android:text="Street number and name "
+                    android:text="@string/screen_billing_address_street_number_and_name"
                     android:textColor="@color/black" />
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -265,7 +265,7 @@
                     android:drawablePadding="13dp"
                     android:ems="10"
                     android:fontFamily="@font/poppins"
-                    android:hint="Lane number and street name"
+                    android:hint="@string/screen_billing_address_lane_number_and_street_name_hint"
                     android:inputType="textPostalAddress"
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
@@ -285,7 +285,7 @@
                     android:drawablePadding="13dp"
                     android:ems="10"
                     android:fontFamily="@font/poppins"
-                    android:hint="Building, apartment, lot, etch (optional)"
+                    android:hint="@string/screen_billing_address_building_apartment_lot_etch_optional_title"
                     android:inputType="textPostalAddress"
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
@@ -315,7 +315,7 @@
                         android:layout_height="wrap_content"
                         android:drawableEnd="@drawable/ic_mendatory"
                         android:fontFamily="@font/poppins"
-                        android:text="Zip Code "
+                        android:text="@string/screen_billing_address_zip_code_title"
                         android:textColor="@color/black" />
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -348,7 +348,7 @@
                         android:layout_height="wrap_content"
                         android:drawableEnd="@drawable/ic_mendatory"
                         android:fontFamily="@font/poppins"
-                        android:text="City name "
+                        android:text="@string/screen_billing_address_city_name_title"
                         android:textColor="@color/black" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -389,7 +389,7 @@
                     android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/ic_mendatory"
                     android:fontFamily="@font/poppins"
-                    android:text="Phone no "
+                    android:text="@string/screen_billing_address_phone_no_title"
                     android:textColor="@color/black" />
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -423,7 +423,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Company name ( optional) "
+                    android:text="@string/screen_billing_address_company_name_optional_title"
                     android:textColor="@color/black" />
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -455,7 +455,7 @@
                 android:enabled="@{viewModel.validator.isValidate , default = false}"
                 android:fontFamily="@font/poppins_medium"
                 android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                android:text="Checkout"
+                android:text="@string/common_checkout_button_title"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="17sp"

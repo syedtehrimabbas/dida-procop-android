@@ -35,7 +35,7 @@
                 android:paddingBottom="3dp"
                 android:textColor="@color/appBlack"
                 android:textSize="14.5sp"
-                tools:text="All" />
+                tools:text="@string/layout_category_item_all" />
         </androidx.cardview.widget.CardView>
 
     </RelativeLayout>

@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="Description"
+                android:text="@string/common_description"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp" />
 
@@ -129,7 +129,7 @@
             android:background="@drawable/button_back_pink"
             android:fontFamily="@font/poppins"
             android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-            android:text="Add to cart"
+            android:text="@string/common_add_to_cart"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="17sp"

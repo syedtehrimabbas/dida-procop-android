@@ -107,7 +107,7 @@
                     android:layout_gravity="center"
                     android:drawableTop="@drawable/ic_credit_card"
                     android:drawablePadding="10dp"
-                    android:text="Credit Card"
+                    android:text="@string/screen_payment_credit_card"
                     android:textColor="@color/black" />
             </FrameLayout>
 
@@ -127,7 +127,7 @@
                     android:layout_gravity="center"
                     android:drawableTop="@drawable/ic_paypal"
                     android:drawablePadding="10dp"
-                    android:text="PayPal"
+                    android:text="@string/screen_payment_paypal"
                     android:textColor="@color/black" />
             </FrameLayout>
 
@@ -147,7 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:text="Card number "
+                android:text="@string/screen_payment_card_number_title"
                 android:textColor="@color/black" />
 
             <com.google.android.material.textfield.TextInputEditText
@@ -159,7 +159,7 @@
                 android:background="@drawable/input_field"
                 android:ems="10"
                 android:fontFamily="@font/poppins"
-                android:hint="******"
+                android:hint="@string/screen_payment_card_title_hint"
                 android:inputType="number"
                 android:letterSpacing="1.5"
                 android:paddingStart="18dp"
@@ -189,7 +189,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Date "
+                    android:text="@string/screen_payment_date_title"
                     android:textColor="@color/black" />
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -201,7 +201,7 @@
                     android:background="@drawable/input_field"
                     android:ems="10"
                     android:fontFamily="@font/poppins"
-                    android:hint="**/**"
+                    android:hint="@string/screen_payment_title_hint"
                     android:inputType="date"
                     android:letterSpacing="1.5"
                     android:paddingStart="18dp"
@@ -222,7 +222,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="CVV "
+                    android:text="@string/screen_payment_cvv_title"
                     android:textColor="@color/black" />
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -234,7 +234,7 @@
                     android:background="@drawable/input_field"
                     android:ems="10"
                     android:fontFamily="@font/poppins"
-                    android:hint="***"
+                    android:hint="@string/screen_payment_cvv_hint"
                     android:inputType="number"
                     android:letterSpacing="1.5"
                     android:paddingStart="18dp"
@@ -258,7 +258,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:text="Card number "
+                android:text="@string/screen_payment_card_number_title"
                 android:textColor="@color/black" />
 
             <com.google.android.material.textfield.TextInputEditText
@@ -270,7 +270,7 @@
                 android:background="@drawable/input_field"
                 android:ems="10"
                 android:fontFamily="@font/poppins"
-                android:hint="******"
+                android:hint="@string/screen_payment_card_title_hint"
                 android:inputType="number"
                 android:letterSpacing="1.5"
                 android:paddingStart="18dp"
@@ -302,7 +302,7 @@
             android:layout_marginBottom="30dp"
             android:background="@drawable/button_back_pink"
             android:fontFamily="@font/poppins_medium"
-            android:text="Pay"
+            android:text="@string/screen_payment_pay_title"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="17sp"

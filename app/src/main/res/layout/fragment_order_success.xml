@@ -101,7 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Your Order has been\nplaced successfully!"
+                android:text="@string/screen_order_success_title"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="19sp" />
@@ -112,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
                 android:fontFamily="@font/poppins"
-                android:text="You can check your order process\nin my orders sections"
+                android:text="@string/screen_order_success_description"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
@@ -130,7 +130,7 @@
             android:background="@drawable/button_back_pink"
             android:fontFamily="@font/poppins_medium"
             android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-            android:text="My Orders"
+            android:text="@string/screen_order_my_orders_button_title"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="17sp"

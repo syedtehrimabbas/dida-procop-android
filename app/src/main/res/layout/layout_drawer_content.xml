@@ -86,7 +86,7 @@
                     android:drawablePadding="15dp"
                     android:fontFamily="@font/poppins"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="Home"
+                    android:text="@string/layout_drawer_menu_item_home"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -99,7 +99,7 @@
                     android:drawablePadding="15dp"
                     android:fontFamily="@font/poppins"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="My Orders"
+                    android:text="@string/layout_drawer_menu_item_my_orders"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -112,7 +112,7 @@
                     android:drawablePadding="15dp"
                     android:fontFamily="@font/poppins"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="Profile"
+                    android:text="@string/layout_drawer_menu_item_profile"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -125,7 +125,7 @@
                     android:drawablePadding="15dp"
                     android:fontFamily="@font/poppins"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="Settings"
+                    android:text="@string/layout_drawer_menu_item_settings"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -139,7 +139,7 @@
                     android:drawablePadding="15dp"
                     android:fontFamily="@font/poppins"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="FAQ"
+                    android:text="@string/layout_drawer_menu_item_faq"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -152,7 +152,7 @@
                     android:drawablePadding="15dp"
                     android:fontFamily="@font/poppins"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="About"
+                    android:text="@string/layout_drawer_menu_item_about"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -165,7 +165,7 @@
                     android:drawablePadding="15dp"
                     android:fontFamily="@font/poppins"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="Contact"
+                    android:text="@string/layout_drawer_menu_item_contact"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -178,7 +178,7 @@
                     android:drawablePadding="15dp"
                     android:fontFamily="@font/poppins"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="Logout"
+                    android:text="@string/layout_drawer_menu_item_logout"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 

@@ -29,7 +29,7 @@
                 android:layout_toStartOf="@id/btn"
                 android:fontFamily="@font/poppins"
                 android:paddingStart="7dp"
-                android:text="Change password"
+                android:text="@string/screen_settings_change_password"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -76,7 +76,7 @@
                 android:layout_toStartOf="@id/languageName"
                 android:fontFamily="@font/poppins"
                 android:paddingStart="7dp"
-                android:text="Language"
+                android:text="@string/screen_settings_language"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -89,7 +89,7 @@
                 android:layout_marginEnd="11dp"
                 android:layout_toStartOf="@id/btn1"
                 android:fontFamily="@font/poppins"
-                android:text="English"
+                android:text="@string/screen_settings_english"
                 android:textAlignment="center"
                 android:textColor="@color/appGrey"
                 android:textSize="13.5sp" />

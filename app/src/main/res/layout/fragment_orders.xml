@@ -55,7 +55,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="There are no orders yet."
+                android:text="@string/screen_orders_no_orders_title"
                 android:textSize="@dimen/_15sdp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -65,7 +65,7 @@
                 android:layout_marginTop="25dp"
                 android:background="@drawable/button_back_pink"
                 android:fontFamily="@font/poppins"
-                android:text="SHOP NOW"
+                android:text="@string/screen_orders_shop_now_button_title"
                 android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
