@@ -93,11 +93,11 @@ class ProductsAdapter @Inject constructor(
     }
 
     fun setRemoveCartText(view: AppCompatButton) {
-        view.text = "Remove Cart"
+        view.text = view.context.getString(R.string.common_remove_to_cart)
     }
 
     fun setAddCartText(view: AppCompatButton) {
-        view.text = "Add to cart"
+        view.text = view.context.getString(R.string.common_add_to_cart)
     }
 
     override val viewModelScope: CoroutineScope

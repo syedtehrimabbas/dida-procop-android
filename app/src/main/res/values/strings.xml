@@ -65,7 +65,10 @@
     <string name="common_send">Send</string>
     <string name="common_favourite_title">Favourite</string>
     <string name="common_add_to_cart">Add to cart</string>
+    <string name="common_remove_to_cart">Remove Cart</string>
     <string name="common_search">Search</string>
+    <string name="common_total_title">Total</string>
+    <string name="common_language_changed">Application Language successfully changed to </string>
 
 
     <string name="screen_billing_address_first_name">First name </string>
@@ -89,7 +92,6 @@
     <string name="screen_payment_cvv_title">"CVV "</string>
     <string name="screen_payment_cvv_hint">***</string>
     <string name="screen_payment_pay_title">Pay</string>
-    <string name="common_total_title">Total</string>
 
     <string name="screen_cart_text_title">Cart</string>
     <string name="screen_cart_apply_title">Apply</string>

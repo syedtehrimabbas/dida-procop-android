@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.androidstarter.ui.settings.SettingsVM" />
@@ -17,10 +18,10 @@
             android:id="@+id/tab1"
             android:layout_width="0dp"
             android:layout_height="55dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
@@ -55,8 +56,8 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="2dp"
             android:background="@color/appLightGrey"
-            app:layout_constraintEnd_toEndOf="@+id/tab1"
             android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/tab1"
             app:layout_constraintStart_toStartOf="@+id/tab1"
             app:layout_constraintTop_toBottomOf="@+id/tab1" />
 
@@ -75,7 +76,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="11dp"
-                android:layout_toStartOf="@id/languageName"
+                android:layout_toStartOf="@id/languageSpinner"
                 android:fontFamily="@font/poppins"
                 android:paddingStart="7dp"
                 android:text="@string/screen_settings_language"
@@ -83,28 +84,18 @@
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/languageName"
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/languageSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="11dp"
-                android:layout_toStartOf="@id/btn1"
+                android:layout_marginEnd="2dp"
                 android:fontFamily="@font/poppins"
                 android:text="@string/screen_settings_english"
                 android:textAlignment="center"
                 android:textColor="@color/appGrey"
                 android:textSize="13.5sp" />
-
-            <ImageView
-                android:id="@+id/btn1"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="2dp"
-                android:padding="1dp"
-                app:srcCompat="@drawable/ic_arrow_down" />
 
         </RelativeLayout>
 

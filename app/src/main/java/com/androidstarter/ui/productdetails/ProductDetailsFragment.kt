@@ -86,14 +86,14 @@ class ProductDetailsFragment :
     private fun setAddCartText() {
         viewModel.isInCart = false
         viewModel.launch(Dispatcher.Main) {
-            mViewDataBinding.addToCartBtn.text = "Add to cart"
+            mViewDataBinding.addToCartBtn.text = getString(R.string.common_add_to_cart)
         }
     }
 
     private fun setRemoveCartText() {
         viewModel.isInCart = true
         viewModel.launch(Dispatcher.Main) {
-            mViewDataBinding.addToCartBtn.text = "Remove Cart"
+            mViewDataBinding.addToCartBtn.text = getString(R.string.common_remove_to_cart)
         }
     }
 

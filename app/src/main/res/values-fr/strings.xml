@@ -1,0 +1,156 @@
+<resources>
+    <string name="app_name">Procop</string>
+    <string name="hello_world">Hello</string>
+
+    <!--Validation Error Messages start-->
+    <string name="error_message_date_validation">Format invalide</string>
+    <string name="error_message_id_validation">La valeur doit être comprise entre 13 et 15 caractères.</string>
+    <string name="error_message_regex_validation">Format invalide</string>
+    <string name="error_message_email_validation">Format Email invalide</string>
+    <string name="error_message_phone_email_validation">Format d\'e-mail ou de téléphone invalide</string>
+    <string name="error_message_first_name_validation">Format de prénom invalide</string>
+    <string name="error_message_last_name_validation">Format de nom de famille invalide</string>
+    <string name="error_message_cpf_validation">Format CPF invalide</string>
+    <string name="error_message_url_validation">Format url invalide</string>
+    <string name="error_message_credit_card_validation">Format de carte bancaire invalide</string>
+    <string name="error_message_empty_validation">Ce champ ne peut pas être vide</string>
+    <string name="error_message_not_equal_password">Les mots de passe sont différents</string>
+    <string name="error_message_not_equal_phone">Les numéros de mobile sont différents</string>
+    <string name="default_required_validation_message">Ce champs est requis</string>
+    <string name="error_message_postal_address">L\'adresse postale n\'est pas valide</string>
+    <string name="default_required_length_message_min_max">L\'entrée doit avoir une longueur comprise entre %1$d
+        et %2$d.
+    </string>
+    <string name="default_required_length_message_min">La longueur d\'entrée doit être supérieure à
+        ou égal à %1$d caractères.
+    </string>
+    <string name="default_required_length_message_max">La longueur d\'entrée doit être inférieure ou égale à
+        égal à %1$d caractères.
+    </string>
+    <string name="default_regex_validation_message">La valeur du champ ne correspond pas au
+        format requis.
+    </string>
+
+    <string name="error_passcode_sequence">Le code d\'accès ne peut pas être une séquence directe</string>
+    <string name="error_passcode_same_digits">Le code d\'accès ne peut pas être composé des mêmes chiffres</string>
+    <string name="login">Connexion</string>
+    <string name="enter_your_username_or_email">Entrez votre nom d\'utilisateur ou email</string>
+    <string name="remember_me">Se souvivenir de moi</string>
+    <string name="forgot_password">Mot de passe oublié?</string>
+    <string name="don_t_have_account">Pas de compte</string>
+    <string name="register">S\'inscrire</string>
+    <string name="username">Surnom</string>
+    <string name="email">Email</string>
+    <string name="password">Mot de passe</string>
+    <string name="already_have_an_account">Vous avez déjà un compte?</string>
+    <string name="confirm">Confirmer</string>
+    <string name="new_password">Nouveau mot de passe</string>
+    <string name="confirm_password">Confirmer mot de passe</string>
+    <string name="reset_password">Réinitialiser le mot de passe</string>
+    <string name="forgot_password_desc">Mot de passe oublié ? Veuillez saisir votre identifiant ou adresse mail. Vous recevrez un lien par email pour créer un nouveau mot de passe.</string>
+    <string name="identification_email">Identification email</string>
+
+    <string name="screen_about_text_title">À Propos</string>
+    <string name="screen_about_creative_title">Nous croyons que tout le monde est créatif</string>
+    <string name="screen_about_creative_description">Beaucoup confondent la créativité comme quelque chose que vous avez ou que vous n\'avez pas. En tant qu\'êtres humains, nos esprits sont capables de capturer l\'imagination et de transformer des pensées abstraites en idées.\nChez PROCOP, nous pensons que tout le monde peut créer et que la créativité est quelque chose que nous pouvons nourrir et encourager, car chaque enfant naît artiste.</string>
+    <string name="screen_about_heading_2_title">Avec les bons papiers, ressources et inspirations</string>
+    <string name="screen_about_heading_2_description">PROCOP garantit que dans tout ce que nous faisons, le soutien que nous fournissons peut vous aider et vous servir. Nous nous engageons à vous aider en vous fournissant ce dont vous avez besoin pour devenir la meilleure version de vous-même.</string>
+
+    <string name="screen_password_update_success_title">Mot de passe mis à jour!</string>
+    <string name="screen_password_update_success_description">Votre mot de passe a été changé avec succès!</string>
+
+    <string name="common_ok">OK</string>
+    <string name="common_description">Description</string>
+    <string name="common_checkout_button_title">Caisse</string>
+    <string name="common_send">Envoyer</string>
+    <string name="common_favourite_title">Favoris</string>
+    <string name="common_add_to_cart">Ajouter au panier</string>
+    <string name="common_remove_to_cart">Supprimer le panier</string>
+    <string name="common_search">Recherche</string>
+    <string name="common_language_changed">La langue de l\'application a été changée avec succès en </string>
+
+
+    <string name="screen_billing_address_first_name">Prénom </string>
+    <string name="screen_billing_address_last_name">Nom </string>
+    <string name="screen_billing_address_email">Email </string>
+    <string name="screen_billing_address_country_region">Région/Pays </string>
+    <string name="screen_billing_address_street_number_and_name">Numéro, nom de rue </string>
+    <string name="screen_billing_address_lane_number_and_street_name_hint">Numéro de voie et nom de rue</string>
+    <string name="screen_billing_address_building_apartment_lot_etch_optional_title">Immeuble, appartement, (optionnel)</string>
+    <string name="screen_billing_address_zip_code_title">Code Postal </string>
+    <string name="screen_billing_address_city_name_title">Ville </string>
+    <string name="screen_billing_address_phone_no_title">Num. Téléphone </string>
+    <string name="screen_billing_address_company_name_optional_title">Nom de l\'entreprise (facultatif)</string>
+
+    <string name="screen_payment_credit_card">Carte Bancaire</string>
+    <string name="screen_payment_paypal">PayPal</string>
+    <string name="screen_payment_card_number_title">"Nuémro Carte "</string>
+    <string name="screen_payment_card_title_hint">******</string>
+    <string name="screen_payment_date_title">"Date "</string>
+    <string name="screen_payment_title_hint">**/**</string>
+    <string name="screen_payment_cvv_title">"CVV "</string>
+    <string name="screen_payment_cvv_hint">***</string>
+    <string name="screen_payment_pay_title">Payer</string>
+    <string name="common_total_title">Total</string>
+
+    <string name="screen_cart_text_title">Panier</string>
+    <string name="screen_cart_apply_title">Appliquer</string>
+    <string name="screen_contact_us_you_have_questions_title">Vous avez une question?</string>
+    <string name="screen_contact_us_heading_description">Nous somme disponible du Lundi au Vendredi!</string>
+    <string name="screen_contact_us_phone">+33 (0)5 55 06 41 70</string>
+    <string name="screen_contact_us_email">Contact@Procop.Fr</string>
+    <string name="screen_contact_us_timing">Lundi – Vendredi: 9:00h – 18:00h</string>
+    <string name="screen_contact_us_write_us">Nous écrire</string>
+    <string name="screen_contact_us_your_name">Votre nom</string>
+    <string name="screen_contact_us_topic">Sujet</string>
+    <string name="screen_contact_us_type_message">Écrivez votre message…</string>
+
+
+    <string name="screen_home_category_1802_color">1802 COLOR</string>
+    <string name="screen_home_category_nouveaut_gmund_used">NOUVEAUTÉ GMUND USED</string>
+    <string name="screen_home_category_papier_offset">PAPIER OFFSET</string>
+    <string name="screen_home_category_papier_num_rique">PAPIER NUMÉRIQUE</string>
+    <string name="screen_home_category_nuanciers">NUANCIERS</string>
+    <string name="screen_home_category_offres_en_cours">OFFRES EN COURS</string>
+
+
+    <string name="screen_order_success_title">Votre commande a été\n passée avec succès!</string>
+    <string name="screen_order_success_description">Vous pouvez vérifier votre processus de commande\dans mes sections de commandes</string>
+    <string name="screen_order_my_orders_button_title">Mes Commandes</string>
+    <string name="screen_orders_no_orders_title">Aucun commande en cours.</string>
+    <string name="screen_orders_shop_now_button_title">COMMANDER</string>
+    <string name="screen_product_filters_choose_category">Choisir catégorie</string>
+    <string name="screen_product_filters_color">Couleurs</string>
+    <string name="screen_product_filters_brands">Marques</string>
+    <string name="screen_product_filters_thickness">Épaisseur</string>
+    <string name="screen_product_filters_filter">Filtrer</string>
+
+
+    <string name="screen_profile_billing_info">Info Facture</string>
+    <string name="screen_profile_first_name">Prénom</string>
+    <string name="screen_profile_street_number_and_name">Numéro et nom de rue</string>
+    <string name="screen_profile_phone">Téléphone</string>
+    <string name="screen_profile_company_name">Nom Société</string>
+
+
+    <string name="screen_settings_change_password">Changer mot de passe</string>
+    <string name="screen_settings_language">Langue</string>
+    <string name="screen_settings_english">English</string>
+
+
+    <string name="layout_category_item_all">Tout</string>
+    <string name="layout_drawer_menu_item_home">Procop</string>
+    <string name="layout_drawer_menu_item_my_orders">Mes Commandes</string>
+    <string name="layout_drawer_menu_item_profile">Profil</string>
+    <string name="layout_drawer_menu_item_settings">Paramètres</string>
+    <string name="layout_drawer_menu_item_faq">FAQ</string>
+    <string name="layout_drawer_menu_item_about">À Propos</string>
+    <string name="layout_drawer_menu_item_contact">Contact</string>
+    <string name="layout_drawer_menu_item_logout">Se Déconnecter</string>
+    <string name="layout_order_item_payment">Paiement</string>
+    <string name="layout_order_item_payment_mode">Mode de paiement</string>
+    <string name="layout_order_item_status">Statuts</string>
+    <string name="layout_order_item_give_review">Donner mon avis</string>
+    <string name="layout_product_fav_add_to_cart">Ajouter au panier</string>
+
+</resources>
