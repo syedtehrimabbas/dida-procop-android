@@ -59,11 +59,18 @@ class ProductsAdapter @Inject constructor(
             }
 
             launch {
-                cartProductDao.getProductById(item.id)?.let { _ ->
+                if (cartProductDao.getProductById(item.id) !== null) {
                     launch(Dispatcher.Main) {
                         setRemoveCartText(itemBinding.addToCartBtn)
                     }
-                } ?: setAddCartText(itemBinding.addToCartBtn)
+                    item.isInCart = true
+                } else {
+                    item.isInCart = false
+                    launch(Dispatcher.Main) {
+                        setAddCartText(itemBinding.addToCartBtn)
+                    }
+                }
+
             }
 
             launch {
@@ -77,15 +84,22 @@ class ProductsAdapter @Inject constructor(
             itemBinding.addToCartBtn.setOnClickListener {
                 launch {
                     onChildItemClickListener?.invoke(it, adapterPosition, item)
+                    launch(Dispatcher.Main) {
+                        if (item.isInCart)
+                            setRemoveCartText(itemBinding.addToCartBtn)
+                        else
+                            setAddCartText(itemBinding.addToCartBtn)
+                        notifyItemChanged(absoluteAdapterPosition)
+                    }
+
                 }
-                notifyDataSetChanged()
             }
 
             itemBinding.addToFavBtn.setOnClickListener {
                 launch {
                     onChildItemClickListener?.invoke(it, adapterPosition, item)
                 }
-                notifyDataSetChanged()
+                notifyItemChanged(absoluteAdapterPosition)
             }
 
             itemBinding.product = item

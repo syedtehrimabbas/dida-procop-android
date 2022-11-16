@@ -77,5 +77,7 @@ class Product : Serializable {
 
         return this.images.first().src!!
     }
+
+    var isInCart = false
 }
 

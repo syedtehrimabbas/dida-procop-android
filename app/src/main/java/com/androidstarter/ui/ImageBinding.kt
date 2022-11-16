@@ -35,7 +35,7 @@ object ImageBinding {
         quantity: Int,
         unitPrice: Double
     ) {
-        val totalPrice = String.format("%.2f", (quantity * unitPrice)).toDouble()
+        val totalPrice = String.format("%.2f", (quantity * unitPrice))
         textView.text = "€ $totalPrice"
     }
 }

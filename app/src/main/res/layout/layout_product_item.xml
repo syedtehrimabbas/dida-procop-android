@@ -75,6 +75,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="12sp"
+                android:padding="@dimen/_1sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/addToFavBtn"
                 app:layout_constraintStart_toStartOf="parent"

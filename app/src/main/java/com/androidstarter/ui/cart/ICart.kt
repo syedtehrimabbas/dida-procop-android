@@ -6,7 +6,7 @@ import com.androidstarter.data.cart.models.CartProduct
 
 interface ICart {
     interface State : IBase.State {
-        var totalAmount: MutableLiveData<Double>
+        var totalAmount: MutableLiveData<String>
     }
 
     interface ViewModel : IBase.ViewModel<State> {

@@ -60,7 +60,7 @@ class FilteredProductListFragment :
                 viewModel.databaseHelper.addToCart(data)
             }
             R.id.addToFavBtn -> {
-
+                viewModel.databaseHelper.addToFav(data)
             }
         }
     }

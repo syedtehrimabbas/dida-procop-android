@@ -8,7 +8,6 @@ import com.androidstarter.base.viewmodel.Dispatcher
 import com.androidstarter.base.viewmodel.HiltBaseViewModel
 import com.androidstarter.data.cart.dao.CartProductDao
 import com.androidstarter.data.cart.models.CartProduct
-import com.androidstarter.ui.home.DatabaseHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -40,7 +39,7 @@ class CartVM @Inject constructor(
     }
 
     fun calculateTotalCartPrice(list: List<CartProduct>) {
-        val amount = String.format("%.2f", list.sumOf { it.unitPrice * it.quantity }).toDouble()
+        val amount = String.format("%.2f", list.sumOf { it.unitPrice * it.quantity })
         viewState.totalAmount.postValue(amount)
     }
 }

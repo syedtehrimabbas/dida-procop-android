@@ -5,5 +5,5 @@ import com.androidstarter.base.state.BaseState
 import javax.inject.Inject
 
 class CartState @Inject constructor() : BaseState(), ICart.State {
-    override var totalAmount: MutableLiveData<Double> = MutableLiveData(0.0)
+    override var totalAmount: MutableLiveData<String> = MutableLiveData("0.0")
 }

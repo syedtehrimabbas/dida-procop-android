@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="@{`€ ` + String.valueOf(viewState.totalAmount)}"
+            android:text="@{`€ ` + viewState.totalAmount}"
             android:textColor="@color/appPink"
             android:textSize="16sp"
             android:gravity="end"
