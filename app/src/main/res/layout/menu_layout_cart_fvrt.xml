@@ -10,6 +10,7 @@
         android:layout_height="28dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="35dp"
+        android:padding="@dimen/_4sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cart_icon" />
@@ -35,6 +36,7 @@
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginEnd="25dp"
+        android:padding="@dimen/_4sdp"
         app:layout_constraintBottom_toBottomOf="@+id/cartImage"
         app:layout_constraintEnd_toStartOf="@+id/cartImage"
         app:layout_constraintTop_toTopOf="@+id/cartImage"
