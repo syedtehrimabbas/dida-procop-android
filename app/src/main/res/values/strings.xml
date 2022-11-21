@@ -65,7 +65,7 @@
     <string name="common_send">Send</string>
     <string name="common_favourite_title">Favourite</string>
     <string name="common_add_to_cart">Add to cart</string>
-    <string name="common_remove_to_cart">Remove Cart</string>
+    <string name="common_remove_to_cart">Added to Cart</string>
     <string name="common_search">Search</string>
     <string name="common_total_title">Total</string>
     <string name="common_language_changed">Application Language successfully changed to </string>

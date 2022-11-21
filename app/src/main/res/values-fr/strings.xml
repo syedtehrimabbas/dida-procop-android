@@ -65,7 +65,7 @@
     <string name="common_send">Envoyer</string>
     <string name="common_favourite_title">Favoris</string>
     <string name="common_add_to_cart">Ajouter au panier</string>
-    <string name="common_remove_to_cart">Supprimer le panier</string>
+    <string name="common_remove_to_cart">Ajouté au panier</string>
     <string name="common_search">Recherche</string>
     <string name="common_language_changed">La langue de l\'application a été changée avec succès en </string>
 
