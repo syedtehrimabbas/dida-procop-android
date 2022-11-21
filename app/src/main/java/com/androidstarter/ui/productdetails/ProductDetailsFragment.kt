@@ -16,6 +16,10 @@ import com.androidstarter.base.viewmodel.Dispatcher
 import com.androidstarter.databinding.FragmentProductDetailsBinding
 import com.androidstarter.ui.home.adapter.ProductAttributeAdapter
 import com.androidstarter.ui.interfaces.ProductUpdateListener
+import com.androidstarter.ui.productdetails.adapter.ProductImagesSliderAdapter
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType
+import com.smarteist.autoimageslider.SliderAnimations
+import com.smarteist.autoimageslider.SliderView
 import dagger.hilt.android.AndroidEntryPoint
 import me.gilo.woodroid.models.Product
 import me.gilo.woodroid.models.ProductAttribute
@@ -66,6 +70,9 @@ class ProductDetailsFragment :
     @Inject
     lateinit var attributeAdapter: ProductAttributeAdapter
 
+    @Inject
+    lateinit var productImagesSliderAdapter: ProductImagesSliderAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewState.product.observe(viewLifecycleOwner) {
@@ -79,8 +86,11 @@ class ProductDetailsFragment :
                 } ?: unFavourite()
             }
             attributeAdapter.setList(it.productAttributes.filter { productAttribute -> productAttribute.isVariation && productAttribute.isVisible })
+
+            productImagesSliderAdapter.setList(it.images)
         }
         initRecyclerView()
+        setupSlider()
     }
 
     private fun setAddCartText() {
@@ -123,6 +133,17 @@ class ProductDetailsFragment :
         with(mViewDataBinding) {
             attributeAdapter.onItemClickListener = attributeClickListener
             attributeRecyclerView.adapter = attributeAdapter
+        }
+    }
+
+    private fun setupSlider() {
+        with(mViewDataBinding) {
+            sliderView.setSliderAdapter(productImagesSliderAdapter)
+            sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM) //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+            sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION)
+            sliderView.autoCycleDirection = SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH
+            sliderView.scrollTimeInSec = 4 //set scroll delay in seconds :
+            sliderView.startAutoCycle()
         }
     }
 

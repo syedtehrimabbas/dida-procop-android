@@ -21,53 +21,57 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <!--        <com.jsibbold.zoomage.ZoomageView-->
+        <com.smarteist.autoimageslider.SliderView
+            android:id="@+id/sliderView"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_margin="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:sliderAnimationDuration="600"
+            app:sliderAutoCycleDirection="back_and_forth"
+            app:sliderAutoCycleEnabled="true"
+            app:sliderIndicatorAnimationDuration="600"
+            app:sliderIndicatorGravity="center_horizontal|bottom"
+            app:sliderIndicatorMargin="15dp"
+            app:sliderIndicatorOrientation="horizontal"
+            app:sliderIndicatorPadding="3dp"
+            app:sliderIndicatorRadius="2dp"
+            app:sliderIndicatorSelectedColor="#5A5A5A"
+            app:sliderIndicatorUnselectedColor="#FFF"
+            app:sliderScrollTimeInSec="1"
+            app:sliderStartAutoCycle="true" />
+
+        <!--        <com.google.android.material.imageview.ShapeableImageView-->
         <!--            android:id="@+id/imageView2"-->
-        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_width="0dp"-->
         <!--            android:layout_height="230dp"-->
         <!--            android:layout_marginStart="@dimen/_10sdp"-->
         <!--            android:layout_marginTop="20dp"-->
         <!--            android:layout_marginEnd="@dimen/_10sdp"-->
-        <!--            android:src="@drawable/sample_image"-->
+        <!--            android:scaleType="fitXY"-->
         <!--            app:imageUrl="@{viewState.product.featureImage}"-->
         <!--            app:layout_constraintEnd_toEndOf="parent"-->
         <!--            app:layout_constraintStart_toStartOf="parent"-->
         <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:zoomage_animateOnReset="true"-->
-        <!--            app:zoomage_autoCenter="true"-->
-        <!--            app:zoomage_autoResetMode="UNDER"-->
-        <!--            app:zoomage_maxScale="8"-->
-        <!--            app:zoomage_minScale="0.6"-->
-        <!--            app:zoomage_restrictBounds="false"-->
-        <!--            app:zoomage_translatable="true"-->
-        <!--            app:zoomage_zoomable="true" />-->
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imageView2"
-            android:layout_width="0dp"
-            android:layout_height="230dp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:scaleType="fitXY"
-            app:imageUrl="@{viewState.product.featureImage}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
-            app:srcCompat="@drawable/sample_image" />
+        <!--            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"-->
+        <!--            app:srcCompat="@drawable/sample_image" />-->
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="13dp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:fontFamily="@font/poppins_semibold"
             android:text="@{viewState.product.name}"
             android:textColor="@color/appBlack"
             android:textSize="19sp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintEnd_toEndOf="@+id/sliderView"
+            app:layout_constraintStart_toStartOf="@+id/sliderView"
+            app:layout_constraintTop_toBottomOf="@+id/sliderView" />
 
         <TextView
             android:id="@+id/textView6"

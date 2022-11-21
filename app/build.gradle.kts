@@ -70,4 +70,5 @@ dependencies {
     implementation("com.paypal.checkout:android-sdk:0.8.1")
     implementation("com.jsibbold:zoomage:1.3.1")
     implementation("com.github.xabaras:RecyclerViewSwipeDecorator:1.4")
+    implementation("com.github.smarteist:autoimageslider:1.4.0")
 }
