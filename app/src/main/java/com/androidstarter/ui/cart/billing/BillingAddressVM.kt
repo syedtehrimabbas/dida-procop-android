@@ -61,9 +61,9 @@ class BillingAddressVM @Inject constructor(
 
     override fun onCountrySelect(country: CountriesResponseItem) {
         viewState.country.postValue(country.name)
-        citiesList.postValue(country.states)
-        if (country.states.isNotEmpty())
-            onCitySelect(country.states[0])
+//        citiesList.postValue(country.states)
+//        if (country.states.isNotEmpty())
+//            onCitySelect(country.states[0])
     }
 
     override fun onCitySelect(city: CountryState) {

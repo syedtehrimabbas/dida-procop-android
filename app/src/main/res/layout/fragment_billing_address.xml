@@ -351,18 +351,16 @@
                         android:text="@string/screen_billing_address_city_name_title"
                         android:textColor="@color/black" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/cityNameET"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/input_field"
-                        android:drawableEnd="@drawable/ic_arrow_down"
                         android:drawablePadding="13dp"
                         android:ems="10"
                         android:gravity="center_vertical"
-                        android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                         android:fontFamily="@font/poppins"
                         android:inputType="textPersonName"
                         android:paddingStart="18dp"

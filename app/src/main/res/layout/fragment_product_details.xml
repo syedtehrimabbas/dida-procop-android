@@ -146,6 +146,8 @@
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:layout_marginEnd="50dp"
+            android:background="@color/white"
+            android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
             android:src="@drawable/circle_white_heart"
             app:layout_constraintBottom_toBottomOf="@+id/addToCartBtn"
             app:layout_constraintEnd_toEndOf="parent"

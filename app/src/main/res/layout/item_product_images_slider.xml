@@ -17,25 +17,13 @@
         app:cardCornerRadius="16dp"
         app:cardElevation=".1dp">
 
-        <com.jsibbold.zoomage.ZoomageView
+        <com.androidstarter.utils.ZoomImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
             android:src="@drawable/sample_image"
-            app:imageUrl="@{imageUrl}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
-            app:zoomage_animateOnReset="true"
-            app:zoomage_autoCenter="true"
-            app:zoomage_autoResetMode="UNDER"
-            app:zoomage_maxScale="8"
-            app:zoomage_minScale="0.6"
-            app:zoomage_restrictBounds="false"
-            app:zoomage_translatable="true"
-            app:zoomage_zoomable="true" />
+            app:imageUrl="@{imageUrl}" />
 
     </androidx.cardview.widget.CardView>
 </layout>
