@@ -1,5 +1,8 @@
 package com.androidstarter.ui.cart.billing
 
+import android.os.Bundle
+import android.view.View
+import android.widget.RadioGroup
 import androidx.fragment.app.viewModels
 import com.androidstarter.BR
 import com.androidstarter.R
@@ -18,7 +21,7 @@ class BillingAddressFragment :
     override val viewModel: BillingAddressVM by viewModels()
     override val layoutResId: Int = R.layout.fragment_billing_address
     override fun toolBarVisibility(): Boolean = true
-    override fun getToolBarTitle() = "Billing Address"
+    override fun getToolBarTitle() = getString(R.string.billing_address)
     override fun onClick(id: Int) {
         when (id) {
             R.id.countryET -> {
@@ -55,6 +58,13 @@ class BillingAddressFragment :
                     navigate(R.id.action_billingAddressFragment_to_cardsFragment, arguments)
                 }
             }
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mViewDataBinding.radioGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
+            viewState.showCompanyFields.value = checkedId == R.id.company
         }
     }
 }

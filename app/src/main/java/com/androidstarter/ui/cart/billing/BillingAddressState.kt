@@ -15,4 +15,5 @@ class BillingAddressState @Inject constructor() : BaseState(), IBillingAddress.S
     override val city: MutableLiveData<String> = MutableLiveData()
     override val phoneNo: MutableLiveData<String> = MutableLiveData("")
     override val companyNameOptional: MutableLiveData<String> = MutableLiveData()
+    override val showCompanyFields: MutableLiveData<Boolean> = MutableLiveData(false)
 }

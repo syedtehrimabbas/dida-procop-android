@@ -152,6 +152,10 @@
     <string name="layout_order_item_status">Status</string>
     <string name="layout_order_item_give_review">Give Review</string>
     <string name="layout_product_fav_add_to_cart">Add to cart</string>
-
+    <string name="billing_address">Billing Address</string>
+    <string name="company">Company</string>
+    <string name="individual">Individual</string>
+    <string name="num_siret">Num. Siret</string>
+    <string name="tva_intra_communautaire">Intra-community VAT:</string>
 
 </resources>

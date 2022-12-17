@@ -13,6 +13,7 @@
             name="viewState"
             type="com.androidstarter.ui.cart.billing.BillingAddressState" />
 
+        <import type="android.view.View" />
     </data>
 
     <ScrollView
@@ -44,7 +45,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_address_step" />
 
-
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/appCompatImageView"
                     android:layout_width="wrap_content"
@@ -72,7 +72,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_check_step" />
 
-
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="0dp"
                     android:layout_height="20dp"
@@ -85,6 +84,32 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stepsLayout">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/individual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:checked="true"
+                    android:text="@string/individual" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="@string/company" />
+            </RadioGroup>
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/namesLL"
                 android:layout_width="0dp"
@@ -92,7 +117,7 @@
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stepsLayout">
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -225,18 +250,17 @@
                     android:drawableEnd="@drawable/ic_arrow_down"
                     android:drawablePadding="13dp"
                     android:ems="10"
-                    android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                     android:fontFamily="@font/poppins"
+                    android:gravity="center_vertical"
                     android:inputType="textEmailAddress"
+                    android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
                     android:text="@={viewState.country}"
-                    android:gravity="center_vertical"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     app:validateEmpty="@{true}" />
             </androidx.appcompat.widget.LinearLayoutCompat>
-
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/address1LL"
@@ -360,8 +384,8 @@
                         android:background="@drawable/input_field"
                         android:drawablePadding="13dp"
                         android:ems="10"
-                        android:gravity="center_vertical"
                         android:fontFamily="@font/poppins"
+                        android:gravity="center_vertical"
                         android:inputType="textPersonName"
                         android:paddingStart="18dp"
                         android:paddingEnd="18dp"
@@ -434,10 +458,73 @@
                     android:drawablePadding="13dp"
                     android:ems="10"
                     android:fontFamily="@font/poppins"
-                    android:inputType="phone"
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
                     android:text="@={viewState.companyNameOptional}"
+                    android:textSize="15sp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/numSiretLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="@{viewState.showCompanyFields? View.VISIBLE:View.GONE}"
+                app:layout_constraintTop_toBottomOf="@id/companyNameLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/num_siret"
+                    android:textColor="@color/black" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/numSiretET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_field"
+                    android:drawablePadding="13dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:textSize="15sp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/companyVatLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="@{viewState.showCompanyFields? View.VISIBLE:View.GONE}"
+                app:layout_constraintTop_toBottomOf="@id/numSiretLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/tva_intra_communautaire"
+                    android:textColor="@color/black" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/companyVatET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/input_field"
+                    android:drawablePadding="13dp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
                     android:textSize="15sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -460,7 +547,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/companyNameLL" />
+                app:layout_constraintTop_toBottomOf="@id/companyVatLL" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

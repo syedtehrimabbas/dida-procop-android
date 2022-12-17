@@ -15,6 +15,7 @@ interface IBillingAddress {
         val city: MutableLiveData<String>
         val phoneNo: MutableLiveData<String>
         val companyNameOptional: MutableLiveData<String>
+        val showCompanyFields: MutableLiveData<Boolean>
     }
 
     interface ViewModel : IBase.ViewModel<State> {
