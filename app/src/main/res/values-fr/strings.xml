@@ -157,5 +157,6 @@
     <string name="individual">Individuelle</string>
     <string name="num_siret">Num. Siret</string>
     <string name="tva_intra_communautaire">Tva Intra-communautaire</string>
-
+    <string name="payment_methods">méthodes de paiements</string>
+    <string name="bank_transfer">Virement bancaire (Compte PROCOP)</string>
 </resources>

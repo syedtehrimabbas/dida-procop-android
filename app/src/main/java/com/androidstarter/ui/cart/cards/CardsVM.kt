@@ -49,7 +49,7 @@ class CardsVM @Inject constructor(
         }
     }
 
-    fun doOrder() {
+    fun doOrder(paymentMethodTitle: String, setPaid: Boolean) {
         launch {
             val lineItems: ArrayList<LineItem> = arrayListOf()
             val products = cartProductDao.getCartProducts()
@@ -71,6 +71,8 @@ class CardsVM @Inject constructor(
                 customerId = sessionManager.getUserId(),
                 billing = billingAddressData,
                 shipping = billingAddressData,
+                paymentMethodTitle = paymentMethodTitle,
+                setPaid = setPaid,
                 lineItems = lineItems,
                 shippingLines = arrayListOf(
                     ShippingLine(

@@ -29,7 +29,7 @@ class CardsFragment :
     override val viewModel: CardsVM by viewModels()
     override val layoutResId: Int = R.layout.fragment_cards
     override fun toolBarVisibility(): Boolean = true
-    override fun getToolBarTitle() = "Cards"
+    override fun getToolBarTitle() = getString(R.string.payment_methods)
     override fun onClick(id: Int) {
         when (id) {
             R.id.cardPayment -> viewState.selected.value = 1
@@ -67,7 +67,7 @@ class CardsFragment :
                 onApprove =
                 OnApprove { approval ->
                     approval.orderActions.capture { captureOrderResult ->
-                        viewModel.doOrder()
+                        viewModel.doOrder("Paypal", true)
                         Log.i("CaptureOrder", "CaptureOrderResult: $captureOrderResult")
                     }
                 },
@@ -81,6 +81,10 @@ class CardsFragment :
 //                    viewModel.doOrder()
                 }
             )
+            mViewDataBinding.bankTransfer.visibility = View.VISIBLE
+        }
+        mViewDataBinding.bankTransfer.setOnClickListener {
+            viewModel.doOrder("BankTransfer", false)
         }
     }
 }

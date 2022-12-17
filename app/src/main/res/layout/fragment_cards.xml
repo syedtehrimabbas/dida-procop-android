@@ -38,7 +38,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_address_step" />
 
-
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/appCompatImageView"
                 android:layout_width="wrap_content"
@@ -67,7 +66,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_check_step" />
-
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
@@ -288,9 +286,23 @@
             app:paypal_button_color="silver"
             app:paypal_button_enabled="true"
             app:paypal_button_label="pay"
-            app:paypal_color="blue"
             app:paypal_button_shape="rounded"
-            app:paypal_button_size="large" />
+            app:paypal_button_size="large"
+            app:paypal_color="blue" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bankTransfer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@drawable/button_back_pink"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/bank_transfer"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/payment_button_container" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/payBT"

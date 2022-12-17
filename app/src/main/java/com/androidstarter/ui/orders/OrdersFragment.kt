@@ -24,7 +24,7 @@ class OrdersFragment :
     override val viewModel: OrdersVM by viewModels()
     override val layoutResId: Int = R.layout.fragment_orders
     override fun toolBarVisibility(): Boolean = true
-    override fun getToolBarTitle() = "My Orders"
+    override fun getToolBarTitle() = getString(R.string.screen_order_my_orders_button_title)
 
     @Inject
     lateinit var ordersAdapterAdapter: OrdersAdapterAdapter
@@ -82,7 +82,6 @@ class OrdersFragment :
             if (it.isEmpty()) {
                 mViewDataBinding.recyclerView.visibility = View.GONE
                 mViewDataBinding.noOrderLayout.visibility = View.VISIBLE
-
             } else {
                 mViewDataBinding.recyclerView.visibility = View.VISIBLE
                 mViewDataBinding.noOrderLayout.visibility = View.GONE

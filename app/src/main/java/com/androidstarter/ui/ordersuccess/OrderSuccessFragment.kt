@@ -15,7 +15,7 @@ class OrderSuccessFragment :
     override val viewModel: OrderSuccessVM by viewModels()
     override val layoutResId: Int = R.layout.fragment_order_success
     override fun toolBarVisibility(): Boolean = true
-    override fun getToolBarTitle() = "Confirm"
+    override fun getToolBarTitle() = getString(R.string.confirm)
     override fun onClick(id: Int) {
         when (id) {
             R.id.myOrdersBt -> navigate(R.id.action_orderSuccessFragment_to_ordersFragment)
