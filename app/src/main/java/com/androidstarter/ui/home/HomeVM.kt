@@ -3,6 +3,7 @@ package com.androidstarter.ui.home
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.androidstarter.R
 import com.androidstarter.base.viewmodel.HiltBaseViewModel
 import com.androidstarter.data.sessions.SessionManager
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -84,7 +85,7 @@ class HomeVM @Inject constructor(
                             val list = mutableListOf<Category>()
                             val allCategory = Category()
                             allCategory.id = 1500
-                            allCategory.name = "All"
+                            allCategory.name = getString(R.string.all,context)
                             allCategory.display = "All Products"
                             list.add(allCategory)
                             (it.body() as MutableList<Category>?)?.let { it1 -> list.addAll(it1) }

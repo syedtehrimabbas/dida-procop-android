@@ -28,7 +28,7 @@ class SettingsFragment :
     override val viewModel: SettingsVM by viewModels()
     override val layoutResId: Int = R.layout.fragment_settings
     override fun toolBarVisibility(): Boolean = true
-    override fun getToolBarTitle() = "Settings"
+    override fun getToolBarTitle() = getString(R.string.layout_drawer_menu_item_settings)
     override fun onClick(id: Int) {}
     private val languages = arrayOf(
         "English", "French"

@@ -159,4 +159,6 @@
     <string name="tva_intra_communautaire">Tva Intra-communautaire</string>
     <string name="payment_methods">méthodes de paiements</string>
     <string name="bank_transfer">Virement bancaire (Compte PROCOP)</string>
+    <string name="search">Rechercher</string>
+    <string name="all">Tout</string>
 </resources>

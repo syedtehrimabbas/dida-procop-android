@@ -27,10 +27,9 @@ class SearchProductFragment :
     override val viewModel: SearchProductVM by viewModels()
     override val layoutResId: Int = R.layout.fragment_search_product
     override fun toolBarVisibility(): Boolean = true
-    override fun getToolBarTitle() = ""
+    override fun getToolBarTitle() = getString(R.string.search)
     override fun onClick(id: Int) {}
     override fun hasOptionMenu(): Boolean = true
-
 
     @Inject
     lateinit var searchProductAdapter: ProductsAdapter
@@ -56,7 +55,6 @@ class SearchProductFragment :
                 viewModel.databaseHelper.addToCart(data)
             }
             R.id.addToFavBtn -> {
-
             }
         }
     }

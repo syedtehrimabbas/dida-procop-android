@@ -159,4 +159,6 @@
     <string name="tva_intra_communautaire">Intra-community VAT:</string>
     <string name="payment_methods">Payment methods</string>
     <string name="bank_transfer">Bank transfer (PROCOP Account)</string>
+    <string name="search">Search</string>
+    <string name="all">All</string>
 </resources>
