@@ -33,8 +33,8 @@
                 android:layout_height="28dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:padding="@dimen/_4sdp"
                 android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                android:padding="@dimen/_4sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/menu_icon" />
@@ -46,6 +46,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/app_name"
+                android:textAllCaps="true"
                 app:layout_constraintBottom_toBottomOf="@+id/drawerButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,8 +58,8 @@
                 android:layout_height="28dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="35dp"
-                android:padding="@dimen/_4sdp"
                 android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                android:padding="@dimen/_4sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/cart_icon" />
@@ -85,8 +86,8 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginEnd="25dp"
-                android:padding="@dimen/_4sdp"
                 android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                android:padding="@dimen/_4sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/cartImage"
                 app:layout_constraintEnd_toStartOf="@+id/cartImage"
                 app:layout_constraintTop_toTopOf="@+id/cartImage"
@@ -121,7 +122,6 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/searchBar"
@@ -232,7 +232,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/colorProductsRV" />
 
-
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/gmundusedRV"
                             android:layout_width="match_parent"
@@ -269,7 +268,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/gmundusedRV" />
 
-
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/offsetRV"
                             android:layout_width="match_parent"
@@ -297,7 +295,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/gmundusedRV" />
 
-
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/numericRV"
                             android:layout_width="match_parent"
@@ -322,7 +319,6 @@
                             android:src="@drawable/slider3"
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent" />
 
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -333,7 +329,6 @@
                             android:textSize="19sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/gmundusedRV" />
-
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/nuancierRV"
@@ -351,7 +346,6 @@
                             tools:itemCount="10"
                             tools:listitem="@layout/layout_product_item" />
 
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -362,7 +356,6 @@
                             android:textSize="19sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/gmundusedRV" />
-
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/offersRV"
@@ -380,9 +373,7 @@
                             tools:itemCount="10"
                             tools:listitem="@layout/layout_product_item" />
 
-
                     </androidx.appcompat.widget.LinearLayoutCompat>
-
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>
