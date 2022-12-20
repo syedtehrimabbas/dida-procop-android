@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Procop</string>
-    <string name="hello_world">Hello</string>
+    <string name="app_name">PROCOP</string>
+    <string name="hello_world">Bonjour</string>
 
     <!--Validation Error Messages start-->
     <string name="error_message_date_validation">Format invalide</string>
@@ -35,9 +35,9 @@
     <string name="error_passcode_same_digits">Le code d\'accès ne peut pas être composé des mêmes chiffres</string>
     <string name="login">Connexion</string>
     <string name="enter_your_username_or_email">Entrez votre nom d\'utilisateur ou email</string>
-    <string name="remember_me">Se souvivenir de moi</string>
+    <string name="remember_me">Se souvenir de moi</string>
     <string name="forgot_password">Mot de passe oublié?</string>
-    <string name="don_t_have_account">Pas de compte</string>
+    <string name="don_t_have_account">Pas de compte ?</string>
     <string name="register">S\'inscrire</string>
     <string name="username">Surnom</string>
     <string name="email">Email</string>
@@ -61,7 +61,7 @@
 
     <string name="common_ok">OK</string>
     <string name="common_description">Description</string>
-    <string name="common_checkout_button_title">Caisse</string>
+    <string name="common_checkout_button_title">Paiement</string>
     <string name="common_send">Envoyer</string>
     <string name="common_favourite_title">Favoris</string>
     <string name="common_add_to_cart">Ajouter au panier</string>
@@ -80,7 +80,7 @@
     <string name="screen_billing_address_zip_code_title">Code Postal </string>
     <string name="screen_billing_address_city_name_title">Ville </string>
     <string name="screen_billing_address_phone_no_title">Num. Téléphone </string>
-    <string name="screen_billing_address_company_name_optional_title">Nom de l\'entreprise (facultatif)</string>
+    <string name="screen_billing_address_company_name_optional_title">Nom de l\'entreprise</string>
 
     <string name="screen_payment_credit_card">Carte Bancaire</string>
     <string name="screen_payment_paypal">PayPal</string>
@@ -95,15 +95,15 @@
 
     <string name="screen_cart_text_title">Panier</string>
     <string name="screen_cart_apply_title">Appliquer</string>
-    <string name="screen_contact_us_you_have_questions_title">Vous avez une question?</string>
+    <string name="screen_contact_us_you_have_questions_title">Vous avez une question ?</string>
     <string name="screen_contact_us_heading_description">Nous somme disponible du Lundi au Vendredi!</string>
     <string name="screen_contact_us_phone">+33 (0)5 55 06 41 70</string>
-    <string name="screen_contact_us_email">Contact@Procop.Fr</string>
+    <string name="screen_contact_us_email">contact@procop.fr</string>
     <string name="screen_contact_us_timing">Lundi – Vendredi: 9:00h – 18:00h</string>
     <string name="screen_contact_us_write_us">Nous écrire</string>
     <string name="screen_contact_us_your_name">Votre nom</string>
     <string name="screen_contact_us_topic">Sujet</string>
-    <string name="screen_contact_us_type_message">Écrivez votre message…</string>
+    <string name="screen_contact_us_type_message">Rédigez votre message…</string>
 
 
     <string name="screen_home_category_1802_color">1802 COLOR</string>
@@ -117,7 +117,7 @@
     <string name="screen_order_success_title">Votre commande a été\n passée avec succès!</string>
     <string name="screen_order_success_description">Vous pouvez vérifier votre processus de commande\dans mes sections de commandes</string>
     <string name="screen_order_my_orders_button_title">Mes Commandes</string>
-    <string name="screen_orders_no_orders_title">Aucun commande en cours.</string>
+    <string name="screen_orders_no_orders_title">Aucun commande en cours!</string>
     <string name="screen_orders_shop_now_button_title">COMMANDER</string>
     <string name="screen_product_filters_choose_category">Choisir catégorie</string>
     <string name="screen_product_filters_color">Couleurs</string>
@@ -139,7 +139,7 @@
 
 
     <string name="layout_category_item_all">Tout</string>
-    <string name="layout_drawer_menu_item_home">Procop</string>
+    <string name="layout_drawer_menu_item_home">PROCOP</string>
     <string name="layout_drawer_menu_item_my_orders">Mes Commandes</string>
     <string name="layout_drawer_menu_item_profile">Profil</string>
     <string name="layout_drawer_menu_item_settings">Paramètres</string>
@@ -152,6 +152,7 @@
     <string name="layout_order_item_status">Statuts</string>
     <string name="layout_order_item_give_review">Donner mon avis</string>
     <string name="layout_product_fav_add_to_cart">Ajouter au panier</string>
+
     <string name="billing_address">Adresse de facturation</string>
     <string name="company">Compagnie</string>
     <string name="individual">Individuelle</string>
