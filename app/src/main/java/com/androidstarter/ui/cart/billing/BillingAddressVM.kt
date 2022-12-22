@@ -38,12 +38,15 @@ class BillingAddressVM @Inject constructor(
                     response: Response<java.util.ArrayList<CountriesResponseItem>>
                 ) {
                     loading(false)
-                    response.let {
-                        if (it.isSuccessful) {
-                            it.body()?.let { countries ->
+                    response.let { response ->
+                        if (response.isSuccessful) {
+                            response.body()?.let { countries ->
                                 countriesList.postValue(countries)
                                 if (countries.size > 0) {
-                                    onCountrySelect(countries[0])
+                                    val france = countries.find { it.name == "France" }
+                                    val index = countries.indexOf(france)
+                                    if (index != -1)
+                                        onCountrySelect(countries[index])
                                 }
                             }
                         }

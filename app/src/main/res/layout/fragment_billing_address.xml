@@ -439,11 +439,13 @@
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
+                android:visibility="@{viewState.showCompanyFields? View.VISIBLE:View.GONE}"
                 app:layout_constraintTop_toBottomOf="@id/phoneNoLL">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_mendatory"
                     android:fontFamily="@font/poppins"
                     android:text="@string/screen_billing_address_company_name_optional_title"
                     android:textColor="@color/black" />
@@ -461,7 +463,8 @@
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
                     android:text="@={viewState.companyNameOptional}"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    app:validateEmpty="@{viewState.showCompanyFields}" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat

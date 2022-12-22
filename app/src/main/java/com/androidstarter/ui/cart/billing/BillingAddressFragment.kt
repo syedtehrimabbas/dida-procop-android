@@ -64,6 +64,7 @@ class BillingAddressFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mViewDataBinding.radioGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
+            viewModel.validator?.validate()
             viewState.showCompanyFields.value = checkedId == R.id.company
         }
     }
