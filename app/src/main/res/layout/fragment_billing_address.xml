@@ -445,7 +445,6 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableEnd="@drawable/ic_mendatory"
                     android:fontFamily="@font/poppins"
                     android:text="@string/screen_billing_address_company_name_optional_title"
                     android:textColor="@color/black" />
@@ -463,8 +462,7 @@
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
                     android:text="@={viewState.companyNameOptional}"
-                    android:textSize="15sp"
-                    app:validateEmpty="@{viewState.showCompanyFields}" />
+                    android:textSize="15sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -480,6 +478,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_mendatory"
                     android:fontFamily="@font/poppins"
                     android:text="@string/num_siret"
                     android:textColor="@color/black" />
@@ -494,9 +493,11 @@
                     android:drawablePadding="13dp"
                     android:ems="10"
                     android:fontFamily="@font/poppins"
+                    android:inputType="number"
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    app:validateEmpty="@{viewState.showCompanyFields}" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -512,6 +513,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_mendatory"
                     android:fontFamily="@font/poppins"
                     android:text="@string/tva_intra_communautaire"
                     android:textColor="@color/black" />
@@ -526,9 +528,11 @@
                     android:drawablePadding="13dp"
                     android:ems="10"
                     android:fontFamily="@font/poppins"
+                    android:inputType="number"
                     android:paddingStart="18dp"
                     android:paddingEnd="18dp"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    app:validateEmpty="@{viewState.showCompanyFields}" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.AppCompatButton
