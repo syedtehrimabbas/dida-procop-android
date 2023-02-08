@@ -3,7 +3,6 @@ package scripts
 import AppConfig
 import java.util.*
 
-
 plugins { id("com.android.application") apply false }
 
 private object BuildTypes {
@@ -82,7 +81,8 @@ android {
         }
         getByName(BuildTypes.RELEASE) {
             signingConfig = signingConfigs.getByName(BuildTypes.RELEASE)
-            isMinifyEnabled = true
+            isMinifyEnabled = false
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -101,94 +101,27 @@ android {
                     dimension = FlavorDimensions.DEFAULT
                     applicationIdSuffix = ".${ProductFlavors.DEV}"
 //                    versionNameSuffix = "-${ProductFlavors.DEV} -${AppConfig.VERSION_NAME}"
-                    if (properties.containsKey("BASE_URL_DEV")) {
-                        buildConfigString(
-                            "BASE_URL",
-                            decodeBase64(properties["BASE_URL_DEV"].toString())
-                        )
-                        buildConfigString(
-                            "TERM_CONDITION_URL",
-                            decodeBase64(properties["TERM_CONDITION_URL"].toString())
-                        )
-                        buildConfigString(
-                            "APP_CENTER_KEY","abeff073-c4ca-409b-98e3-f626ed576904")
-                        buildConfigString("ADJUST_TOKEN","mcswsh5vzabk")
-                    }
                 }
                 create(ProductFlavors.PREPROD) {
                     dimension = FlavorDimensions.DEFAULT
                     applicationIdSuffix = ".${ProductFlavors.PREPROD}"
                     versionNameSuffix = "-${ProductFlavors.PREPROD} -${AppConfig.VERSION_NAME}"
-                    if (properties.containsKey("BASE_URL_PREPROD")) {
-                        buildConfigString(
-                            "BASE_URL",
-                            decodeBase64(properties["BASE_URL_PREPROD"].toString())
-                        )
-                        buildConfigString(
-                            "TERM_CONDITION_URL",
-                            decodeBase64(properties["TERM_CONDITION_URL"].toString())
-                        )
-                        buildConfigString(
-                            "APP_CENTER_KEY","f0b80003-4a19-4bd4-99c1-2428f88497ce")
-                        buildConfigString("ADJUST_TOKEN","vvvi5r0pggsg")
-                    }
                 }
                 create(ProductFlavors.STG) {
                     dimension = FlavorDimensions.DEFAULT
                     applicationIdSuffix = ".${ProductFlavors.STG}"
                     versionNameSuffix = "-${ProductFlavors.STG} -${AppConfig.VERSION_NAME}"
-                    if (properties.containsKey("BASE_URL_STG")) {
-                        buildConfigString(
-                            "BASE_URL",
-                            decodeBase64(properties["BASE_URL_STG"].toString())
-                        )
-                        buildConfigString(
-                            "TERM_CONDITION_URL",
-                            decodeBase64(properties["TERM_CONDITION_URL"].toString())
-                        )
-                        buildConfigString(
-                            "APP_CENTER_KEY","abeff073-c4ca-409b-98e3-f626ed576904")
-                        buildConfigString("ADJUST_TOKEN","vvvi5r0pggsg")
-                    }
                 }
                 create(ProductFlavors.QA) {
                     dimension = FlavorDimensions.DEFAULT
                     applicationIdSuffix = ".${ProductFlavors.QA}"
                     versionNameSuffix = "-${ProductFlavors.QA} -${AppConfig.VERSION_NAME}"
-                    if (properties.containsKey("BASE_URL_QA")) {
-                        buildConfigString(
-                            "BASE_URL",
-                            decodeBase64(properties["BASE_URL_QA"].toString())
-                        )
-                        buildConfigString(
-                            "TERM_CONDITION_URL",
-                            decodeBase64(properties["TERM_CONDITION_URL"].toString())
-                        )
-                        buildConfigString(
-                            "APP_CENTER_KEY","abeff073-c4ca-409b-98e3-f626ed576904")
-                    }
-                    buildConfigString("ADJUST_TOKEN","vvvi5r0pggsg")
                 }
                 create(ProductFlavors.LIVE) {
-                   // versionNameSuffix = "-${ProductFlavors.LIVE} -${AppConfig.VERSION_NAME_LIVE}"
+                    // versionNameSuffix = "-${ProductFlavors.LIVE} -${AppConfig.VERSION_NAME_LIVE}"
                     versionCode = AppConfig.VERSION_CODE_LIVE
                     versionName = AppConfig.VERSION_NAME_LIVE
                     applicationId = AppConfig.APP_ID_LIVE
-                    if (properties.containsKey("BASE_URL_LIVE")) {
-                        dimension = FlavorDimensions.DEFAULT
-                        buildConfigString(
-                            "BASE_URL",
-                            decodeBase64(properties["BASE_URL_LIVE"].toString())
-                        )
-                        buildConfigString(
-                            "TERM_CONDITION_URL",
-                            decodeBase64(properties["TERM_CONDITION_URL"].toString())
-                        )
-                        buildConfigString(
-                            "APP_CENTER_KEY","2984ce2b-228e-427a-9102-32256162378e")
-                        buildConfigString(
-                            "ADJUST_TOKEN","5kz5tul4ybgg")
-                    }
                 }
             } catch (e: Exception) {
                 System.err.println("The BASE_URL_DEV in apikeys.properties file is malformed")

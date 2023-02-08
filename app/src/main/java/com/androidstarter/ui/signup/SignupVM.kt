@@ -37,12 +37,12 @@ class SignupVM @Inject constructor(
                         loading(false, "Signup successful")
                         clickEvent?.postValue(200)
                     } else {
-                        loading(false, response.data.message)
+                        loading(false, "Signup failed")
                     }
                 }
 
                 is ApiResponse.Error -> {
-                    loading(false, response.error.message)
+                    loading(false, "Signup failed")
                 }
             }
         }
