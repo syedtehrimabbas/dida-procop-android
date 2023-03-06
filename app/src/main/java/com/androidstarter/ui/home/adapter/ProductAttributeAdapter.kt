@@ -42,7 +42,9 @@ class ProductAttributeAdapter @Inject constructor() :
 
         fun bind(item: ProductAttribute) {
             itemView.setOnClickListener {
-                onItemClickListener?.invoke(it, adapterPosition, item)
+                val size: Int = item.options?.size ?: 0
+                if (size > 1)
+                    onItemClickListener?.invoke(it, adapterPosition, item)
             }
 
             itemBinding.productAttribute = item

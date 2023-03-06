@@ -85,7 +85,7 @@ class ProductDetailsFragment :
                     favourite()
                 } ?: unFavourite()
             }
-            attributeAdapter.setList(it.productAttributes.filter { productAttribute -> productAttribute.isVariation && productAttribute.isVisible })
+            attributeAdapter.setList(it.productAttributes.filter { productAttribute -> productAttribute.isVisible })
 
             productImagesSliderAdapter.setList(it.images)
         }
@@ -139,7 +139,9 @@ class ProductDetailsFragment :
     private fun setupSlider() {
         with(mViewDataBinding) {
             sliderView.setSliderAdapter(productImagesSliderAdapter)
-            sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM) //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+            sliderView.setIndicatorAnimation(
+                IndicatorAnimationType.WORM
+            ) //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
             sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION)
             sliderView.autoCycleDirection = SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH
             sliderView.scrollTimeInSec = 4 //set scroll delay in seconds :
@@ -148,7 +150,6 @@ class ProductDetailsFragment :
     }
 
     override fun onProductUpdate(product: Product) {
-
     }
 
     override fun onAttributeUpdate(attribute: ProductAttribute, selectedValue: String) {
@@ -160,11 +161,11 @@ class ProductDetailsFragment :
                 productAttribute?.selectedAttribute = selectedValue
                 productAttribute?.let {
                     viewState.product.value?.productAttributes?.set(index, it)
-                    viewState.product.value?.productAttributes?.let { it1 ->
-                        attributeAdapter.setList(
-                            it1
-                        )
+
+                    viewState.product.value?.productAttributes?.filter { productAttribute -> productAttribute.isVisible }?.let { productAttributes ->
+                        attributeAdapter.setList(productAttributes)
                     }
+                    viewModel.setVariationPrice()
                 }
             }
         }
@@ -174,7 +175,6 @@ class ProductDetailsFragment :
         { view: View, position: Int, data: ProductAttribute? ->
             AttributeBottomSheet(data, this).show(parentFragmentManager, "AttributeBottomSheet")
         }
-
 
     override fun onPrepareOptionsMenu(menu: Menu) {
 

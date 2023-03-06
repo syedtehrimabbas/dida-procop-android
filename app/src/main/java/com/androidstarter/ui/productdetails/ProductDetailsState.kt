@@ -10,6 +10,7 @@ class ProductDetailsState @Inject constructor() : BaseState(), IProductDetails.S
     override var product: MutableLiveData<Product> = MutableLiveData()
     override val minPrice: MutableLiveData<String> = MutableLiveData("")
     override val maxPrice: MutableLiveData<String> = MutableLiveData("")
+    override val productPrice: MutableLiveData<String> = MutableLiveData("€")
     override val variations: MutableLiveData<List<Variation>> =
         MutableLiveData(listOf())
 }

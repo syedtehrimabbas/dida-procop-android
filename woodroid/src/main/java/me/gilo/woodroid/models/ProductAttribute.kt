@@ -14,5 +14,8 @@ class ProductAttribute : Serializable {
     @SerializedName("variation")
     var isVariation: Boolean = false
     var options: ArrayList<String>? = arrayListOf()
+    @SerializedName("option")
+    var option: String = ""
     var selectedAttribute: String = ""
+//    var selectedAttribute: String = if (options?.isNotEmpty() == true) options?.get(0) ?: "" else ""
 }

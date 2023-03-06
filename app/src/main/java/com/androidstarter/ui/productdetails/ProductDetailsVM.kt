@@ -6,10 +6,14 @@ import com.androidstarter.ui.home.DatabaseHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import me.gilo.woodroid.Woocommerce
 import me.gilo.woodroid.models.Product
+import me.gilo.woodroid.models.ProductAttribute
 import me.gilo.woodroid.models.Variation
+import me.gilo.woodroid.models.filters.ProductCategoryFilter
+import me.gilo.woodroid.models.filters.ProductVariationFilter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.ArrayList
 import javax.inject.Inject
 
 @HiltViewModel
@@ -39,6 +43,7 @@ class ProductDetailsVM @Inject constructor(
                     response.let {
                         if (it.isSuccessful) {
                             viewState.product.postValue(response.body())
+                            viewState.productPrice.postValue("€ ${response.body()?.price}")
                         }
                     }
                 }
@@ -50,7 +55,11 @@ class ProductDetailsVM @Inject constructor(
     }
 
     override fun pVariations(id: Int) {
-        woocommerce.VariationRepository().variations(id)
+        val filter = ProductVariationFilter()
+        filter.parent = intArrayOf(0)
+        filter.setPer_page(100)
+
+        woocommerce.VariationRepository().variations(id, filter)
             .enqueue(object : Callback<List<Variation>> {
                 override fun onResponse(
                     call: Call<List<Variation>>,
@@ -82,4 +91,35 @@ class ProductDetailsVM @Inject constructor(
                 }
             })
     }
+
+    fun setVariationPrice() {
+        val productAttributes = viewState.product.value?.productAttributes?.filter { it.isVariation }
+        val variations = viewState.variations.value
+            ?.map {
+                LightVariation(
+                    productAttributes = it.attributes,
+                    price = it.price
+                )
+            }
+        if (productAttributes == null || variations == null) {
+            viewState.productPrice.postValue("unavailable")
+            return
+        }
+
+        val matchingVariation = variations.find { variation ->
+            productAttributes.any { attribute ->
+                variation.productAttributes.any { varAttribute ->
+                    attribute.name == varAttribute.name && attribute.selectedAttribute == varAttribute.option
+                }
+            }
+        }
+        val price: Double = matchingVariation?.price ?: 0.0
+        viewState.product.value?.price = price.toString()
+        viewState.productPrice.postValue("€ $price")
+    }
+
+    data class LightVariation(
+        var productAttributes: ArrayList<ProductAttribute>,
+        var price: Double
+    )
 }

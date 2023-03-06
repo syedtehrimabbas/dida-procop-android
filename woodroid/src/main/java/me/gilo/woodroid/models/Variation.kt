@@ -1,5 +1,6 @@
 package me.gilo.woodroid.models
 
+import com.google.gson.annotations.SerializedName
 import java.util.*
 
 class Variation {
@@ -59,7 +60,7 @@ class Variation {
     lateinit var purchase_note: String
     lateinit var categories: ArrayList<Category>
     lateinit var tags: ArrayList<Tag>
-    lateinit var productAttributes: ArrayList<ProductAttribute>
+    lateinit var attributes: ArrayList<ProductAttribute>
     lateinit var default_attributes: ArrayList<DefaultAttribute>
     lateinit var grouped_products: ArrayList<Int>
     var menu_order: Int = 0

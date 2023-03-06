@@ -10,6 +10,7 @@ interface IProductDetails {
         var product: MutableLiveData<Product>
         val maxPrice: MutableLiveData<String>
         val minPrice: MutableLiveData<String>
+        val productPrice: MutableLiveData<String>
         val variations: MutableLiveData<List<Variation>>
     }
 
