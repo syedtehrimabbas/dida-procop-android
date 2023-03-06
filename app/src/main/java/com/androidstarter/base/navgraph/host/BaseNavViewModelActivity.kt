@@ -18,7 +18,7 @@ import com.androidstarter.base.extensions.addExtras
 import com.androidstarter.base.extensions.bindView
 import com.androidstarter.base.extensions.hideKeyboard
 import com.androidstarter.base.extensions.plus
-import com.androidstarter.R
+import com.dida.procop.R
 /**
  * A base BaseNavViewModel Activity with built-in support for Android X Navigation Concept and ViewModel.
  */

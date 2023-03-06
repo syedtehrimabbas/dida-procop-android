@@ -4,6 +4,7 @@ import android.widget.FrameLayout
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.BindingAdapter
 import com.androidstarter.utils.DateUtils
+import com.dida.procop.R
 import me.gilo.woodroid.models.ProductAttribute
 
 object CommonBinding {

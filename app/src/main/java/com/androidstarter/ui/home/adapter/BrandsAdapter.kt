@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.androidstarter.R
-import com.androidstarter.databinding.LayoutCategoryItemBinding
+import com.dida.procop.R
+import com.dida.procop.databinding.LayoutCategoryItemBinding
 import me.gilo.woodroid.models.AttributeTerm
 import java.util.*
 import javax.inject.Inject

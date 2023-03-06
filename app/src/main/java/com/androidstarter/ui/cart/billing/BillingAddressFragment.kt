@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.RadioGroup
 import androidx.fragment.app.viewModels
-import com.androidstarter.BR
-import com.androidstarter.R
+import com.dida.procop.BR
+import com.dida.procop.R
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
-import com.androidstarter.databinding.FragmentBillingAddressBinding
+import com.dida.procop.databinding.FragmentBillingAddressBinding
 import com.androidstarter.ui.cart.billing.data.BillingAddressData
 import com.androidstarter.ui.cart.billing.data.CitiesBottomSheet
 import com.androidstarter.ui.cart.billing.data.CountriesBottomSheet

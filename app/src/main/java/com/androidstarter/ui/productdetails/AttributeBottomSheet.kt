@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.androidstarter.R
-import com.androidstarter.databinding.FragmentBottomSheetAttributeBinding
+import com.dida.procop.R
+import com.dida.procop.databinding.FragmentBottomSheetAttributeBinding
 import com.androidstarter.ui.home.adapter.ListAdapter
 import com.androidstarter.ui.interfaces.ProductUpdateListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

@@ -8,7 +8,7 @@ import com.androidstarter.base.interfaces.CoroutineViewModel
 import com.androidstarter.base.viewmodel.Dispatcher
 import com.androidstarter.data.cart.dao.CartProductDao
 import com.androidstarter.data.cart.models.CartProduct
-import com.androidstarter.databinding.LayoutCartItemBinding
+import com.dida.procop.databinding.LayoutCartItemBinding
 import kotlinx.coroutines.*
 import javax.inject.Inject
 

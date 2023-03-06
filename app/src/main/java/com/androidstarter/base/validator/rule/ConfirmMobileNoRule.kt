@@ -3,7 +3,7 @@ package com.androidstarter.base.validator.rule
 import android.widget.TextView
 import androidx.annotation.Keep
 import com.google.android.material.textfield.TextInputEditText
-import com.androidstarter.R
+import com.dida.procop.R
 import com.androidstarter.base.extensions.getDrawable
 import com.androidstarter.base.extensions.isEmpty
 import com.androidstarter.base.validator.util.EditTextHandler.removeError

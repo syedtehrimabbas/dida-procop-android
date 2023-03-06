@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.viewModels
-import com.androidstarter.BR
-import com.androidstarter.R
+import com.dida.procop.BR
+import com.dida.procop.R
 import com.androidstarter.base.extensions.launchActivity
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
 import com.androidstarter.base.navgraph.host.NAVIGATION_Graph_ID
 import com.androidstarter.base.navgraph.host.NAVIGATION_Graph_START_DESTINATION_ID
 import com.androidstarter.base.navgraph.host.NavHostPresenterActivity
-import com.androidstarter.databinding.FragmentHomeBinding
+import com.dida.procop.databinding.FragmentHomeBinding
 import com.androidstarter.ui.home.adapter.ProductCategoriesAdapter
 import com.androidstarter.ui.home.adapter.ProductsAdapter
 import com.denzcoskun.imageslider.constants.ScaleTypes

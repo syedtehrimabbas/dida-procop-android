@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.androidstarter.databinding.LayoutItemListBinding
+import com.dida.procop.databinding.LayoutItemListBinding
 import javax.inject.Inject
 
 class ListAdapter @Inject constructor() :

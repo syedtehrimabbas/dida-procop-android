@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.androidstarter.R
-import com.androidstarter.databinding.LayoutColorItemBinding
+import com.dida.procop.R
+import com.dida.procop.databinding.LayoutColorItemBinding
 import com.androidstarter.ui.filter.ProductFilterVM
 import javax.inject.Inject
 

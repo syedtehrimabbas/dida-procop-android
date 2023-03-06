@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.databinding.adapters.ListenerUtil
 import com.google.android.material.textfield.TextInputLayout
-import com.androidstarter.R
+import com.dida.procop.R
 
 
 /**

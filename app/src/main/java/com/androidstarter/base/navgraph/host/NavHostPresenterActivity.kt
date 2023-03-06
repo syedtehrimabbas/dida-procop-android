@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
-import com.androidstarter.BR
-import com.androidstarter.R
-import com.androidstarter.databinding.ActivityNavhostPresenterBinding
+import com.dida.procop.BR
+import com.dida.procop.R
+import com.dida.procop.databinding.ActivityNavhostPresenterBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 const val NAVIGATION_Graph_ID = "navigationGraphId"

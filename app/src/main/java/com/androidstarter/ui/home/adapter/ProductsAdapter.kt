@@ -7,11 +7,11 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.androidstarter.R
+import com.dida.procop.R
 import com.androidstarter.base.interfaces.CoroutineViewModel
 import com.androidstarter.base.viewmodel.Dispatcher
 import com.androidstarter.data.cart.dao.CartProductDao
-import com.androidstarter.databinding.LayoutProductItemBinding
+import com.dida.procop.databinding.LayoutProductItemBinding
 import kotlinx.coroutines.*
 import me.gilo.woodroid.models.Product
 import javax.inject.Inject

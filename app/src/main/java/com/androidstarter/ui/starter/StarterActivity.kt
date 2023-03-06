@@ -3,7 +3,7 @@ package com.androidstarter.ui.starter
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.androidstarter.R
+import com.dida.procop.R
 import com.androidstarter.base.KEY_IS_USER_LOGGED_IN
 import com.androidstarter.base.extensions.launchActivity
 import com.androidstarter.base.navgraph.host.NAVIGATION_Graph_ID

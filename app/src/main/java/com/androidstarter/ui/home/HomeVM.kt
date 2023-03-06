@@ -3,7 +3,7 @@ package com.androidstarter.ui.home
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.androidstarter.R
+import com.dida.procop.R
 import com.androidstarter.base.viewmodel.HiltBaseViewModel
 import com.androidstarter.data.sessions.SessionManager
 import dagger.hilt.android.lifecycle.HiltViewModel

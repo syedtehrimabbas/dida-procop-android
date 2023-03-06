@@ -8,11 +8,11 @@ import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
-import com.androidstarter.BR
-import com.androidstarter.R
+import com.dida.procop.BR
+import com.dida.procop.R
 import com.androidstarter.base.clickevents.setOnClick
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
-import com.androidstarter.databinding.FragmentSearchProductBinding
+import com.dida.procop.databinding.FragmentSearchProductBinding
 import com.androidstarter.ui.home.adapter.ProductsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import me.gilo.woodroid.models.Product

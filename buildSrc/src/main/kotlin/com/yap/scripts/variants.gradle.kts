@@ -99,7 +99,7 @@ android {
             try {
                 create(ProductFlavors.DEV) {
                     dimension = FlavorDimensions.DEFAULT
-//                    applicationIdSuffix = ".${ProductFlavors.DEV}"
+                    applicationIdSuffix = ".${ProductFlavors.DEV}"
 //                    versionNameSuffix = "-${ProductFlavors.DEV} -${AppConfig.VERSION_NAME}"
                 }
                 create(ProductFlavors.PREPROD) {

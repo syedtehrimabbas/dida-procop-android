@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.androidstarter.data.cart.dao.CartProductDao
-import com.androidstarter.databinding.LayoutOrderItemBinding
+import com.dida.procop.databinding.LayoutOrderItemBinding
 import kotlinx.coroutines.*
 import me.gilo.woodroid.models.Order
 import javax.inject.Inject

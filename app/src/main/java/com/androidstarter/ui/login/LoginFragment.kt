@@ -4,14 +4,14 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.viewModels
-import com.androidstarter.BR
-import com.androidstarter.R
+import com.dida.procop.BR
+import com.dida.procop.R
 import com.androidstarter.base.extensions.launchActivity
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
 import com.androidstarter.base.navgraph.host.NAVIGATION_Graph_ID
 import com.androidstarter.base.navgraph.host.NAVIGATION_Graph_START_DESTINATION_ID
 import com.androidstarter.base.navgraph.host.NavHostPresenterActivity
-import com.androidstarter.databinding.FragmentLoginBinding
+import com.dida.procop.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

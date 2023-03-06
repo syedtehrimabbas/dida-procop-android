@@ -2,7 +2,7 @@ package com.androidstarter.base.validator.binding
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.androidstarter.R
+import com.dida.procop.R
 import com.androidstarter.base.validator.rule.RegexRule
 import com.androidstarter.base.validator.util.EditTextHandler
 import com.androidstarter.base.validator.util.ErrorMessageHelper

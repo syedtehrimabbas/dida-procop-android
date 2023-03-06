@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.androidstarter.R
-import com.androidstarter.databinding.LayoutCategoryBoxBinding
-import com.androidstarter.databinding.LayoutCategoryItemBinding
+import com.dida.procop.R
+import com.dida.procop.databinding.LayoutCategoryBoxBinding
+import com.dida.procop.databinding.LayoutCategoryItemBinding
 import me.gilo.woodroid.models.Category
 
 class ProductCategoriesAdapter constructor(val VIEW_TYPE: Int = 0) :

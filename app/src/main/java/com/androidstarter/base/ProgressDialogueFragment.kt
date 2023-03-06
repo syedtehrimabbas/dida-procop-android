@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.androidstarter.R
-import com.androidstarter.databinding.ProgressDialogueFragmentBinding
+import com.dida.procop.R
+import com.dida.procop.databinding.ProgressDialogueFragmentBinding
 
 class ProgressDialogueFragment : DialogFragment() {
     lateinit var binding: ProgressDialogueFragmentBinding

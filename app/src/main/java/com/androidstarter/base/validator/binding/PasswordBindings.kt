@@ -2,7 +2,7 @@ package com.androidstarter.base.validator.binding
 
 import androidx.databinding.BindingAdapter
 import com.google.android.material.textfield.TextInputEditText
-import com.androidstarter.R
+import com.dida.procop.R
 import com.androidstarter.base.validator.rule.ConfirmMobileNoRule
 import com.androidstarter.base.validator.util.EditTextHandler
 import com.androidstarter.base.validator.util.ErrorMessageHelper

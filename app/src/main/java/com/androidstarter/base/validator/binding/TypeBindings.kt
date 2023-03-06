@@ -3,7 +3,7 @@ package com.androidstarter.base.validator.binding
 import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.BindingAdapter
-import com.androidstarter.R
+import com.dida.procop.R
 import com.androidstarter.base.validator.rule.TypeRule
 import com.androidstarter.base.validator.util.EditTextHandler
 import com.androidstarter.base.validator.util.ErrorMessageHelper

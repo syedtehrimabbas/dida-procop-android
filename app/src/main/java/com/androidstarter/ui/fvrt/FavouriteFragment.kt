@@ -3,11 +3,11 @@ package com.androidstarter.ui.fvrt
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import com.androidstarter.BR
-import com.androidstarter.R
+import com.dida.procop.BR
+import com.dida.procop.R
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
 import com.androidstarter.data.cart.models.FavouriteProduct
-import com.androidstarter.databinding.FragmentFavouriteBinding
+import com.dida.procop.databinding.FragmentFavouriteBinding
 import com.androidstarter.ui.home.adapter.FavouriteProductsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

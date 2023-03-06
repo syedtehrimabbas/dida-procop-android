@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.androidstarter.R
-import com.androidstarter.databinding.LayoutFaqItemBinding
+import com.dida.procop.R
+import com.dida.procop.databinding.LayoutFaqItemBinding
 import com.androidstarter.ui.fq.FaqData
 import javax.inject.Inject
 

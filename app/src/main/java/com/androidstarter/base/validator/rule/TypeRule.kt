@@ -3,7 +3,7 @@ package com.androidstarter.base.validator.rule
 import android.widget.TextView
 import androidx.annotation.Keep
 import androidx.annotation.StringRes
-import com.androidstarter.R
+import com.dida.procop.R
 
 import java.lang.reflect.InvocationTargetException
 

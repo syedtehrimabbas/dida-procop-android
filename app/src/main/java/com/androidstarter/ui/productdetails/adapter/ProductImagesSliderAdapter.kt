@@ -2,7 +2,7 @@ package com.androidstarter.ui.productdetails.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.androidstarter.databinding.ItemProductImagesSliderBinding
+import com.dida.procop.databinding.ItemProductImagesSliderBinding
 import com.smarteist.autoimageslider.SliderViewAdapter
 import me.gilo.woodroid.models.Image
 import javax.inject.Inject

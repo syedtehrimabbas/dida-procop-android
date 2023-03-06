@@ -8,7 +8,7 @@ import android.graphics.*
 import android.os.Handler
 import android.util.AttributeSet
 import android.view.View
-import com.androidstarter.R
+import com.dida.procop.R
 import kotlin.math.min
 
 class CircularProgressBar(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {

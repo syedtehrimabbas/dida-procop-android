@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.androidstarter.databinding.LayoutItemAttributeSimpleBinding
+import com.dida.procop.databinding.LayoutItemAttributeSimpleBinding
 import me.gilo.woodroid.models.ProductAttribute
 import javax.inject.Inject
 

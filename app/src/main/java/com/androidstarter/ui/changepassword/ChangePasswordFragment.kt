@@ -4,10 +4,10 @@ import android.app.Dialog
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.viewModels
-import com.androidstarter.BR
-import com.androidstarter.R
+import com.dida.procop.BR
+import com.dida.procop.R
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
-import com.androidstarter.databinding.FragmentChangePasswordBinding
+import com.dida.procop.databinding.FragmentChangePasswordBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

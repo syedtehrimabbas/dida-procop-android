@@ -7,11 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
-import com.androidstarter.BR
-import com.androidstarter.R
+import com.dida.procop.BR
+import com.dida.procop.R
 import com.androidstarter.base.clickevents.setOnClick
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
-import com.androidstarter.databinding.FragmentFaqBinding
+import com.dida.procop.databinding.FragmentFaqBinding
 import com.androidstarter.ui.home.adapter.FaqAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

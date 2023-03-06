@@ -1,10 +1,10 @@
 package com.androidstarter.ui.ordersuccess
 
 import androidx.fragment.app.viewModels
-import com.androidstarter.BR
-import com.androidstarter.R
+import com.dida.procop.BR
+import com.dida.procop.R
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
-import com.androidstarter.databinding.FragmentOrderSuccessBinding
+import com.dida.procop.databinding.FragmentOrderSuccessBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

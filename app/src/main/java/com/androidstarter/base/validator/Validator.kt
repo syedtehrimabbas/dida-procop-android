@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.annotation.Keep
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.MutableLiveData
-import com.androidstarter.R
+import com.dida.procop.R
 import com.androidstarter.base.validator.rule.Rule
 import com.androidstarter.base.validator.util.ViewTagHelper.filterViewWithTag
 import com.androidstarter.base.validator.util.ViewTagHelper.filterViewsWithTag

@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
-import com.androidstarter.BR
-import com.androidstarter.R
+import com.dida.procop.BR
+import com.dida.procop.R
 import com.androidstarter.base.clickevents.setOnClick
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
 import com.androidstarter.base.viewmodel.Dispatcher
-import com.androidstarter.databinding.FragmentProductDetailsBinding
+import com.dida.procop.databinding.FragmentProductDetailsBinding
 import com.androidstarter.ui.home.adapter.ProductAttributeAdapter
 import com.androidstarter.ui.interfaces.ProductUpdateListener
 import com.androidstarter.ui.productdetails.adapter.ProductImagesSliderAdapter
