@@ -99,22 +99,22 @@ android {
             try {
                 create(ProductFlavors.DEV) {
                     dimension = FlavorDimensions.DEFAULT
-                    applicationIdSuffix = ".${ProductFlavors.DEV}"
+//                    applicationIdSuffix = ".${ProductFlavors.DEV}"
 //                    versionNameSuffix = "-${ProductFlavors.DEV} -${AppConfig.VERSION_NAME}"
                 }
                 create(ProductFlavors.PREPROD) {
                     dimension = FlavorDimensions.DEFAULT
-                    applicationIdSuffix = ".${ProductFlavors.PREPROD}"
+//                    applicationIdSuffix = ".${ProductFlavors.PREPROD}"
                     versionNameSuffix = "-${ProductFlavors.PREPROD} -${AppConfig.VERSION_NAME}"
                 }
                 create(ProductFlavors.STG) {
                     dimension = FlavorDimensions.DEFAULT
-                    applicationIdSuffix = ".${ProductFlavors.STG}"
+//                    applicationIdSuffix = ".${ProductFlavors.STG}"
                     versionNameSuffix = "-${ProductFlavors.STG} -${AppConfig.VERSION_NAME}"
                 }
                 create(ProductFlavors.QA) {
                     dimension = FlavorDimensions.DEFAULT
-                    applicationIdSuffix = ".${ProductFlavors.QA}"
+//                    applicationIdSuffix = ".${ProductFlavors.QA}"
                     versionNameSuffix = "-${ProductFlavors.QA} -${AppConfig.VERSION_NAME}"
                 }
                 create(ProductFlavors.LIVE) {

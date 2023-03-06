@@ -14,23 +14,23 @@ plugins {
 
 android {
     compileSdk = AppConfig.COMPILE_SDK_VERSION
+    defaultConfig.minSdk = AppConfig.MIN_SDK_VERSION
+    defaultConfig.targetSdk = AppConfig.TARGET_SDK_VERSION
+    defaultConfig.multiDexEnabled = true
+    namespace = AppConfig.APP_ID
+    defaultConfig.applicationId = AppConfig.APP_ID
+    defaultConfig.versionCode = AppConfig.VERSION_CODE
+    defaultConfig.versionName = AppConfig.VERSION_NAME
+    defaultConfig.testInstrumentationRunner = AppConfig.androidTestInstrumentation
+    viewBinding.isEnabled = false
+    dataBinding.isEnabled = true
 
-    defaultConfig {
-        minSdk = AppConfig.MIN_SDK_VERSION
-        targetSdk = AppConfig.TARGET_SDK_VERSION
-        multiDexEnabled = true
-        applicationId = AppConfig.APP_ID
-        versionCode = AppConfig.VERSION_CODE
-        versionName = AppConfig.VERSION_NAME
-        testInstrumentationRunner = AppConfig.androidTestInstrumentation
-    }
-    viewBinding {
-        android.buildFeatures.viewBinding = false
-    }
-
-    dataBinding {
-        android.buildFeatures.dataBinding = true
-    }
+//    viewBinding {
+//        android.buildFeatures.viewBinding = false
+//    }
+//    dataBinding {
+//        android.buildFeatures.dataBinding = true
+//    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -51,7 +51,7 @@ dependencies {
     implementation(DependenciesManager.thirdPartyImplementation)
     implementation(DependenciesManager.networkImplementation)
     implementation(DependenciesManager.hiltImplementation)
-    implementation("androidx.appcompat:appcompat:1.4.2")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     kapt(DependenciesManager.hiltKapt)
@@ -64,9 +64,9 @@ dependencies {
     // Room components
     implementation("android.arch.persistence.room:runtime:1.1.1")
     annotationProcessor("android.arch.persistence.room:compiler:1.1.1")
-    implementation("androidx.room:room-ktx:2.4.3")
-    implementation("androidx.room:room-common:2.4.3")
-    kapt("androidx.room:room-compiler:2.4.3")
+    implementation("androidx.room:room-ktx:2.5.0")
+    implementation("androidx.room:room-common:2.5.0")
+    kapt("androidx.room:room-compiler:2.5.0")
     implementation("com.paypal.checkout:android-sdk:0.8.1")
     implementation("com.github.xabaras:RecyclerViewSwipeDecorator:1.4")
     implementation("com.github.smarteist:autoimageslider:1.4.0")
