@@ -161,4 +161,5 @@
     <string name="bank_transfer">Bank transfer (PROCOP Account)</string>
     <string name="search">Search</string>
     <string name="all">All</string>
+    <string name="price_unavailable">unavailable</string>
 </resources>

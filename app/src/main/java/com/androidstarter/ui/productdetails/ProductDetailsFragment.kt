@@ -41,12 +41,16 @@ class ProductDetailsFragment :
         when (id) {
             R.id.addToCartBtn -> {
                 viewModel.databaseHelper.cartCount()
+                val product = viewState.product.value
+                if (product?.price == "0.0") {
+                    showToast(getString(R.string.price_unavailable))
+                    return
+                }
                 if (viewModel.isInCart) {
                     setAddCartText()
                 } else {
                     setRemoveCartText()
                 }
-                val product = viewState.product.value
                 product?.let {
                     viewModel.databaseHelper.addToCart(product)
                 }
@@ -54,12 +58,16 @@ class ProductDetailsFragment :
 
             R.id.addToFavBtn -> {
                 viewModel.databaseHelper.favouriteCount()
+                val product = viewState.product.value
+                if (product?.price == "0.0") {
+                    showToast(getString(R.string.price_unavailable))
+                    return
+                }
                 if (viewModel.isFav) {
                     unFavourite()
                 } else {
                     favourite()
                 }
-                val product = viewState.product.value
                 product?.let {
                     viewModel.databaseHelper.addToFav(product)
                 }
@@ -165,7 +173,7 @@ class ProductDetailsFragment :
                     viewState.product.value?.productAttributes?.filter { productAttribute -> productAttribute.isVisible }?.let { productAttributes ->
                         attributeAdapter.setList(productAttributes)
                     }
-                    viewModel.setVariationPrice()
+                    viewModel.setVariationPrice(requireContext())
                 }
             }
         }

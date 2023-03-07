@@ -1,19 +1,19 @@
 package com.androidstarter.ui.productdetails
 
+import android.content.Context
 import android.os.Bundle
 import com.androidstarter.base.viewmodel.HiltBaseViewModel
 import com.androidstarter.ui.home.DatabaseHelper
+import com.dida.procop.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import me.gilo.woodroid.Woocommerce
 import me.gilo.woodroid.models.Product
 import me.gilo.woodroid.models.ProductAttribute
 import me.gilo.woodroid.models.Variation
-import me.gilo.woodroid.models.filters.ProductCategoryFilter
 import me.gilo.woodroid.models.filters.ProductVariationFilter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
 import javax.inject.Inject
 
 @HiltViewModel
@@ -92,7 +92,7 @@ class ProductDetailsVM @Inject constructor(
             })
     }
 
-    fun setVariationPrice() {
+    fun setVariationPrice(context: Context) {
         val productAttributes = viewState.product.value?.productAttributes?.filter { it.isVariation }
         val variations = viewState.variations.value
             ?.map {
@@ -102,7 +102,8 @@ class ProductDetailsVM @Inject constructor(
                 )
             }
         if (productAttributes == null || variations == null) {
-            viewState.productPrice.postValue("unavailable")
+            viewState.product.value?.price = 0.0.toString()
+            viewState.productPrice.postValue(context.getString(R.string.price_unavailable))
             return
         }
 
@@ -113,9 +114,14 @@ class ProductDetailsVM @Inject constructor(
                 }
             }
         }
-        val price: Double = matchingVariation?.price ?: 0.0
-        viewState.product.value?.price = price.toString()
-        viewState.productPrice.postValue("€ $price")
+        if (matchingVariation == null) {
+            viewState.product.value?.price = 0.0.toString()
+            viewState.productPrice.postValue(context.getString(R.string.price_unavailable))
+        } else {
+            val price: Double = matchingVariation.price
+            viewState.product.value?.price = price.toString()
+            viewState.productPrice.postValue("€ $price")
+        }
     }
 
     data class LightVariation(

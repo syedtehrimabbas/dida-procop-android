@@ -128,13 +128,13 @@ class DatabaseHelper @Inject constructor(
         favCount.postValue(cartProductDao.favCount())
     }
 
-
     fun truncateProductTable() {
         launch(Dispatcher.Background) {
             cartProductDao.truncateProductTable()
             cartProductDao.truncateFavProductTable()
         }
     }
+
     fun truncateCart() {
         launch(Dispatcher.Background) {
             cartProductDao.truncateProductTable()
