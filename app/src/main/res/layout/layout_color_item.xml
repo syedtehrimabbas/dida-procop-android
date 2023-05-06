@@ -5,28 +5,34 @@
     <data />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:animateLayoutChanges="true">
+        android:id="@+id/mainLayout"
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/transparent_rectangle_stroke"
+        android:padding="@dimen/_5sdp">
 
-        <FrameLayout
-            android:id="@+id/frameLayout"
-            android:layout_width="@dimen/_34sdp"
-            android:layout_height="@dimen/_34sdp"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:layout_marginBottom="@dimen/_5sdp"
-            android:background="@drawable/transparent_rounded_stroke"
+        <View
+            android:id="@+id/colorView"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:background="@drawable/filter_color_background"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <View
-                android:id="@+id/colorView"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_gravity="center"
-                android:background="@drawable/transparent_rounded" />
-        </FrameLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/colorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Blue"
+            android:textColor="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/colorView"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

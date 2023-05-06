@@ -146,6 +146,9 @@
         <action
             android:id="@+id/action_productFilterFragment_to_filteredProductListFragment"
             app:destination="@id/filteredProductListFragment" />
+        <action
+            android:id="@+id/action_productFilterFragment_to_listFragment"
+            app:destination="@id/listFragment" />
     </fragment>
     <fragment
         android:id="@+id/filteredProductListFragment"
@@ -156,5 +159,10 @@
         android:id="@+id/profileFragment"
         android:name="com.androidstarter.ui.profile.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.androidstarter.ui.filter.list.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_list"/>
 
 </navigation>

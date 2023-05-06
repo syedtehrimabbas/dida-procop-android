@@ -19,18 +19,20 @@
         android:layout_height="match_parent">
 
 
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/searchBar"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:layout_marginStart="35dp"
             android:layout_marginTop="13dp"
             android:layout_marginEnd="15dp"
             android:background="@drawable/input_field"
+            android:editable="false"
             android:ems="10"
             android:fontFamily="@font/poppins"
             android:gravity="center_vertical"
-            android:hint="@string/common_search"
+            android:hint="@string/search"
             android:inputType="text"
             android:paddingStart="52dp"
             android:paddingEnd="18dp"
@@ -42,11 +44,12 @@
 
         <ImageView
             android:id="@+id/filterBtn"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginEnd="35dp"
             android:background="@drawable/circle_black"
-            android:padding="13dp"
+            android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+            android:padding="10dp"
             android:src="@drawable/filter_icon_white"
             app:layout_constraintBottom_toBottomOf="@+id/searchBar"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,14 +57,15 @@
 
         <ImageView
             android:id="@+id/searchBtn"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="11dp"
             android:padding="7.5dp"
             android:src="@drawable/search_icon"
             app:layout_constraintBottom_toBottomOf="@+id/searchBar"
             app:layout_constraintStart_toStartOf="@+id/searchBar"
             app:layout_constraintTop_toTopOf="@+id/searchBar" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/catRecyclerView"

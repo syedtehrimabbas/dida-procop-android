@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.androidstarter.ui.filter.ProductFilterVM
 import com.dida.procop.R
 import com.dida.procop.databinding.LayoutColorItemBinding
-import com.androidstarter.ui.filter.ProductFilterVM
 import javax.inject.Inject
 
 class FilterColorsAdapter @Inject constructor() :
@@ -40,25 +40,23 @@ class FilterColorsAdapter @Inject constructor() :
         notifyDataSetChanged()
     }
 
-
     inner class FiltersColorViewHolder(private val itemBinding: LayoutColorItemBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
 
         fun bind(item: ProductFilterVM.FilterColor) {
-
             itemView.setOnClickListener {
-                selectedPosition = adapterPosition
-                onItemClickListener?.invoke(it, adapterPosition, item)
+                selectedPosition = absoluteAdapterPosition
+                onItemClickListener?.invoke(it, absoluteAdapterPosition, item)
                 notifyDataSetChanged()
             }
-            itemBinding.frameLayout.background = if (adapterPosition == selectedPosition)
-                itemBinding.frameLayout.resources.getDrawable(R.drawable.transparent_rounded_stroke)
+            itemBinding.mainLayout.background = if (absoluteAdapterPosition == selectedPosition)
+                itemBinding.mainLayout.resources.getDrawable(R.drawable.selected_rectangle_stroke)
             else
-                null
+                itemBinding.mainLayout.resources.getDrawable(R.drawable.transparent_rectangle_stroke)
 
             itemBinding.colorView.backgroundTintList =
                 ColorStateList.valueOf(Color.parseColor(item.colorCode))
+            itemBinding.colorName.text = item.name
         }
-
     }
 }

@@ -8,14 +8,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import me.gilo.woodroid.Woocommerce
 import me.gilo.woodroid.models.AttributeTerm
 import me.gilo.woodroid.models.Category
-import me.gilo.woodroid.models.Product
 import me.gilo.woodroid.models.filters.ProductCategoryFilter
-import me.gilo.woodroid.models.filters.ProductFilter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
-
 
 @HiltViewModel
 class ProductFilterVM @Inject constructor(
@@ -24,6 +21,9 @@ class ProductFilterVM @Inject constructor(
 ) : HiltBaseViewModel<IProductFilter.State>(), IProductFilter.ViewModel {
     private val _categoriesList: MutableLiveData<ArrayList<Category>> = MutableLiveData()
     override val categoriesList: LiveData<ArrayList<Category>> = _categoriesList
+
+    private val _subCategoriesList: MutableLiveData<ArrayList<Category>> = MutableLiveData()
+    override val subCategoriesList: LiveData<ArrayList<Category>> = _subCategoriesList
 
     private val _colors: MutableLiveData<ArrayList<FilterColor>> = MutableLiveData()
     val colors: LiveData<ArrayList<FilterColor>> = _colors
@@ -88,7 +88,6 @@ class ProductFilterVM @Inject constructor(
             })
     }
 
-
     private fun fetchCategories() {
         loading(true)
         val filter = ProductCategoryFilter()
@@ -103,11 +102,11 @@ class ProductFilterVM @Inject constructor(
                     response.let {
                         if (it.isSuccessful) {
                             val list = mutableListOf<Category>()
-                            val allCategory = Category()
-                            allCategory.id = 1500
-                            allCategory.name = "All"
-                            allCategory.display = "All Products"
-                            list.add(allCategory)
+//                            val allCategory = Category()
+//                            allCategory.id = 1500
+//                            allCategory.name = "All"
+//                            allCategory.display = "All Products"
+//                            list.add(allCategory)
                             (it.body() as MutableList<Category>?)?.let { it1 -> list.addAll(it1) }
                             _categoriesList.postValue(list as ArrayList<Category>?)
                         }
@@ -120,9 +119,33 @@ class ProductFilterVM @Inject constructor(
             })
     }
 
+    fun fetchSubCategories(catId: Int) {
+        loading(true)
+        val filter = ProductCategoryFilter()
+        filter.parent = intArrayOf(catId)
+        filter.setPer_page(100)
+        woocommerce.CategoryRepository().categories(filter)
+            .enqueue(object : Callback<List<Category>> {
+                override fun onResponse(
+                    call: Call<List<Category>>, response: Response<List<Category>>
+                ) {
+                    loading(false)
+                    response.let {
+                        if (it.isSuccessful) {
+                            val list = it.body()
+                            _subCategoriesList.postValue(list as ArrayList<Category>?)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Category>>, t: Throwable) {
+                    t.message?.let { loading(false, it) }
+                }
+            })
+    }
+
 //    https://papiersprocop.com//wp-json/wc/v3/products?filter[pa_couleur]=1328&filter[pa_epaisseur]=2465&consumer_key=ck_c70e62bd7b8f6e2dce406a127f9ab6dd11d98d45&consumer_secret=cs_6bb3e7ca80db9d9a87514dd37fdee88dbbd22034
 //    https://papiersprocop.com//wp-json/wc/v3/products?attribute=pa_couleur&attribute_term=1328&consumer_key=ck_c70e62bd7b8f6e2dce406a127f9ab6dd11d98d45&consumer_secret=cs_6bb3e7ca80db9d9a87514dd37fdee88dbbd22034
-
 
     private fun listOfColors() = arrayListOf(
         FilterColor(
@@ -159,7 +182,10 @@ class ProductFilterVM @Inject constructor(
 
     fun updateFilter(key: String, value: String?) {
         _filters[key] = value ?: ""
-        _filters
+    }
+
+    fun removeFilter(key: String) {
+        _filters.remove(key)
     }
 
     data class FilterColor(

@@ -119,7 +119,8 @@
     <string name="screen_order_my_orders_button_title">Mes Commandes</string>
     <string name="screen_orders_no_orders_title">Aucun commande en cours!</string>
     <string name="screen_orders_shop_now_button_title">COMMANDER</string>
-    <string name="screen_product_filters_choose_category">Choisir catégorie</string>
+    <string name="screen_product_filters_choose_category">Catégorie</string>
+    <string name="screen_product_filters_choose_sub_category">Sous-catégorie</string>
     <string name="screen_product_filters_color">Couleurs</string>
     <string name="screen_product_filters_brands">Marques</string>
     <string name="screen_product_filters_thickness">Épaisseur</string>
@@ -163,4 +164,11 @@
     <string name="search">Rechercher</string>
     <string name="all">Tout</string>
     <string name="price_unavailable">Indisponible</string>
+    <string name="product_name">Nom du produit</string>
+    <string name="product_name_hint">Taper le nom ici</string>
+
+    <string name="please_choose_from_the_list">Veuillez choisir dans la liste</string>
+    <string name="choose_a_category">Choisir une catégorie</string>
+    <string name="error_title">Erreur</string>
+
 </resources>

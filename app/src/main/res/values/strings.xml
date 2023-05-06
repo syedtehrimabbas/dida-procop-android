@@ -70,7 +70,6 @@
     <string name="common_total_title">Total</string>
     <string name="common_language_changed">Application Language successfully changed to </string>
 
-
     <string name="screen_billing_address_first_name">First name </string>
     <string name="screen_billing_address_last_name">Last name </string>
     <string name="screen_billing_address_email">Email </string>
@@ -105,7 +104,6 @@
     <string name="screen_contact_us_topic">Topic</string>
     <string name="screen_contact_us_type_message">Type message…</string>
 
-
     <string name="screen_home_category_1802_color">1802 COLOR</string>
     <string name="screen_home_category_nouveaut_gmund_used">NOUVEAUTÉ GMUND USED</string>
     <string name="screen_home_category_papier_offset">PAPIER OFFSET</string>
@@ -113,18 +111,17 @@
     <string name="screen_home_category_nuanciers">NUANCIERS</string>
     <string name="screen_home_category_offres_en_cours">OFFRES EN COURS</string>
 
-
     <string name="screen_order_success_title">Your Order has been\nplaced successfully!</string>
     <string name="screen_order_success_description">You can check your order process\nin my orders sections</string>
     <string name="screen_order_my_orders_button_title">My Orders</string>
     <string name="screen_orders_no_orders_title">There are no orders yet.</string>
     <string name="screen_orders_shop_now_button_title">SHOP NOW</string>
-    <string name="screen_product_filters_choose_category">Choose Category</string>
+    <string name="screen_product_filters_choose_category">Category</string>
+    <string name="screen_product_filters_choose_sub_category">Sub-category</string>
     <string name="screen_product_filters_color">Color</string>
     <string name="screen_product_filters_brands">Brands</string>
     <string name="screen_product_filters_thickness">Thickness</string>
     <string name="screen_product_filters_filter">Filter</string>
-
 
     <string name="screen_profile_billing_info">Billing info</string>
     <string name="screen_profile_first_name">First Name</string>
@@ -132,11 +129,9 @@
     <string name="screen_profile_phone">Phone</string>
     <string name="screen_profile_company_name">Company name</string>
 
-
     <string name="screen_settings_change_password">Change password</string>
     <string name="screen_settings_language">Language</string>
     <string name="screen_settings_english">English</string>
-
 
     <string name="layout_category_item_all">All</string>
     <string name="layout_drawer_menu_item_home">Home</string>
@@ -162,4 +157,9 @@
     <string name="search">Search</string>
     <string name="all">All</string>
     <string name="price_unavailable">unavailable</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_name_hint">Type name here</string>
+    <string name="please_choose_from_the_list">Please choose from the list</string>
+    <string name="choose_a_category">Choose a category</string>
+    <string name="error_title">Error</string>
 </resources>

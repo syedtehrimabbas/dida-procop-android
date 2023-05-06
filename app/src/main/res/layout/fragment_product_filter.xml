@@ -58,44 +58,111 @@
                 android:background="@color/white">
 
                 <TextView
-                    android:id="@+id/categories"
+                    android:id="@+id/searchProduct"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/screen_product_filters_choose_category"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/product_name"
                     android:textColor="@color/appBlack"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/_13sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/catRecyclerView"
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/searchBar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="19dp"
-                    android:orientation="horizontal"
-                    android:scrollbars="none"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/input_field"
+                    android:editable="false"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center_vertical"
+                    android:hint="@string/product_name_hint"
+                    android:inputType="text"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:text="@={viewState.search}"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/categories"
-                    tools:listitem="@layout/layout_category_item" />
+                    app:layout_constraintTop_toBottomOf="@id/searchProduct" />
 
+                <TextView
+                    android:id="@+id/categories"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/screen_product_filters_choose_category"
+                    android:textColor="@color/appBlack"
+                    android:textSize="@dimen/_13sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/searchBar" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/catSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableEnd="@drawable/ic_arrow_down"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center_vertical"
+                    android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                    android:orientation="horizontal"
+                    android:text="@string/please_choose_from_the_list"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/categories" />
+
+                <TextView
+                    android:id="@+id/subCategories"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/screen_product_filters_choose_sub_category"
+                    android:textColor="@color/appBlack"
+                    android:textSize="@dimen/_13sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/catSpinner" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/subCatSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableEnd="@drawable/ic_arrow_down"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center_vertical"
+                    android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                    android:orientation="horizontal"
+                    android:text="@string/please_choose_from_the_list"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subCategories" />
 
                 <TextView
                     android:id="@+id/colors"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:fontFamily="@font/poppins"
                     android:text="@string/screen_product_filters_color"
                     android:textColor="@color/appBlack"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/_13sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/catRecyclerView" />
+                    app:layout_constraintTop_toBottomOf="@id/subCatSpinner" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/colorsRecyclerView"
@@ -106,7 +173,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/colors"
-                    app:spanCount="5"
+                    app:spanCount="4"
                     tools:listitem="@layout/layout_color_item" />
 
                 <TextView
@@ -118,6 +185,7 @@
                     android:text="@string/screen_product_filters_brands"
                     android:textColor="@color/appBlack"
                     android:textSize="17sp"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/colorsRecyclerView" />
@@ -128,6 +196,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="19dp"
                     android:scrollbars="none"
+                    android:visibility="gone"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -155,12 +224,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="19dp"
                     android:scrollbars="none"
+                    android:visibility="gone"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/thickness"
                     app:spanCount="3"
-                    android:visibility="gone"
                     tools:listitem="@layout/layout_category_item" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
