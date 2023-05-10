@@ -77,114 +77,194 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/homeNav"
-                    android:layout_width="wrap_content"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:drawableStart="@drawable/ic_home"
-                    android:drawablePadding="15dp"
-                    android:fontFamily="@font/poppins"
-                    android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="@string/layout_drawer_menu_item_home"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_home" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/homeNav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins"
+                        android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                        android:text="@string/layout_drawer_menu_item_home"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/orderNav"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:drawableStart="@drawable/ic_drawer_menu"
-                    android:drawablePadding="15dp"
+                    android:drawablePadding="@dimen/_7sdp"
                     android:fontFamily="@font/poppins"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                     android:text="@string/layout_drawer_menu_item_my_orders"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_13sdp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/profileNav"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:drawableStart="@drawable/ic_profile"
-                    android:drawablePadding="15dp"
+                    android:drawablePadding="@dimen/_7sdp"
                     android:fontFamily="@font/poppins"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
                     android:text="@string/layout_drawer_menu_item_profile"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_13sdp" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/settingNav"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:drawableStart="@drawable/ic_settings"
-                    android:drawablePadding="15dp"
-                    android:fontFamily="@font/poppins"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="@string/layout_drawer_menu_item_settings"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:orientation="horizontal">
 
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_settings" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:text="@string/layout_drawer_menu_item_settings"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/faqNav"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:drawableStart="@drawable/ic_faq"
-                    android:drawablePadding="15dp"
-                    android:fontFamily="@font/poppins"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="@string/layout_drawer_menu_item_faq"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:orientation="horizontal">
 
-                <androidx.appcompat.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_faq" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:text="@string/layout_drawer_menu_item_faq"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/aboutNav"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:drawableStart="@drawable/ic_about"
-                    android:drawablePadding="15dp"
-                    android:fontFamily="@font/poppins"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="@string/layout_drawer_menu_item_about"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:orientation="horizontal">
 
-                <androidx.appcompat.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_about" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:text="@string/layout_drawer_menu_item_about"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/contactNav"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:drawableStart="@drawable/ic_contact"
-                    android:drawablePadding="15dp"
-                    android:fontFamily="@font/poppins"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="@string/layout_drawer_menu_item_contact"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:orientation="horizontal">
 
-                <androidx.appcompat.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_contact" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:text="@string/layout_drawer_menu_item_contact"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/logoutNav"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:drawableStart="@drawable/ic_logout"
-                    android:drawablePadding="15dp"
-                    android:fontFamily="@font/poppins"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="@string/layout_drawer_menu_item_logout"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_logout" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:text="@string/layout_drawer_menu_item_logout"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
         </ScrollView>
-
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"

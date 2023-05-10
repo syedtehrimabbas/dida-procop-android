@@ -149,34 +149,61 @@ class ProductFilterVM @Inject constructor(
 
     private fun listOfColors() = arrayListOf(
         FilterColor(
-            2498, "Amarillo", "amarillo", "#8224E3"
+            2498, "Bleu", "Blue", "#318ce7"
         ),
         FilterColor(
-            1328, "Argent", "argent", "#C0C0C0"
+            1328, "Orange", "Orange", "#fc9303"
         ),
         FilterColor(
-            1827, "Azul", "azul", "#1D5DEC"
+            1827, "Brun", "Brown", "#584d45"
         ),
         FilterColor(
-            2010, "Black", "black", "#000000"
+            2010, "Noir", "black", "#000000"
         ),
         FilterColor(
-            1315, "Blanc", "blanc", "#FFFFFF"
+            1315, "Blanc", "White", "#FFFFFF"
         ),
         FilterColor(
-            1876, "Blanco", "blanco", "#f0e7d3"
+            1876, "Creme", "Cream", "#fcefc6"
         ),
         FilterColor(
-            1818, "Blau", "blau", "#0072bb"
+            1818, "Vert", "Green", "#49b675"
         ),
         FilterColor(
-            1308, "Bleu", "bleu", "#1E72BD"
+            1308, "Or", "gold", "#cfc89f"
         ),
         FilterColor(
-            1821, "Blue", "blue", "#0000FF"
+            1821, "Gris", "Grey", "#d3d3d1"
         ),
         FilterColor(
-            1842, "Braun", "braun", "#A52A2A"
+            1842, "Rouge", "Red", "#dd3333"
+        ),
+        FilterColor(
+            1842, "Argent", "Silver", "#c0c0c0"
+        ),
+        FilterColor(
+            1842, "Violet", "Purple", "#4f5a84"
+        ),
+        FilterColor(
+            1842, "Jaune", "Yellow", "#eeee22"
+        ),
+        FilterColor(
+            1842, "Rose", "Pink", "#c09da4"
+        ),
+        FilterColor(
+            1842, "Anthracite", "Anthracite", "#878787"
+        ),
+        FilterColor(
+            1842, "Beige", "Beige", "#f2e7bf"
+        ),
+        FilterColor(
+            1842, "Marron", "Chestnut", "#6f3730"
+        ),
+        FilterColor(
+            1842, "Rose Vif", "Hot pink", "#e8ddde"
+        ),
+        FilterColor(
+            1842, "Taupe", "Mole", "#7d6b62"
         ),
     )
 

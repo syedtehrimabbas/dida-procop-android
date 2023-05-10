@@ -62,7 +62,8 @@
                 android:padding="@dimen/_4sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/cart_icon" />
+                app:srcCompat="@drawable/cart_icon"
+                app:tint="@color/black"/>
 
             <TextView
                 android:id="@+id/cartCount"
@@ -91,7 +92,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/cartImage"
                 app:layout_constraintEnd_toStartOf="@+id/cartImage"
                 app:layout_constraintTop_toTopOf="@+id/cartImage"
-                app:srcCompat="@drawable/fav_icon" />
+                app:srcCompat="@drawable/fav_icon"
+                app:tint="@color/black" />
 
             <TextView
                 android:id="@+id/favCount"

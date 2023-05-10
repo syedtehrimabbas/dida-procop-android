@@ -104,12 +104,13 @@
     <string name="screen_contact_us_topic">Topic</string>
     <string name="screen_contact_us_type_message">Type message…</string>
 
-    <string name="screen_home_category_1802_color">1802 COLOR</string>
+    <string name="screen_home_category_1802_color">COLOR _1802</string>
     <string name="screen_home_category_nouveaut_gmund_used">NOUVEAUTÉ GMUND USED</string>
     <string name="screen_home_category_papier_offset">PAPIER OFFSET</string>
     <string name="screen_home_category_papier_num_rique">PAPIER NUMÉRIQUE</string>
     <string name="screen_home_category_nuanciers">NUANCIERS</string>
     <string name="screen_home_category_offres_en_cours">OFFRES EN COURS</string>
+    <string name="screen_home_category_offres_en_cours_v2">News</string>
 
     <string name="screen_order_success_title">Your Order has been\nplaced successfully!</string>
     <string name="screen_order_success_description">You can check your order process\nin my orders sections</string>
