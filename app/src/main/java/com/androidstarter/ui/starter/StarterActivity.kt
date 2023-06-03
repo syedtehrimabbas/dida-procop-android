@@ -21,14 +21,14 @@ class StarterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_starter)
         sharedPreferenceManager = SharedPreferenceManager(applicationContext)
 
-//        Handler().postDelayed({
-//            if (sharedPreferenceManager.getValueBoolean(KEY_IS_USER_LOGGED_IN, false).not())
-//                navigateToLoginScreen()
-//            else
-//                navigateToDashboard()
-//
-//        }, 2000)
-        navigateToDashboard()
+        Handler().postDelayed({
+            if (sharedPreferenceManager.getValueBoolean(KEY_IS_USER_LOGGED_IN, false).not())
+                navigateToLoginScreen()
+            else
+                navigateToDashboard()
+
+        }, 2000)
+//        navigateToDashboard()
     }
 
     private fun navigateToLoginScreen() {
