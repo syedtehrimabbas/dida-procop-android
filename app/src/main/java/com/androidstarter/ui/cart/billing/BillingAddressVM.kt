@@ -41,12 +41,14 @@ class BillingAddressVM @Inject constructor(
                     response.let { response ->
                         if (response.isSuccessful) {
                             response.body()?.let { countries ->
-                                countriesList.postValue(countries)
-                                if (countries.size > 0) {
-                                    val france = countries.find { it.name == "France" }
-                                    val index = countries.indexOf(france)
-                                    if (index != -1)
-                                        onCountrySelect(countries[index])
+                                countries.filter { it.name == "France" }.let { franceCountries ->
+                                    countriesList.postValue(franceCountries)
+                                    if (franceCountries.isNotEmpty()) {
+                                        val france = franceCountries.find { it.name == "France" }
+                                        val index = franceCountries.indexOf(france)
+                                        if (index != -1)
+                                            onCountrySelect(franceCountries[index])
+                                    }
                                 }
                             }
                         }
