@@ -40,7 +40,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/cartImage"
         app:layout_constraintEnd_toStartOf="@+id/cartImage"
         app:layout_constraintTop_toTopOf="@+id/cartImage"
-        app:srcCompat="@drawable/fav_icon" />
+        app:srcCompat="@drawable/fav_icon"
+        app:tint="@color/black" />
 
     <TextView
         android:id="@+id/favCount"

@@ -52,7 +52,8 @@ class ProductDetailsFragment :
                     setRemoveCartText()
                 }
                 product?.let {
-                    viewModel.databaseHelper.addToCart(product)
+                    val messageId = viewModel.databaseHelper.addToCart(product)
+                    showToast(getString(messageId))
                 }
             }
 

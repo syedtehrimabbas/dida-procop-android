@@ -102,18 +102,30 @@
                         android:textSize="@dimen/_13sdp" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/orderNav"
-                    android:layout_width="wrap_content"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:drawableStart="@drawable/ic_drawer_menu"
-                    android:drawablePadding="@dimen/_7sdp"
-                    android:fontFamily="@font/poppins"
-                    android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
-                    android:text="@string/layout_drawer_menu_item_my_orders"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_13sdp" />
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_order" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/orderNav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins"
+                        android:onClick="@{(v) -> viewModel.handlePressOnView(v.id)}"
+                        android:text="@string/layout_drawer_menu_item_my_orders"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/profileNav"

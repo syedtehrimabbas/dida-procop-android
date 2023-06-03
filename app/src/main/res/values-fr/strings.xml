@@ -66,6 +66,8 @@
     <string name="common_favourite_title">Favoris</string>
     <string name="common_add_to_cart">Ajouter au panier</string>
     <string name="common_remove_to_cart">ajouter au panier</string>
+    <string name="common_product_added_to_cart">Le produit est ajouté au panier</string>
+    <string name="common_product_removed_from_cart">Le produit est retiré du panier</string>
     <string name="common_search">Recherche</string>
     <string name="common_language_changed">La langue de l\'application a été changée avec succès en </string>
 
@@ -142,7 +144,7 @@
 
     <string name="layout_category_item_all">Tout</string>
     <string name="layout_drawer_menu_item_home">PROCOP</string>
-    <string name="layout_drawer_menu_item_my_orders">Mes Commandes</string>
+    <string name="layout_drawer_menu_item_my_orders">Commandes</string>
     <string name="layout_drawer_menu_item_profile">Profil</string>
     <string name="layout_drawer_menu_item_settings">Paramètres</string>
     <string name="layout_drawer_menu_item_faq">FAQ</string>
@@ -171,5 +173,7 @@
     <string name="please_choose_from_the_list">Veuillez choisir dans la liste</string>
     <string name="choose_a_category">Choisir une catégorie</string>
     <string name="error_title">Erreur</string>
+    <string name="language_french">Français</string>
+    <string name="language_english">Anglaise</string>
 
 </resources>

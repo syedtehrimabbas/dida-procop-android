@@ -4,18 +4,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.viewModels
-import com.dida.procop.BR
-import com.dida.procop.R
 import com.androidstarter.base.extensions.launchActivity
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
 import com.androidstarter.base.navgraph.host.NAVIGATION_Graph_ID
 import com.androidstarter.base.navgraph.host.NAVIGATION_Graph_START_DESTINATION_ID
 import com.androidstarter.base.navgraph.host.NavHostPresenterActivity
-import com.dida.procop.databinding.FragmentHomeBinding
 import com.androidstarter.ui.home.adapter.ProductCategoriesAdapter
 import com.androidstarter.ui.home.adapter.ProductsAdapter
-import com.denzcoskun.imageslider.constants.ScaleTypes
-import com.denzcoskun.imageslider.models.SlideModel
+import com.dida.procop.BR
+import com.dida.procop.R
+import com.dida.procop.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import me.gilo.woodroid.models.Category
 import me.gilo.woodroid.models.Product
@@ -167,7 +165,8 @@ class HomeFragment :
     private val addToCartClickListener = { view: View, position: Int, data: Product ->
         when (view.id) {
             R.id.addToCartBtn -> {
-                viewModel.databaseHelper.addToCart(data)
+                val messageId = viewModel.databaseHelper.addToCart(data)
+                showToast(getString(messageId))
             }
             R.id.addToFavBtn -> {
                 viewModel.databaseHelper.addToFav(data)

@@ -57,7 +57,8 @@ class FilteredProductListFragment :
     private val addToCartClickListener = { view: View, position: Int, data: Product ->
         when (view.id) {
             R.id.addToCartBtn -> {
-                viewModel.databaseHelper.addToCart(data)
+                val messageId = viewModel.databaseHelper.addToCart(data)
+                showToast(getString(messageId))
             }
             R.id.addToFavBtn -> {
                 viewModel.databaseHelper.addToFav(data)

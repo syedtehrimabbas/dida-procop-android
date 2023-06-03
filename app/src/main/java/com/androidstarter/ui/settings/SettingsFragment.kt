@@ -1,7 +1,6 @@
 package com.androidstarter.ui.settings
 
 import android.content.res.Configuration
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
@@ -11,13 +10,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
-import com.dida.procop.BR
-import com.dida.procop.R
 import com.androidstarter.base.clickevents.setOnClick
 import com.androidstarter.base.navgraph.BaseNavViewModelFragment
+import com.dida.procop.BR
+import com.dida.procop.R
 import com.dida.procop.databinding.FragmentSettingsBinding
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
+import java.util.Locale
 
 @AndroidEntryPoint
 class SettingsFragment :
@@ -30,15 +29,13 @@ class SettingsFragment :
     override fun toolBarVisibility(): Boolean = true
     override fun getToolBarTitle() = getString(R.string.layout_drawer_menu_item_settings)
     override fun onClick(id: Int) {}
-    private val languages = arrayOf(
-        "English", "French"
-    )
-
     override fun hasOptionMenu(): Boolean = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val languages = arrayOf(
+            getString(R.string.language_english), getString(R.string.language_french)
+        )
         mViewDataBinding.languageSpinner.onItemSelectedListener = this
 
         val adapter =
@@ -107,6 +104,9 @@ class SettingsFragment :
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+        val languages = arrayOf(
+            getString(R.string.language_english), getString(R.string.language_french)
+        )
         val local = when (position) {
             0 -> Locale.ENGLISH
             1 -> Locale.FRENCH

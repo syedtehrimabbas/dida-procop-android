@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.SearchView
+        <EditText
             android:id="@+id/searchBar"
             android:layout_width="0dp"
             android:layout_height="35dp"
@@ -27,8 +27,10 @@
             android:layout_marginEnd="35dp"
             android:background="@drawable/input_field"
             android:ems="10"
+            android:focusedByDefault="true"
             android:fontFamily="@font/poppins"
-            android:iconifiedByDefault="false"
+            android:hint="@string/search"
+            android:imeOptions="actionSearch"
             android:inputType="text"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -36,11 +38,7 @@
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:queryHint="@string/search">
-
-            <requestFocus />
-        </androidx.appcompat.widget.SearchView>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

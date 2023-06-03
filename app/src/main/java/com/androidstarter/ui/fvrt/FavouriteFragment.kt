@@ -46,7 +46,10 @@ class FavouriteFragment :
 
     private val addToCartClickListener = { view: View, position: Int, data: FavouriteProduct ->
         when (view.id) {
-            R.id.addToCartBtn -> viewModel.databaseHelper.addToCart(data)
+            R.id.addToCartBtn -> {
+                val messageId = viewModel.databaseHelper.addToCart(data)
+                showToast(getString(messageId))
+            }
             R.id.addToFavBtn -> {
                 viewModel.databaseHelper.unFavouriteProduct(
                     data

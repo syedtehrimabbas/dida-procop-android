@@ -7,6 +7,7 @@ import com.androidstarter.data.cart.dao.CartProductDao
 import com.androidstarter.data.cart.models.CartMetaData
 import com.androidstarter.data.cart.models.CartProduct
 import com.androidstarter.data.cart.models.FavouriteProduct
+import com.dida.procop.R
 import me.gilo.woodroid.models.Product
 import javax.inject.Inject
 
@@ -16,12 +17,15 @@ class DatabaseHelper @Inject constructor(
     val favCount: MutableLiveData<Int> = MutableLiveData(0)
     val cartCount: MutableLiveData<Int> = MutableLiveData(0)
 
-    fun addToCart(product: Product) {
+    fun addToCart(product: Product): Int {
+        var message = R.string.common_product_added_to_cart
         launch(Dispatcher.Background) {
             val fetchProduct = cartProductDao.getProductById(product.id)
             if (fetchProduct != null) {
+                message = R.string.common_product_removed_from_cart
                 cartProductDao.deleteProductFromCart(fetchProduct.productId)
             } else {
+                message = R.string.common_product_added_to_cart
                 val metaDate: ArrayList<CartMetaData> = arrayListOf()
                 product.productAttributes.forEach { attribute ->
                     var value = ""
@@ -55,14 +59,18 @@ class DatabaseHelper @Inject constructor(
             }
             cartCount()
         }
+        return message
     }
 
-    fun addToCart(product: FavouriteProduct) {
+    fun addToCart(product: FavouriteProduct): Int {
+        var message = R.string.common_product_added_to_cart
         launch(Dispatcher.Background) {
             val fetchProduct = cartProductDao.getProductById(product.productId)
             if (fetchProduct != null) {
+                message = R.string.common_product_removed_from_cart
                 cartProductDao.deleteProductFromCart(fetchProduct.productId)
             } else {
+                message = R.string.common_product_added_to_cart
                 val metaDate: ArrayList<CartMetaData> = arrayListOf()
 
                 val pojoProduct = CartProduct(
@@ -77,6 +85,7 @@ class DatabaseHelper @Inject constructor(
             }
             cartCount()
         }
+        return message
     }
 
     fun addToFav(product: Product) {
