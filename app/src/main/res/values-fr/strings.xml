@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PROCOP</string>
+    <string name="app_name">Procop</string>
     <string name="hello_world">Bonjour</string>
 
     <!--Validation Error Messages start-->
