@@ -2,7 +2,12 @@ package com.androidstarter.data.sessions
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.androidstarter.base.*
+import com.androidstarter.base.KEY_ID
+import com.androidstarter.base.KEY_IS_REMEMBER
+import com.androidstarter.base.KEY_IS_USER_LOGGED_IN
+import com.androidstarter.base.KEY_USER
+import com.androidstarter.base.KEY_USER_EMAIL
+import com.androidstarter.base.KEY_USER_NAME
 import com.androidstarter.data.model.User
 
 class SessionManager constructor(
@@ -16,7 +21,7 @@ class SessionManager constructor(
         )
         sharedPreferenceManager.save(KEY_ID, user.id)
         sharedPreferenceManager.save(KEY_USER, user.toString())
-        sharedPreferenceManager.save(KEY_USER_NAME, user.name)
+        sharedPreferenceManager.save(KEY_USER_NAME, user.name.substringBefore("@"))
         sharedPreferenceManager.save(KEY_USER_EMAIL, user.email)
         _user.postValue(user)
     }
@@ -39,6 +44,6 @@ class SessionManager constructor(
         val name = sharedPreferenceManager.getValueString(KEY_USER_NAME) ?: ""
         val email = sharedPreferenceManager.getValueString(KEY_USER_EMAIL) ?: ""
         val id = sharedPreferenceManager.getValueInt(KEY_ID)
-        _user.value = User(name = name, email = email, id = id)
+        _user.value = User(name = name.substringBefore("@"), email = email, id = id)
     }
 }

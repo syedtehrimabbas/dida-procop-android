@@ -12,6 +12,6 @@ interface ISignup {
 
     interface ViewModel : IBase.ViewModel<State> {
         fun onSignup()
-        fun doSignup(userName:String,email:String,password:String)
+        fun doSignup(email: String, password: String)
     }
 }

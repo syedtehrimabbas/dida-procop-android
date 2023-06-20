@@ -20,15 +20,14 @@ class SignupVM @Inject constructor(
     override fun onSignup() {
         with(viewState) {
             doSignup(
-                userName.value.toString(),
                 email.value.toString(),
                 password.value.toString(),
             )
         }
     }
 
-    override fun doSignup(userName: String, email: String, password: String) {
-        val request = SignupRequest(username = userName, password = password, email = email)
+    override fun doSignup(email: String, password: String) {
+        val request = SignupRequest(username = email, password = password, email = email)
         launch {
             loading(true)
             when (val response = repository.signup(request)) {
