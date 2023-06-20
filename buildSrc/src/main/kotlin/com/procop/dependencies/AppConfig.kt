@@ -7,8 +7,8 @@ object AppConfig {
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1.0"
 
-    const val VERSION_CODE_LIVE = 1
-    const val VERSION_NAME_LIVE = "0.0.1"
+    const val VERSION_CODE_LIVE = 2
+    const val VERSION_NAME_LIVE = "0.0.2"
 
     const val APP_ID = "com.dida.procop"
     const val APP_ID_LIVE = "com.dida.procop"
